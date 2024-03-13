@@ -1,0 +1,46 @@
+@import '../../../styles/sharedStyles.scss';
+
+.loginSection {
+  position: relative;
+  background: $background;
+}
+
+.loginImg {
+  width: 95px;
+  height: 93px;
+  transform: translate(216px, 46px);
+}
+.loginTitle {
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 121%;
+  color: $mainText;
+}
+.loginTitleSpan {
+  color: $styleColor;
+  margin-left: 8px;
+}
+
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .loginTitle {
+    font-size: 54px;
+    line-height: 111%;
+    max-width: 614px;
+  }
+  .loginImg {
+    width: 179px;
+    height: 175px;
+    transform: translate(420px, 78px);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .loginSectionStyle {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+  }
+}

@@ -1,10 +1,11 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
-import DasboardPage from './pages/DasboardPage/DasboardPage';
-import AllOrdersPage from './pages/AllOrdersPage/AllOrdersPage';
-import AllProductsPage from './pages/AllProductsPage/AllProductsPage';
-import AllSuppliersPage from './pages/AllSuppliersPage/AllSuppliersPage';
-import CustomersDataPage from './pages/CustomersDataPage/CustomersDataPage';
+import HomePage from './pages/HomePage';
+import DasboardPage from './pages/DasboardPage/';
+import AllOrdersPage from './pages/AllOrdersPage';
+import AllProductsPage from './pages/AllProductsPage';
+import AllSuppliersPage from './pages/AllSuppliersPage';
+import CustomersDataPage from './pages/CustomersDataPage';
+import LoginPage from './pages/LoginPage';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/products" element={<AllProductsPage />} />
         <Route path="/suppliers" element={<AllSuppliersPage />} />
         <Route path="/customers" element={<CustomersDataPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );

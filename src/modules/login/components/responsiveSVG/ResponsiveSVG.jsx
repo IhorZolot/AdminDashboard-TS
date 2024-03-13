@@ -21,7 +21,7 @@ const ResponsiveSVG = () => {
   };
   const selectedSVG =
     svgBySize[
-      screenWidth >= 1440 ? 'large' : screenWidth >= 678 ? 'medium' : 'small'
+      screenWidth >= 1440 ? 'large' : screenWidth >= 768 ? 'medium' : 'small'
     ];
 
   return <div className={styles.bottomRightImg}>{selectedSVG()}</div>;

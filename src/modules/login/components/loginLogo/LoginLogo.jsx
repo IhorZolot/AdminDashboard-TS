@@ -1,7 +1,7 @@
-import styles from './Logo.module.scss';
-import LogoIcon from '../../../assets/icons/LogoIcon.svg';
+import styles from './LoginLogo.module.scss';
+import LogoIcon from '../../../../assets/icons/LogoIcon.svg';
 
-const Logo = () => {
+const LoginLogo = () => {
   return (
     <div className={styles.logoContainer}>
       <img className={styles.logoImage} src={LogoIcon} alt="Logo" />
@@ -10,4 +10,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default LoginLogo;

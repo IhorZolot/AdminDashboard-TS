@@ -1,0 +1,24 @@
+@import '../../../styles/sharedStyles.scss';
+.navbar {
+  padding: 20px;
+  background-color: $iconFill;
+  height: 100vh;
+}
+
+.navbar nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.navbar a.active {
+  font-weight: bold;
+  color: red;
+}

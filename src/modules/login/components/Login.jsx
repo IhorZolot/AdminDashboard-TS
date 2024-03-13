@@ -1,15 +1,15 @@
 import clsx from 'clsx';
-import Logo from '../../../shared/components/Logo';
 import LoginForm from './loginForm/LoginForm';
 import '../../../styles/container.scss';
 import LogoPill from '../../../assets/icons/LogoPill.svg';
 import styles from './Login.module.scss';
 import ResponsiveSVG from './responsiveSVG/ResponsiveSVG';
+import LoginLogo from './loginLogo/LoginLogo';
 
 const Login = () => {
   return (
     <div className={clsx(styles.loginSection, 'container')}>
-      <Logo />
+      <LoginLogo />
       <div className={styles.loginSectionStyle}>
         <div>
           <img src={LogoPill} alt="logoImg" className={styles.loginImg} />

@@ -23,8 +23,14 @@
 }
 
 @media screen and (min-width: 375px) {
+  .loginSection {
+    height: 812px;
+  }
 }
 @media screen and (min-width: 768px) {
+  .loginSection {
+    height: 1024px;
+  }
   .loginTitle {
     font-size: 54px;
     line-height: 111%;
@@ -38,6 +44,9 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .loginSection {
+    height: 812px;
+  }
   .loginSectionStyle {
     display: flex;
     justify-content: space-around;

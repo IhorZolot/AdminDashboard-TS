@@ -1,0 +1,49 @@
+@import '../../../../styles/sharedStyles.scss';
+
+.sectionStat {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+  padding-left: 40px;
+  margin-bottom: 40px;
+}
+.sectorStat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 8px;
+  padding: 14px 18px;
+  width: 240px;
+  height: 108px;
+  background-color: $textButton;
+}
+.sectorStat:hover {
+  border-color: $styleColor;
+}
+.sectorStat.active {
+  border-color: $styleColor;
+}
+.sectorTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sectorSVG {
+  width: 20px;
+  height: 20px;
+}
+.title {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(29, 30, 33, 0.4);
+}
+.sectorItem {
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: $mainText;
+}

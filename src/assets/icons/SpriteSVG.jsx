@@ -73,6 +73,18 @@ export const SpriteSVG = ({ name }) => {
           />
         </svg>
       );
+    case 'pipe':
+      return (
+        <svg
+          width="2"
+          height="12"
+          viewBox="0 0 2 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 0V12" stroke="#1D1E21" strokeOpacity="0.4" />
+        </svg>
+      );
 
     default:
       return 'SVG not found';

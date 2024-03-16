@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import styles from './SideBar.module.scss';
+
 import { SpriteSideBar } from '../../../assets/icons/SpriteSideBar';
 import sideLinkData from '../../data/side-link-data';
+import styles from './SideBar.module.scss';
 
 const SideBar = () => {
   return (

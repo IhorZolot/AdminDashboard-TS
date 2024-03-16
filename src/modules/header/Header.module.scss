@@ -1,0 +1,15 @@
+@import '../../styles/sharedStyles.scss';
+
+.sectionHeader {
+  padding: 18px;
+  padding-right: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+  background-color: $background;
+  justify-content: space-between;
+}
+.sectionTitle {
+  display: flex;
+  gap: 40px;
+}

@@ -1,0 +1,11 @@
+.logo {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+.logoIcon svg {
+  width: 40px;
+  height: 40px;
+}

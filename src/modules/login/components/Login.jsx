@@ -14,9 +14,7 @@ const Login = () => {
         <div>
           <img src={LogoPill} alt="logoImg" className={styles.loginImg} />
           <h1 className={styles.loginTitle}>
-            Your medication, delivered Say goodbye to all
-            <span className={styles.loginTitleSpan}>your healthcare</span>{' '}
-            worries with us
+            Your medication, delivered Say goodbye to all worries with us
           </h1>
         </div>
         <div>

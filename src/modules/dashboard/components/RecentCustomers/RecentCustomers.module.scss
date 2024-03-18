@@ -1,19 +1,19 @@
 @import '../../../../styles/sharedStyles.scss';
 
 .sectionCustomers {
-  border: 1px solid rgba(29, 30, 33, 0.1);
+  border: 1px solid $borderTable;
   border-radius: 8px;
   max-width: 630px;
   max-height: 512px;
 }
 .table {
-  background: #fff;
+  background: $textButton;
   border-radius: 8px;
   border-collapse: collapse;
 }
 .table th,
 .table td {
-  border: 1px solid #ddd;
+  border: 1px solid $borderTable;
   padding: 20px;
 }
 .table th:first-child,
@@ -36,10 +36,9 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 133%;
-  color: #1d1e21;
-  border: 0px solid rgba(29, 30, 33, 0.08);
+  color: $mainText;
   border-radius: 8px 8px 0 0;
-  background: #e7f1ed;
+  background: $tabColor;
   padding: 20px;
 }
 .theadCustomers th {
@@ -47,7 +46,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 129%;
-  color: rgba(29, 30, 33, 0.4);
+  color: $inputText;
   text-align: left;
 }
 .dataCustomers td {
@@ -55,21 +54,23 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 112%;
-  color: #1d1e21;
+  color: $mainText;
 }
 .button {
   font-family: $font-family;
   font-weight: 500;
   font-size: 16px;
   line-height: 112%;
-  color: #59b17a;
-  border: 1px solid rgba(89, 177, 122, 0.5);
+  color: $styleColor;
+  border: 1px solid $borderButton;
   border-radius: 30px;
   padding: 8px 18px;
   width: 74px;
   height: 34px;
-  background: #fff;
+  background: $textButton;
 }
 .button:hover {
-  background-color: #0056b3;
+  color: rgb(5, 150, 152);
+  transform: scale(1.1);
+  border: 2px solid rgb(5, 150, 152);
 }

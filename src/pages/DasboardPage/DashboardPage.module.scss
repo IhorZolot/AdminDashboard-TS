@@ -1,4 +1,13 @@
 @import '../../styles/sharedStyles.scss';
 .sectionDashbosrd {
   background-color: $bgColor;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+}
+.sectionTable {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }

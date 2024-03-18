@@ -7,8 +7,10 @@ const DashboardPage = () => {
   return (
     <div className={styles.sectionDashbosrd}>
       <Statistics />
-      <RecentCustomers />
-      <IncomeExpenses />
+      <div className={styles.sectionTable}>
+        <RecentCustomers />
+        <IncomeExpenses />
+      </div>
     </div>
   );
 };

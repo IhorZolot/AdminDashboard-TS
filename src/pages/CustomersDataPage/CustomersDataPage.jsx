@@ -1,5 +1,11 @@
+import CustomersData from '../../modules/customersData';
+
 const CustomersDataPage = () => {
-  return <div>CustomersDataPage</div>;
+  return (
+    <div>
+      <CustomersData />
+    </div>
+  );
 };
 
 export default CustomersDataPage;

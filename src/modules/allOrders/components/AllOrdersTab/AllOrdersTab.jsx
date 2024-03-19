@@ -1,4 +1,5 @@
 import Table from '../../../../shared/components/Table/Table';
+import Status from '../Status';
 
 const AllOrdersTab = () => {
   const headers = [
@@ -17,7 +18,7 @@ const AllOrdersTab = () => {
       '12',
       'July 31, 2023',
       '890.66',
-      <div key="uniqueKey">Completed</div>,
+      <Status key="uniqueKey" />,
     ],
   ];
 

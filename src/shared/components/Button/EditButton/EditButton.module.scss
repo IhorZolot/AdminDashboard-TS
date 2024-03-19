@@ -1,0 +1,15 @@
+@import '../../../../styles/sharedStyles.scss';
+
+.editButton {
+  border: 1px solid rgba(89, 177, 122, 0.5);
+  border-radius: 30px;
+  padding: 8px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  background: #fff;
+}
+.editButton:hover {
+  transform: scale(1.1);
+}

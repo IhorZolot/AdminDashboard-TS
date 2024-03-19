@@ -15,8 +15,9 @@
   font-size: 14px;
   line-height: 129%;
   color: $textButton;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 .button:hover {
-  background: rgb(5, 150, 152);
   transform: scale(1.1);
 }

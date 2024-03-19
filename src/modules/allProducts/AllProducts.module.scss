@@ -1,0 +1,28 @@
+@import '../../styles/sharedStyles.scss';
+
+.sectionProducts {
+  padding: 80px 40px;
+}
+.sector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.sectorIntut {
+  display: flex;
+  gap: 20px;
+}
+.addBlok {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.text {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #1d1e21;
+}

@@ -1,5 +1,7 @@
+import AllSuppliers from '../../modules/allSuppliers/AllSuppliers';
+
 const AllSuppliersPage = () => {
-  return <div>AllSuppliersPage</div>;
+  return <AllSuppliers />;
 };
 
 export default AllSuppliersPage;

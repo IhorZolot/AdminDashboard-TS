@@ -1,6 +1,6 @@
 import { SpriteSVG } from '../../assets/icons/SpriteSVG';
 import Button from '../../shared/components/Button/Button';
-import RoundButton from '../../shared/components/Button/RoundButton';
+import RoundButton from '../../shared/components/Button/RoundButton/RoundButton';
 import Input from '../../shared/components/InputFields/Input/Input';
 import styles from './AllProducts.module.scss';
 import AllProductsTab from './components/AllProductsTab';

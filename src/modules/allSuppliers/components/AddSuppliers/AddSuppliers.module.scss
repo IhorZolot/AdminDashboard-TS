@@ -1,0 +1,18 @@
+@import '../../../../styles/sharedStyles.scss';
+
+.addSuppliers {
+  border: 1px solid rgba(89, 177, 122, 0.5);
+  border-radius: 60px;
+  padding: 13px 30px;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #1d1e21;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  background-color: $bgColor;
+}
+.addSuppliers:hover {
+  transform: scale(1.1);
+}

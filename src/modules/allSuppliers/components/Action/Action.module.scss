@@ -1,0 +1,17 @@
+@import '../../../../styles/sharedStyles.scss';
+.action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(89, 177, 122, 0.5);
+  border-radius: 30px;
+  padding: 8px 17px;
+  max-width: 82px;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 112%;
+  color: #59b17a;
+  background-color: $textButton;
+}

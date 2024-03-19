@@ -3,8 +3,6 @@
 .sectionExpenses {
   border: 1px solid $borderTable;
   border-radius: 8px;
-  max-width: 630px;
-  max-height: 512px;
 }
 .titleExpenses {
   font-family: $font-family;
@@ -21,6 +19,7 @@
   background: $textButton;
   border-radius: 8px;
   border-collapse: collapse;
+  width: 100%;
 }
 
 .table th,

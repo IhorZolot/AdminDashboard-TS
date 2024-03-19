@@ -1,1 +1,1 @@
-export { default } from './components/AllOrders';
+export { default } from './AllOrders';

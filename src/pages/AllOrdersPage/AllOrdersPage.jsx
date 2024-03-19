@@ -1,5 +1,11 @@
+import AllOrders from '../../modules/allOrders/AllOrders';
+
 const AllOrdersPage = () => {
-  return <div>AllOrdersPage</div>;
+  return (
+    <>
+      <AllOrders />
+    </>
+  );
 };
 
 export default AllOrdersPage;

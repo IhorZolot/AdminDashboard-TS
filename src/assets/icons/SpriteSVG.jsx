@@ -147,6 +147,23 @@ export const SpriteSVG = ({ name }) => {
           />
         </svg>
       );
+    case 'filter':
+      return (
+        <svg
+          width="14"
+          height="14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.833 1.75H1.166l4.667 5.518v3.815l2.333 1.167V7.268l4.667-5.518Z"
+            stroke="#fff"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
 
     default:
       return 'SVG not found';

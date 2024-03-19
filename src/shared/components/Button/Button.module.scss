@@ -1,0 +1,22 @@
+@import '../../../styles/sharedStyles.scss';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 60px;
+  padding: 13px 30px;
+  width: 116px;
+  height: 44px;
+  background: $styleColor;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: $textButton;
+}
+.button:hover {
+  background: rgb(5, 150, 152);
+  transform: scale(1.1);
+}

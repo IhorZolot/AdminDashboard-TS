@@ -4,7 +4,7 @@ import styles from './LogoutBtn.module.scss';
 const LogoutBtn = () => {
   return (
     <button className={styles.sectionBtn}>
-      <SpriteSideBar name="exit" />
+      <SpriteSideBar name="logout" />
     </button>
   );
 };

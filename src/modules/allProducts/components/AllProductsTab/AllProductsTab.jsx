@@ -12,9 +12,6 @@ const AllProductsTab = ({ onOpen }) => {
     'Price',
     'Action',
   ];
-  const handleEditButtonClick = () => {
-    onOpen();
-  };
   const rows = [
     [
       'Moringa',
@@ -23,7 +20,11 @@ const AllProductsTab = ({ onOpen }) => {
       'Square',
       '89.66',
       <div key="uniqueKey" className={styles.action}>
-        <EditButton onClick={handleEditButtonClick} />
+        <EditButton
+          onClick={() => {
+            onOpen();
+          }}
+        />
         <DeleteButton />
       </div>,
     ],

@@ -21,3 +21,20 @@
 .button:hover {
   transform: scale(1.1);
 }
+.cancel {
+  border-radius: 60px;
+  padding: 13px 43px;
+  width: 133px;
+  height: 44px;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: rgba(29, 30, 33, 0.4);
+  background: rgba(29, 30, 33, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.cancel:hover {
+  transform: scale(1.1);
+}

@@ -35,12 +35,12 @@ const AllProducts = () => {
       <AllProductsTab onOpen={openEdit} />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>
-          <AddProductModal />
+          <AddProductModal onClose={closeAdd} />
         </Modal>
       )}
       {isOpenEditModal && (
         <Modal onClose={closeEdit}>
-          <EditProductModal />
+          <EditProductModal onClose={closeEdit} />
         </Modal>
       )}
     </div>

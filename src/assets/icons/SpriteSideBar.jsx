@@ -109,7 +109,7 @@ export const SpriteSideBar = ({ name }) => {
           />
         </svg>
       );
-    case 'exit':
+    case 'logout':
       return (
         <svg
           width="16"

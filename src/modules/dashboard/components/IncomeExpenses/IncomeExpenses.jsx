@@ -12,7 +12,7 @@ const IncomeExpenses = () => {
         <tbody className={styles.dataExpenses}>
           <tr>
             <td>
-              <button className={styles.button}>Income</button>
+              <div className={styles.button}>Income</div>
             </td>
             <td>Cruip.com Market Ltd 70 Wilson St London</td>
             <td>+249.88</td>

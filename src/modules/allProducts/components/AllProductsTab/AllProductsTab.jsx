@@ -1,7 +1,9 @@
+import DeleteButton from '../../../../shared/components/Button/DeleteButton/DeleteButton';
+import EditButton from '../../../../shared/components/Button/EditButton/EditButton';
 import Table from '../../../../shared/components/Table/Table';
-import Action from '../Action/Action';
+import styles from './AllProductsTab.module.scss';
 
-const AllProductsTab = () => {
+const AllProductsTab = ({ onOpen }) => {
   const headers = [
     'Product Info',
     'Category',
@@ -10,6 +12,9 @@ const AllProductsTab = () => {
     'Price',
     'Action',
   ];
+  const handleEditButtonClick = () => {
+    onOpen();
+  };
   const rows = [
     [
       'Moringa',
@@ -17,7 +22,10 @@ const AllProductsTab = () => {
       '12',
       'Square',
       '89.66',
-      <Action key="uniqueKey" />,
+      <div key="uniqueKey" className={styles.action}>
+        <EditButton onClick={handleEditButtonClick} />
+        <DeleteButton />
+      </div>,
     ],
   ];
 

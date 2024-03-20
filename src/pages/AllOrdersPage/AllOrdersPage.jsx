@@ -1,11 +1,7 @@
 import AllOrders from '../../modules/allOrders/AllOrders';
 
 const AllOrdersPage = () => {
-  return (
-    <>
-      <AllOrders />
-    </>
-  );
+  return <AllOrders />;
 };
 
 export default AllOrdersPage;

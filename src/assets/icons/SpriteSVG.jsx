@@ -206,20 +206,13 @@ export const SpriteSVG = ({ name }) => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clipPath="url(#a)">
-            <path
-              d="M11.335 2.001A1.886 1.886 0 0 1 14 4.668l-9 9-3.666 1 1-3.667 9-9Z"
-              stroke="#59B17A"
-              strokeWidth="1.3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </g>
-          <defs>
-            <clipPath id="a">
-              <path fill="#fff" d="M0 0h16v16H0z" />
-            </clipPath>
-          </defs>
+          <path
+            d="M11.335 2.001A1.886 1.886 0 0 1 14 4.668l-9 9-3.666 1 1-3.667 9-9Z"
+            stroke="#59B17A"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       );
 

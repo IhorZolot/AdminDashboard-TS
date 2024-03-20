@@ -232,6 +232,23 @@ export const SpriteSVG = ({ name }) => {
           />
         </svg>
       );
+    case 'burger':
+      return (
+        <svg
+          width="26"
+          height="18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1.001h24m-24 8h24m-24 8h24"
+            stroke="#1D1E21"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
 
     default:
       return 'SVG not found';

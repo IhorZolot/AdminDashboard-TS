@@ -2,7 +2,7 @@ import Table from '../../../../shared/components/Table/Table';
 import Action from '../Action/Action';
 import Status from '../Status/Status';
 
-const AllSuppliersTab = () => {
+const AllSuppliersTab = ({ onOpen }) => {
   const headers = [
     'Suppliers Info',
     'Address',
@@ -20,7 +20,7 @@ const AllSuppliersTab = () => {
       'August 1, 2023',
       '6952.53',
       <Status key="uniqueKey" />,
-      <Action key="uniqueKey" />,
+      <Action key="uniqueKey" onOpen={onOpen} />,
     ],
   ];
   return <Table nameTable="All suppliers" headers={headers} rows={rows} />;

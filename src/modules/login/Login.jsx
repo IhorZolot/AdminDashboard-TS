@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import LoginForm from './components/loginForm/LoginForm';
+import LoginForm from './components/LoginForm/LoginForm';
 import '../../styles/container.scss';
 import LogoPill from '../../assets/icons/LogoPill.svg';
 import styles from './Login.module.scss';
-import ResponsiveSVG from './components/responsiveSVG/ResponsiveSVG';
-import LoginLogo from './components/loginLogo/LoginLogo';
+import ResponsiveSVG from './components/ResponsiveSVG/ResponsiveSVG';
+import LoginLogo from './components/LoginLogo/LoginLogo';
 
 const Login = () => {
   return (

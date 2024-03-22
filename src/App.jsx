@@ -12,8 +12,8 @@ const App = () => {
   return (
     <>
       <Routes>
+        <Route index element={<Login />} />
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Login />} />
           <Route path="dashboard" element={<DasboardPage />} />
           <Route path="orders" element={<AllOrdersPage />} />
           <Route path="products" element={<AllProductsPage />} />

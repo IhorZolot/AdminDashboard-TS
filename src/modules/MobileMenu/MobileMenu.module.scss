@@ -1,6 +1,7 @@
 @import '../../styles/sharedStyles.scss';
 
 .sectionMob {
+  position: relative;
   border-right: 1px solid rgba(29, 30, 33, 0.1);
   border-top: 1px solid rgba(29, 30, 33, 0.1);
   display: flex;
@@ -14,4 +15,6 @@
 .button {
   background-color: transparent;
   margin-bottom: 30px;
+  position: absolute;
+  right: 10px;
 }

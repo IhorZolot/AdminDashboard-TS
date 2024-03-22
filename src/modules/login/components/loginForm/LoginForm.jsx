@@ -1,11 +1,7 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import styles from './LoginForm.module.scss';
-import * as yup from 'yup';
-
-const userSchema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().min(6).max(12).required(),
-});
+import validationsSchema from '../../helpers/validationsSchema';
+import FormError from '../FormError/FormError';
 
 const initialValues = {
   email: '',
@@ -20,7 +16,7 @@ const LoginForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={userSchema}
+      validationSchema={validationsSchema}
       onSubmit={handleSubmit}
     >
       <Form className={styles.loginForm}>
@@ -31,7 +27,7 @@ const LoginForm = () => {
             name="email"
             placeholder="Email address"
           />
-          <ErrorMessage name="email" />
+          <FormError fieldName="email" />
         </label>
         <label className={styles.loginLable}>
           <Field
@@ -40,7 +36,7 @@ const LoginForm = () => {
             name="password"
             placeholder="Password"
           />
-          <ErrorMessage name="password" />
+          <FormError fieldName="password" />
         </label>
         <button type="submit" className={styles.loginButton}>
           Log in

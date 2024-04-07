@@ -11,7 +11,8 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import dummyReducer from './Slise';
+import dummyReducer from './Customers/Slise';
+import { userReduser } from './Auth/authSlice';
 
 const persistConfig = {
   key: 'root',
@@ -19,10 +20,11 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, dummyReducer);
-
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    auth: persistReducer(persistConfig, userReduser),
+    custome: dummyReducer,
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

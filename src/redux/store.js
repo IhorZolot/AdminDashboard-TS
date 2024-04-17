@@ -11,8 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import dummyReducer from './Customers/Slise';
-import { userReduser } from './Auth/authSlice';
+import { userReducer } from './Auth/authSlice';
 
 const persistConfig = {
   key: 'root',
@@ -22,10 +21,9 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, userReduser),
-    custome: dummyReducer,
+    auth: persistReducer(persistConfig, userReducer),
   },
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

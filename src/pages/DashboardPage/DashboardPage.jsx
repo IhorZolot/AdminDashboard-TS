@@ -5,7 +5,7 @@ import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
   return (
-    <div className={styles.sectionDashbosrd}>
+    <div className={styles.sectionDashboard}>
       <Statistics />
       <div className={styles.sectionTable}>
         <RecentCustomers />

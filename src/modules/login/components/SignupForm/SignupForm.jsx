@@ -1,5 +1,5 @@
 import { Formik, Form, Field } from 'formik';
-import styles from '../LoginForm/LoginForm.module.scss';
+import styles from './SignupForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError/FormError';
 
@@ -49,7 +49,7 @@ const SignupForm = () => {
           <FormError fieldName="password" />
         </label>
         <button type="submit" className={styles.loginButton}>
-          Log in
+          Sign up
         </button>
       </Form>
     </Formik>

@@ -14,23 +14,6 @@
   gap: 20px;
 }
 
-.navbar a {
-  text-decoration: none;
-  transition: fill 0.3s;
-}
-
-.navbar a.active {
-  fill: $styleColor;
-}
-.navbar a:hover,
-.navbar a:focus {
-  fill: $styleColor;
-}
-.icon {
-  width: 44px;
-  height: 44px;
-}
-
 .iconContainer {
   padding: 15px;
   border-radius: 50%;
@@ -40,8 +23,16 @@
   background-color: $textButton;
   box-shadow: 0 -1px 7px 0 rgba(71, 71, 71, 0.05);
   transition: background-color 0.3s;
+  svg {
+    fill: $styleColor;
+  }
 }
+
 .iconContainer:hover,
 .iconContainer:focus {
   background-color: #ccc;
+  svg {
+    fill: rgb(9, 71, 91);
+    transform: scale(1.1);
+  }
 }

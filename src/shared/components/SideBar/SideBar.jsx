@@ -11,10 +11,7 @@ const SideBar = () => {
         {sideLinkData.map((link, index) => (
           <NavLink key={index} to={link.path}>
             <div className={styles.iconContainer}>
-              <SpriteSideBar
-                name={link.name.toLowerCase()}
-                className={styles.icon}
-              />
+              <SpriteSideBar name={link.name.toLowerCase()} />
             </div>
           </NavLink>
         ))}

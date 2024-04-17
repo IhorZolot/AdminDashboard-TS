@@ -6,7 +6,7 @@ export const SpriteSVG = ({ name }) => {
           width="258"
           height="146"
           viewBox="0 0 258 146"
-          fill="none"
+          fill="current"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

@@ -5,7 +5,7 @@ import styles from './Statistics.module.scss';
 const Statistics = () => {
   const [activeSector, setActiveSector] = useState(null);
 
-  const handleSectorClick = sector => {
+  const handleSectorClick = (sector) => {
     setActiveSector(sector);
   };
   return (

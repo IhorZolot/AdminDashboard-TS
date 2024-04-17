@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import LoginForm from './components/LoginForm/LoginForm';
+import LoginForm from './components/LoginForm';
 import '../../styles/container.scss';
 import LogoPill from '../../assets/icons/LogoPill.svg';
 import styles from './Login.module.scss';
-import ResponsiveSVG from './components/ResponsiveSVG/ResponsiveSVG';
-import LoginLogo from './components/LoginLogo/LoginLogo';
+import ResponsiveSVG from './components/ResponsiveSVG';
+import LoginLogo from './components/LoginLogo';
 
 const Login = () => {
   return (
@@ -17,9 +17,7 @@ const Login = () => {
             Your medication, delivered Say goodbye to all worries with us
           </h1>
         </div>
-        <div>
-          <LoginForm />
-        </div>
+        <LoginForm />
       </div>
       <ResponsiveSVG />
     </div>

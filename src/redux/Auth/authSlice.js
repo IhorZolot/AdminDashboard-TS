@@ -6,15 +6,15 @@ const initialState = {
   },
   token: '',
   error: '',
-  isLoggidIn: false,
+  isLoggedIn: false,
 };
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder;
   },
 });
 
-export const userReduser = authSlice.reducer;
+export const userReducer = authSlice.reducer;

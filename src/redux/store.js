@@ -12,16 +12,19 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { userReducer } from './Auth/authSlice';
+import { customerReducer } from './Customers/customerSlice';
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  whitelist: ['token'],
 };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, userReducer),
+    customers: customerReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

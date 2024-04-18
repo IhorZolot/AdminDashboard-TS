@@ -2,11 +2,14 @@ import { useLocation } from 'react-router-dom';
 import { SpriteSVG } from '../../../../assets/icons/SpriteSVG';
 import styles from './Title.module.scss';
 import sideLinkData from '../../../../shared/data/side-link-data';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../../redux/Auth/authSlice';
 
 const Title = () => {
   const location = useLocation();
+  const userEmail = useSelector(selectUser);
   const currentPage = sideLinkData.find(
-    link => link.path === location.pathname
+    (link) => link.path === location.pathname
   );
   return (
     <div>
@@ -14,7 +17,7 @@ const Title = () => {
       <div className={styles.textSection}>
         <span>{currentPage ? currentPage.name : 'Unknown Page'}</span>
         <SpriteSVG name="pipe" />
-        <span>test@test.com</span>
+        <span>{userEmail.email}</span>
       </div>
     </div>
   );

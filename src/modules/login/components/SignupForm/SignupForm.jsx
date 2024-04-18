@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import styles from './SignupForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
-import FormError from '../FormError/FormError';
+import FormError from '../FormError';
 
 const initialValues = {
   name: '',

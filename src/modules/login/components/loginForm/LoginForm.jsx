@@ -2,6 +2,8 @@ import { Formik, Form, Field } from 'formik';
 import styles from './LoginForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError/';
+import { useDispatch } from 'react-redux';
+import { loginThunk } from '../../../../redux/Auth/operations';
 
 const initialValues = {
   email: '',
@@ -9,8 +11,12 @@ const initialValues = {
 };
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
+    dispatch(loginThunk(values));
+
     resetForm();
   };
   return (

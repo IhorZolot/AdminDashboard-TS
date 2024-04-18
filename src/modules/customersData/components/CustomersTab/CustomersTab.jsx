@@ -1,6 +1,13 @@
+import { useEffect } from 'react';
 import Table from '../../../../shared/components/Table';
+import { useDispatch } from 'react-redux';
+import { fetchCustomers } from '../../../../redux/Customers/operations';
 
 const CustomersTab = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCustomers());
+  }, [dispatch]);
   const headers = ['User Info', 'Email', 'Address', 'Phone', 'Register date'];
   const rows = [
     [

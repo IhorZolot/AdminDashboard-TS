@@ -15,9 +15,16 @@ const Table = ({ nameTable, headers, rows }) => {
         <tbody className={styles.dataTable}>
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex}>
-              {row.map((cell, cellIndex) => (
-                <td key={cellIndex}>{cell}</td>
-              ))}
+              <td>
+                <div>
+                  {row.image && <img width="40" src={row.image} alt="img" />}
+                  {row.name}
+                </div>
+              </td>
+              <td>{row.email}</td>
+              <td>{row.address}</td>
+              <td>{row.phone}</td>
+              <td>{row.register_date}</td>
             </tr>
           ))}
         </tbody>

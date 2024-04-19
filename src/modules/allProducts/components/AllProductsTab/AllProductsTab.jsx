@@ -1,8 +1,18 @@
-import Table from '../../../../shared/components/Table/Table';
+// import Table from '../../../../shared/components/Table/Table';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ActionsBottom from '../ActionsBottom/ActionsBottom';
 import styles from './AllProductsTab.module.scss';
+import { selectProducts } from '../../../../redux/Products/productSlice';
+import { fetchProducts } from '../../../../redux/Products/operations';
 
 const AllProductsTab = ({ onOpen }) => {
+  const products = useSelector(selectProducts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+  const nameTable = 'All products';
   const headers = [
     'Product Info',
     'Category',
@@ -11,21 +21,41 @@ const AllProductsTab = ({ onOpen }) => {
     'Price',
     'Action',
   ];
-  const rows = [
-    [
-      'Moringa',
-      'Medicine',
-      '12',
-      'Square',
-      '89.66',
-      <div key="uniqueKey" className={styles.action}>
-        <ActionsBottom onClick={() => onOpen('edit')} actionType="edit" />
-        <ActionsBottom actionType="delete" />
-      </div>,
-    ],
-  ];
-
-  return <Table nameTable="All products" headers={headers} rows={rows} />;
+  return (
+    <div className={styles.sectionTable}>
+      <h2 className={styles.titleTable}>{nameTable}</h2>
+      <table className={styles.table}>
+        <thead className={styles.theadTable}>
+          <tr>
+            {headers.map((header, index) => (
+              <th key={index}>{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className={styles.dataTable}>
+          {products.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              <td>{row.name}</td>
+              <td>{row.category}</td>
+              <td>{row.stock}</td>
+              <td>{row.suppliers}</td>
+              <td>{row.price}</td>
+              <td>
+                <div key="uniqueKey" className={styles.action}>
+                  <ActionsBottom
+                    onClick={() => onOpen('edit')}
+                    actionType="edit"
+                  />
+                  <ActionsBottom actionType="delete" />
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+  // return <Table nameTable="All products" headers={headers} rows={rows} />;
 };
 
 export default AllProductsTab;

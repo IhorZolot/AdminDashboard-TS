@@ -1,3 +1,66 @@
+@import '../../../../styles/sharedStyles.scss';
+
+.sectionTable {
+  border: 1px solid $borderTable;
+  border-radius: 8px;
+}
+.table {
+  background: $textButton;
+  border-radius: 0 0 8px 8px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.table th,
+.table td {
+  border: 1px solid $borderTable;
+  padding: 20px;
+}
+.table th:first-child,
+.table td:first-child {
+  border-left: none;
+}
+.table th:last-child,
+.table td:last-child {
+  border-right: none;
+}
+.table td {
+  border-bottom: none;
+}
+.table th {
+  border-top: none;
+}
+
+.titleTable {
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 133%;
+  color: $mainText;
+  border-radius: 8px 8px 0 0;
+  background: $tabColor;
+  padding: 20px;
+}
+.theadTable th {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: $inputText;
+  text-align: left;
+}
+.dataTable td {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 112%;
+  color: $mainText;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
 .action {
   display: flex;
   gap: 14px;

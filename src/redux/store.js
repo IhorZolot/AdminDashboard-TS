@@ -13,6 +13,9 @@ import {
 } from 'redux-persist';
 import { userReducer } from './Auth/authSlice';
 import { customerReducer } from './Customers/customerSlice';
+import { orderReducer } from './Orders/sliceOrders';
+import { productReducer } from './Products/productSlice';
+import { supplierReducer } from './Suppliers/suppliersSlice';
 
 const persistConfig = {
   key: 'root',
@@ -25,6 +28,9 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, userReducer),
     customers: customerReducer,
+    orders: orderReducer,
+    products: productReducer,
+    suppliers: supplierReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

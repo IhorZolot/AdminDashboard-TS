@@ -54,6 +54,11 @@
   font-size: 16px;
   line-height: 112%;
   color: $mainText;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 }
 .button {
   font-family: $font-family;

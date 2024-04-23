@@ -1,0 +1,93 @@
+@import '../../../../styles/sharedStyles.scss';
+
+.completed {
+  border-radius: 40px;
+  padding: 4px 12px;
+  width: 92px;
+  height: 25px;
+  background: rgba(89, 177, 122, 0.1);
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #59b17a;
+}
+.confirmed {
+  border-radius: 40px;
+  padding: 4px 12px;
+  width: 92px;
+  height: 25px;
+  background: rgba(128, 89, 228, 0.1);
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #8059e4;
+}
+.pending {
+  border-radius: 40px;
+  padding: 4px 12px;
+  width: 92px;
+  height: 25px;
+  background: rgba(247, 144, 66, 0.1);
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #f79042;
+}
+.cancelled {
+  border-radius: 40px;
+  padding: 4px 12px;
+  width: 92px;
+  height: 25px;
+  background: rgba(232, 80, 80, 0.1);
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #e85050;
+}
+.processing {
+  border-radius: 40px;
+  padding: 4px 12px;
+  width: 92px;
+  height: 25px;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #70a6e8;
+  background: rgba(112, 166, 232, 0.1);
+}
+.shipped {
+  border-radius: 40px;
+  padding: 4px 12px;
+  width: 92px;
+  height: 25px;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #295fa2;
+  background: rgba(49, 112, 190, 0.1);
+}
+.delivered {
+  border-radius: 40px;
+  padding: 4px 12px;
+  width: 92px;
+  height: 25px;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #70c02b;
+  background: rgba(135, 202, 72, 0.1);
+}

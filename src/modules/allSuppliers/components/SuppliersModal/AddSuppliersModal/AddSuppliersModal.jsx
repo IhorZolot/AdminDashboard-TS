@@ -6,7 +6,7 @@ import styles from './AddSuppliersModal.module.scss';
 const AddSuppliersModal = ({ onClose }) => {
   return (
     <div className={styles.sectionModal}>
-      <h2 className={styles.tille}>Add a new product</h2>
+      <h2 className={styles.title}>Add a new product</h2>
       <div className={styles.sectionInput}>
         <Input placeholder="Suppliers Info" />
         <Input placeholder="Company" />

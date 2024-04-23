@@ -20,18 +20,11 @@ const dashboardSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchDashboard.fulfilled, (state, { payload }) => {
-      const {
-        productCount,
-        customerCount,
-        supplierCount,
-        customerCountAll,
-        incomeExpensesResult,
-      } = payload;
-      state.statisticVAlue.productCount = productCount;
-      state.statisticVAlue.customerCount = customerCount;
-      state.statisticVAlue.supplierCount = supplierCount;
-      state.customerCountAll = customerCountAll;
-      state.incomeExpensesResult = incomeExpensesResult;
+      state.statisticVAlue.productCount = payload.productCount;
+      state.statisticVAlue.customerCount = payload.customerCount;
+      state.statisticVAlue.supplierCount = payload.supplierCount;
+      state.customerCountAll = payload.customerCountAll;
+      state.incomeExpensesResult = payload.incomeExpensesResult;
     });
   },
 });

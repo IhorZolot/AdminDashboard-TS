@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 // import Table from '../../../../shared/components/Table/Table';
-// import Status from '../Status';
 import { selectOrders } from '../../../../redux/Orders/sliceOrders';
 import { fetchOrders } from '../../../../redux/Orders/operations';
 import styles from './AllOrdersTab.module.scss';
+import StyledStatus from '../Status/StyledStatus';
 
 const AllOrdersTab = () => {
   const orders = useSelector(selectOrders);
@@ -21,6 +21,7 @@ const AllOrdersTab = () => {
     'Price',
     'Status',
   ];
+
   return (
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>
@@ -45,7 +46,9 @@ const AllOrdersTab = () => {
               <td>{row.products}</td>
               <td>{row.order_date}</td>
               <td>{row.price}</td>
-              <td>{row.status}</td>
+              <td>
+                <StyledStatus status={row.status} />
+              </td>
             </tr>
           ))}
         </tbody>

@@ -1,11 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './RecentCustomers.module.scss';
 import { selectCustomerCountAll } from '../../../../redux/Dashboard/dashboardSlice';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchDashboard } from '../../../../redux/Dashboard/operations';
+import useModal from '../../../../hooks/useModal';
+import ModalCountry from './ModalCountry';
+import Modal from '../../../../shared/components/Modal/Modal';
 
 const RecentCustomers = () => {
+  const [selectedCustomer, setSelectedCustomer] = useState(null);
   const customerCount = useSelector(selectCustomerCountAll);
+  const [isOpenModal, open, close] = useModal();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchDashboard());
@@ -35,12 +40,25 @@ const RecentCustomers = () => {
               <td>{row.email}</td>
               <td>{row.spent}</td>
               <td>
-                <button className={styles.button}>View</button>
+                <button
+                  className={styles.button}
+                  onClick={() => {
+                    setSelectedCustomer(row);
+                    open();
+                  }}
+                >
+                  View
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {isOpenModal && (
+        <Modal onClose={close}>
+          <ModalCountry customer={selectedCustomer} onClose={close} />
+        </Modal>
+      )}
     </div>
   );
 };

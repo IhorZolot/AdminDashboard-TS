@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import Action from '../Action/Action';
-import Status from '../Status/Status';
+// import Status from '../Status/Status';
 import styles from './AllSuppliersTab.module.scss';
 import { selectSuppliers } from '../../../../redux/Suppliers/suppliersSlice';
 import { fetchSuppliers } from '../../../../redux/Suppliers/operations';
@@ -42,9 +42,7 @@ const AllSuppliersTab = ({ onOpen }) => {
               <td>{row.address}</td>
               <td>{row.suppliers}</td>
               <td>{row.date}</td>
-              <td>
-                <Status key="uniqueKey" />
-              </td>
+              <td>{row.status}</td>
               <td>
                 <Action key="uniqueKey" onOpen={onOpen} />
               </td>

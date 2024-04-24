@@ -1,17 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 // import Table from '../../../../shared/components/Table/Table';
-import { selectOrders } from '../../../../redux/Orders/sliceOrders';
-import { fetchOrders } from '../../../../redux/Orders/operations';
 import styles from './AllOrdersTab.module.scss';
 import StyledStatus from '../Status/StyledStatus';
 
-const AllOrdersTab = () => {
-  const orders = useSelector(selectOrders);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchOrders());
-  }, [dispatch]);
+const AllOrdersTab = ({ orders, filterValue }) => {
+  const filteredOrders = orders.filter(
+    (order) =>
+      order.name && order.name.toLowerCase().includes(filterValue.toLowerCase())
+  );
   const nameTable = 'All Orders';
   const headers = [
     'User Info',
@@ -34,7 +29,7 @@ const AllOrdersTab = () => {
           </tr>
         </thead>
         <tbody className={styles.dataTable}>
-          {orders.map((row, rowIndex) => (
+          {filteredOrders.map((row, rowIndex) => (
             <tr key={rowIndex}>
               <td>
                 <div>

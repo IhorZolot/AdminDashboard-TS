@@ -1,21 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import AllOrdersTab from './components/AllOrdersTab/AllOrdersTab';
 import styles from './AllOrders.module.scss';
 import UserFilter from '../../shared/components/Filter/UserFilter';
+import { filterOrders } from '../../redux/Orders/sliceOrders';
+import { useEffect } from 'react';
 import { fetchOrders } from '../../redux/Orders/operations';
-import {
-  filterOrders,
-  selectFilterValue,
-  selectOrders,
-} from '../../redux/Orders/sliceOrders';
 
 const AllOrders = () => {
   const dispatch = useDispatch();
-  const orders = useSelector(selectOrders);
-  const filterValue = useSelector(selectFilterValue);
-
   useEffect(() => {
     dispatch(fetchOrders());
   }, [dispatch]);
@@ -25,7 +18,7 @@ const AllOrders = () => {
   return (
     <div className={styles.sectionOrders}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
-      <AllOrdersTab orders={orders} filterValue={filterValue} />
+      <AllOrdersTab />
     </div>
   );
 };

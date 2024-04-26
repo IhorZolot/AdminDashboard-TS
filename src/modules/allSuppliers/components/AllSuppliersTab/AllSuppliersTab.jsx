@@ -1,18 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
+import { useSelector } from 'react-redux';
 import Action from '../Action/Action';
-// import Status from '../Status/Status';
 import styles from './AllSuppliersTab.module.scss';
-import { selectSuppliers } from '../../../../redux/Suppliers/suppliersSlice';
-import { fetchSuppliers } from '../../../../redux/Suppliers/operations';
+import { selectFilteredSuppliers } from '../../../../redux/Suppliers/suppliersSlice';
 
 const AllSuppliersTab = ({ onOpen }) => {
-  const suppliers = useSelector(selectSuppliers);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchSuppliers());
-  }, [dispatch]);
+  const userSupplier = useSelector(selectFilteredSuppliers);
   const nameTable = 'All suppliers';
   const headers = [
     'Suppliers Info',
@@ -34,7 +26,7 @@ const AllSuppliersTab = ({ onOpen }) => {
           </tr>
         </thead>
         <tbody className={styles.dataTable}>
-          {suppliers.map((row, rowIndex) => (
+          {userSupplier.map((row, rowIndex) => (
             <tr key={rowIndex}>
               <td>
                 <div>{row.name}</div>

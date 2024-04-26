@@ -1,17 +1,11 @@
 // import Table from '../../../../shared/components/Table/Table';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ActionsBottom from '../ActionsBottom/ActionsBottom';
 import styles from './AllProductsTab.module.scss';
-import { selectProducts } from '../../../../redux/Products/productSlice';
-import { fetchProducts } from '../../../../redux/Products/operations';
+import { selectFilteredProducts } from '../../../../redux/Products/productSlice';
 
 const AllProductsTab = ({ onOpen }) => {
-  const products = useSelector(selectProducts);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+  const userProduct = useSelector(selectFilteredProducts);
   const nameTable = 'All products';
   const headers = [
     'Product Info',
@@ -33,7 +27,7 @@ const AllProductsTab = ({ onOpen }) => {
           </tr>
         </thead>
         <tbody className={styles.dataTable}>
-          {products.map((row, rowIndex) => (
+          {userProduct.map((row, rowIndex) => (
             <tr key={rowIndex}>
               <td>{row.name}</td>
               <td>{row.category}</td>

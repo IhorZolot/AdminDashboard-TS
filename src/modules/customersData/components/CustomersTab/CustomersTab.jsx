@@ -1,16 +1,10 @@
-import { useEffect } from 'react';
-// import Table from '../../../../shared/components/Table';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCustomers } from '../../../../redux/Customers/operations';
-import { selectCustomers } from '../../../../redux/Customers/customerSlice';
+import { useSelector } from 'react-redux';
 import styles from './CustomersTab.module.scss';
+import { selectFilteredCustomers } from '../../../../redux/Customers/customerSlice';
 
 const CustomersTab = () => {
-  const customers = useSelector(selectCustomers);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCustomers());
-  }, [dispatch]);
+  const userCustomers = useSelector(selectFilteredCustomers);
+
   const nameTable = 'Customers Data';
   const headers = ['User Info', 'Email', 'Address', 'Phone', 'Register date'];
 
@@ -26,7 +20,7 @@ const CustomersTab = () => {
           </tr>
         </thead>
         <tbody className={styles.dataTable}>
-          {customers.map((row, rowIndex) => (
+          {userCustomers.map((row, rowIndex) => (
             <tr key={rowIndex}>
               <td>
                 <div>

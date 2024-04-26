@@ -1,26 +1,32 @@
+import { useDispatch } from 'react-redux';
 import { SpriteSVG } from '../../assets/icons/SpriteSVG';
 import useModal from '../../hooks/useModal';
-import Button from '../../shared/components/Button/Button';
 import RoundButton from '../../shared/components/Button/RoundButton/RoundButton';
-import Input from '../../shared/components/InputFields/Input/Input';
+import UserFilter from '../../shared/components/Filter/UserFilter';
 import Modal from '../../shared/components/Modal/Modal';
 import styles from './AllProducts.module.scss';
 import AllProductsTab from './components/AllProductsTab';
 import AddProductModal from './components/ProductModal/AddProductModal/AddProductModal';
 import EditProductModal from './components/ProductModal/EditProductModal/EditProductModal';
+import { useEffect } from 'react';
+import { fetchProducts } from '../../redux/Products/operations';
+import { filterProducts } from '../../redux/Products/productSlice';
 
 const AllProducts = () => {
   const [isOpenAddModal, openAdd, closeAdd] = useModal();
   const [isOpenEditModal, openEdit, closeEdit] = useModal();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+  const applyFilter = (value) => {
+    dispatch(filterProducts(value));
+  };
   return (
     <div className={styles.sectionProducts}>
       <div className={styles.sector}>
-        <div className={styles.sectorIntut}>
-          <Input placeholder="Product  Name" />
-          <Button>
-            <SpriteSVG name="filter" /> Filter
-          </Button>
-        </div>
+        <UserFilter placeholder="Product Name" onFilter={applyFilter} />
+
         <div className={styles.addBlok}>
           <RoundButton
             onClick={() => {

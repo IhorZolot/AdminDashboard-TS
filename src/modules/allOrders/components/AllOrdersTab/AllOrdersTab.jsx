@@ -1,12 +1,11 @@
-// import Table from '../../../../shared/components/Table/Table';
 import styles from './AllOrdersTab.module.scss';
 import StyledStatus from '../Status/StyledStatus';
+import { useSelector } from 'react-redux';
+import { selectFilteredOrders } from '../../../../redux/Orders/sliceOrders';
 
-const AllOrdersTab = ({ orders, filterValue }) => {
-  const filteredOrders = orders.filter(
-    (order) =>
-      order.name && order.name.toLowerCase().includes(filterValue.toLowerCase())
-  );
+const AllOrdersTab = () => {
+  const userOrders = useSelector(selectFilteredOrders);
+
   const nameTable = 'All Orders';
   const headers = [
     'User Info',
@@ -29,7 +28,7 @@ const AllOrdersTab = ({ orders, filterValue }) => {
           </tr>
         </thead>
         <tbody className={styles.dataTable}>
-          {filteredOrders.map((row, rowIndex) => (
+          {userOrders.map((row, rowIndex) => (
             <tr key={rowIndex}>
               <td>
                 <div>

@@ -1,10 +1,10 @@
 import styles from './AllOrdersTab.module.scss';
 import StyledStatus from '../Status/StyledStatus';
 import { useSelector } from 'react-redux';
-import { selectFilteredOrders } from '../../../../redux/Orders/sliceOrders';
+import { selectOrders } from '../../../../redux/Orders/sliceOrders';
 
 const AllOrdersTab = () => {
-  const userOrders = useSelector(selectFilteredOrders);
+  const userOrders = useSelector(selectOrders);
 
   const nameTable = 'All Orders';
   const headers = [
@@ -50,5 +50,4 @@ const AllOrdersTab = () => {
     </div>
   );
 };
-//  <Table nameTable="All orders" headers={headers} rows={orders} />;
 export default AllOrdersTab;

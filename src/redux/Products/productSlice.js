@@ -1,9 +1,10 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { fetchProducts } from './operations';
+import { fetchProducts, getCategoriesThunk } from './operations';
 
 const initialState = {
   products: [],
   filterProducts: '',
+  categories: [],
 };
 const productSlice = createSlice({
   name: 'products',
@@ -11,6 +12,7 @@ const productSlice = createSlice({
   selectors: {
     selectProducts: (state) => state.products,
     selectFilterProducts: (state) => state.filterProducts,
+    seelctCategories: (state) => state.categories,
   },
   reducers: {
     filterProducts: (state, { payload }) => {
@@ -18,13 +20,18 @@ const productSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.fulfilled, (state, { payload }) => {
-      state.products = payload;
-    });
+    builder
+      .addCase(fetchProducts.fulfilled, (state, { payload }) => {
+        state.products = payload;
+      })
+      .addCase(getCategoriesThunk.fulfilled, (state, { payload }) => {
+        state.categories = payload;
+      });
   },
 });
 export const productReducer = productSlice.reducer;
-export const { selectProducts, selectFilterProducts } = productSlice.selectors;
+export const { selectProducts, selectFilterProducts, seelctCategories } =
+  productSlice.selectors;
 export const { filterProducts } = productSlice.actions;
 
 export const selectFilteredProducts = createSelector(

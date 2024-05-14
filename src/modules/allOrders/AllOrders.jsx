@@ -1,24 +1,39 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AllOrdersTab from './components/AllOrdersTab/AllOrdersTab';
 import styles from './AllOrders.module.scss';
 import UserFilter from '../../shared/components/Filter/UserFilter';
-import { filterOrders } from '../../redux/Orders/sliceOrders';
 import { useEffect } from 'react';
-import { fetchOrders } from '../../redux/Orders/operations';
+import {
+  fetchOrdersThunk,
+  fetchOrdersByFieldThunk,
+} from '../../redux/Orders/operations';
+import { Pagination } from '../../shared/pagination/Pagination';
+import {
+  currentPageOrders,
+  selectCurrentPage,
+  selectPages,
+} from '../../redux/Orders/sliceOrders';
 
 const AllOrders = () => {
   const dispatch = useDispatch();
+  const totalPages = useSelector(selectPages);
+  const currentPage = useSelector(selectCurrentPage);
+
   useEffect(() => {
-    dispatch(fetchOrders());
-  }, [dispatch]);
+    dispatch(fetchOrdersThunk(currentPage));
+  }, [dispatch, currentPage]);
   const applyFilter = (value) => {
-    dispatch(filterOrders(value));
+    dispatch(fetchOrdersByFieldThunk(value));
+  };
+  const handlePageChange = (pageNumber) => {
+    dispatch(currentPageOrders(pageNumber));
   };
   return (
     <div className={styles.sectionOrders}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
       <AllOrdersTab />
+      <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
     </div>
   );
 };

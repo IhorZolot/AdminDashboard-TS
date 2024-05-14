@@ -12,3 +12,15 @@ export const fetchProducts = createAsyncThunk(
     }
   }
 );
+
+export const getCategoriesThunk = createAsyncThunk(
+  'products/getCategories',
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await API.get('products/categories');
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

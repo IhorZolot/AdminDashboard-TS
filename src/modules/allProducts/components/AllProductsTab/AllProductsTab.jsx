@@ -1,11 +1,11 @@
-// import Table from '../../../../shared/components/Table/Table';
 import { useSelector } from 'react-redux';
+
 import ActionsBottom from '../ActionsBottom/ActionsBottom';
 import styles from './AllProductsTab.module.scss';
-import { selectFilteredProducts } from '../../../../redux/Products/productSlice';
+import { selectProducts } from '../../../../redux/Products/productSlice';
 
 const AllProductsTab = ({ onOpen }) => {
-  const userProduct = useSelector(selectFilteredProducts);
+  const userProduct = useSelector(selectProducts);
   const nameTable = 'All products';
   const headers = [
     'Product Info',
@@ -49,7 +49,6 @@ const AllProductsTab = ({ onOpen }) => {
       </table>
     </div>
   );
-  // return <Table nameTable="All products" headers={headers} rows={rows} />;
 };
 
 export default AllProductsTab;

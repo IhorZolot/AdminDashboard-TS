@@ -1,12 +1,13 @@
-import { ErrorMessage, Field } from 'formik';
-import styles from './Input.module.scss';
+import { Field } from 'formik';
+import styles from './FormikInput.module.scss';
+import FormError from '../../../../modules/login/components/FormError';
 
 const FormikInput = ({ type, ...rest }) => {
   return (
-    <label>
+    <>
       <Field className={styles.input} type={type} {...rest} />
-      <ErrorMessage name={name} component={'div'} />
-    </label>
+      <FormError fieldName={rest.name} />
+    </>
   );
 };
 

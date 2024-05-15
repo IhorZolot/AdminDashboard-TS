@@ -21,7 +21,7 @@ const SignupForm = () => {
       onSubmit={handleSubmit}
     >
       <Form className={styles.loginForm}>
-        <label className={styles.loginLable}>
+        <label className={styles.loginLabel}>
           <Field
             className={styles.loginInput}
             type="name"
@@ -30,7 +30,7 @@ const SignupForm = () => {
           />
           <FormError fieldName="name" />
         </label>
-        <label className={styles.loginLable}>
+        <label className={styles.loginLabel}>
           <Field
             className={styles.loginInput}
             type="email"
@@ -39,7 +39,7 @@ const SignupForm = () => {
           />
           <FormError fieldName="email" />
         </label>
-        <label className={styles.loginLable}>
+        <label className={styles.loginLabel}>
           <Field
             className={styles.loginInput}
             type="password"

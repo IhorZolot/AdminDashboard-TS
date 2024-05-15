@@ -1,4 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
 import { SpriteSVG } from '../../assets/icons/SpriteSVG';
 import useModal from '../../hooks/useModal';
 import RoundButton from '../../shared/components/Button/RoundButton/RoundButton';
@@ -8,8 +10,7 @@ import styles from './AllProducts.module.scss';
 import AllProductsTab from './components/AllProductsTab';
 import AddProductModal from './components/ProductModal/AddProductModal/AddProductModal';
 import EditProductModal from './components/ProductModal/EditProductModal/EditProductModal';
-import { useEffect } from 'react';
-import { fetchProducts } from '../../redux/Products/operations';
+import { fetchProductsThunk } from '../../redux/Products/operations';
 import { filterProducts } from '../../redux/Products/productSlice';
 
 const AllProducts = () => {
@@ -17,7 +18,7 @@ const AllProducts = () => {
   const [isOpenEditModal, openEdit, closeEdit] = useModal();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchProductsThunk());
   }, [dispatch]);
   const applyFilter = (value) => {
     dispatch(filterProducts(value));

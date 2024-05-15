@@ -5,7 +5,7 @@ import styles from './EditProductModal.module.scss';
 const EditProductModal = ({ onClose }) => {
   return (
     <div className={styles.sectionModal}>
-      <h2 className={styles.tille}>Edit product</h2>
+      <h2 className={styles.title}>Edit product</h2>
       <div className={styles.sectionInput}>
         <Input placeholder="Product Info" />
         <Input placeholder="Stock" />
@@ -14,8 +14,10 @@ const EditProductModal = ({ onClose }) => {
         <Input placeholder="Suppliers" />
       </div>
       <div className={styles.sectionButton}>
-        <Button>Save</Button>
-        <Button isCancel>Cancel</Button>
+        <Button type="submit">Save</Button>
+        <Button type="button" isCancel>
+          Cancel
+        </Button>
       </div>
       <button
         className={styles.spriteClose}

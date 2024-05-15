@@ -5,50 +5,63 @@ import styles from './AddProductModal.module.scss';
 import FormikInput from '../../../../../shared/components/InputFields/Input/FormikInput';
 import FormikSelect from '../../../../../shared/components/InputFields/Input/FormikSelect';
 import { useEffect } from 'react';
-import { getCategoriesThunk } from '../../../../../redux/Products/operations';
+import {
+  addProductsThunk,
+  getCategoriesThunk,
+} from '../../../../../redux/Products/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { seelctCategories } from '../../../../../redux/Products/productSlice';
+import { selectCategories } from '../../../../../redux/Products/productSlice';
+import validationsAddProductSchema from '../helpers/validationsProductAddSchema';
+
+const initialValues = {
+  name: '',
+  stock: '',
+  price: '',
+  category: '',
+  suppliers: '',
+};
 
 const AddProductModal = ({ onClose }) => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getCategoriesThunk());
   }, [dispatch]);
-  const categories = useSelector(seelctCategories);
-  const initialValues = {
-    product: '',
-    stock: '',
-    price: '',
-    category: '',
-    suppliers: '',
-  };
-  const handleSubmit = (values) => {
+  const categories = useSelector(selectCategories);
+
+  const handleSubmit = (values, { resetForm }) => {
     console.log(values);
+    dispatch(addProductsThunk(values));
+    resetForm();
   };
   return (
     <div className={styles.sectionModal}>
-      <h2 className={styles.tille}>Add a new product</h2>
-      <div className={styles.sectionInput}>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          <Form>
-            <FormikInput name="product" placeholder="Product Info" />
-            <FormikInput name="stock" placeholder="Stock" />
-            <FormikInput name="price" placeholder="Price" />
+      <h2 className={styles.title}>Add a new product</h2>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationsAddProductSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form>
+          <div className={styles.sectionInput}>
+            <FormikInput name="name" placeholder="Product Info" />
             <FormikSelect
-              data={categories}
+              data={categories || []}
               name="category"
               placeholder="Category"
             />
+            <FormikInput name="stock" placeholder="Stock" type="number" />
             <FormikInput name="suppliers" placeholder="Suppliers" />
-            <div className={styles.sectionButton}>
-              <Button type="submit">Add</Button>
-              <Button type="button" isCancel>
-                Cancel
-              </Button>
-            </div>
-          </Form>
-        </Formik>
-      </div>
+            <FormikInput name="price" placeholder="Price" type="number" />
+          </div>
+          <div className={styles.sectionButton}>
+            <Button type="submit">Add</Button>
+            <Button type="button" onClick={onClose} isCancel>
+              Cancel
+            </Button>
+          </div>
+        </Form>
+      </Formik>
       <button
         className={styles.spriteClose}
         onClick={() => {

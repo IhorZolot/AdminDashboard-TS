@@ -35,3 +35,25 @@ export const addProductsThunk = createAsyncThunk(
     }
   }
 );
+export const updateProductThunk = createAsyncThunk(
+  'products/updateProduct',
+  async (product, { rejectWithValue }) => {
+    try {
+      const { data } = await API.put(`products/update/${product.id}`, product);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+export const deleteProductThunk = createAsyncThunk(
+  'products/deleteProduct',
+  async (id, { rejectWithValue }) => {
+    try {
+      await API.delete(`products/remove/${id}`);
+      return id;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

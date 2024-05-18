@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { SpriteSVG } from '../../assets/icons/SpriteSVG';
 import useModal from '../../hooks/useModal';
@@ -16,13 +16,21 @@ import { filterProducts } from '../../redux/Products/productSlice';
 const AllProducts = () => {
   const [isOpenAddModal, openAdd, closeAdd] = useModal();
   const [isOpenEditModal, openEdit, closeEdit] = useModal();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchProductsThunk());
   }, [dispatch]);
   const applyFilter = (value) => {
     dispatch(filterProducts(value));
   };
+  const handleOpenEditModal = (product) => {
+    setSelectedProduct(product);
+    openEdit();
+  };
+
   return (
     <div className={styles.sectionProducts}>
       <div className={styles.sector}>
@@ -39,15 +47,15 @@ const AllProducts = () => {
           <p className={styles.text}>Add a new product</p>
         </div>
       </div>
-      <AllProductsTab onOpen={openEdit} />
+      <AllProductsTab onOpenEdit={handleOpenEditModal} />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>
           <AddProductModal onClose={closeAdd} />
         </Modal>
       )}
-      {isOpenEditModal && (
+      {isOpenEditModal && selectedProduct && (
         <Modal onClose={closeEdit}>
-          <EditProductModal onClose={closeEdit} />
+          <EditProductModal products={selectedProduct} onClose={closeEdit} />
         </Modal>
       )}
     </div>

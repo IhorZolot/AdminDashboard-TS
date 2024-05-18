@@ -1,11 +1,25 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ActionsBottom from '../ActionsBottom/ActionsBottom';
 import styles from './AllProductsTab.module.scss';
 import { selectProducts } from '../../../../redux/Products/productSlice';
+import { deleteProductThunk } from '../../../../redux/Products/operations';
+import { toast } from 'react-toastify';
 
-const AllProductsTab = ({ onOpen }) => {
+const AllProductsTab = ({ onOpenEdit }) => {
+  const dispatch = useDispatch();
   const userProduct = useSelector(selectProducts);
+
+  const handleEdit = (product) => {
+    onOpenEdit(product);
+  };
+
+  const handleDelete = (id) => {
+    dispatch(deleteProductThunk(id));
+    console.log(dispatch);
+    toast.success('Product deleted successfully');
+  };
+
   const nameTable = 'All products';
   const headers = [
     'Product Info',
@@ -37,10 +51,10 @@ const AllProductsTab = ({ onOpen }) => {
               <td>
                 <div key="uniqueKey" className={styles.action}>
                   <ActionsBottom
-                    onClick={() => onOpen('edit')}
+                    onClick={() => handleEdit(row)}
                     actionType="edit"
                   />
-                  <ActionsBottom actionType="delete" />
+                  <ActionsBottom onClick={() => handleDelete(row.id)} />
                 </div>
               </td>
             </tr>

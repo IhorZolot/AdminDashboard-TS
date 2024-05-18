@@ -1,10 +1,10 @@
 import * as yup from 'yup';
 
-const validationsEditProductSchema = yup.object().shape({
+const validationsUpdateProductSchema = yup.object().shape({
   name: yup.string(),
-  stock: yup.number(),
-  price: yup.number(),
+  stock: yup.number().min(0, 'Stock cannot be negative'),
+  price: yup.number().positive('Price must be positive'),
   category: yup.string(),
   suppliers: yup.string(),
 });
-export default validationsEditProductSchema;
+export default validationsUpdateProductSchema;

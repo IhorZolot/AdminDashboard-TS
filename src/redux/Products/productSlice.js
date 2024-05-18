@@ -3,6 +3,8 @@ import {
   fetchProductsThunk,
   getCategoriesThunk,
   addProductsThunk,
+  updateProductThunk,
+  deleteProductThunk,
 } from './operations';
 
 const initialState = {
@@ -29,6 +31,22 @@ const productSlice = createSlice({
       })
       .addCase(addProductsThunk.fulfilled, (state, { payload }) => {
         state.products.push(payload);
+      })
+      .addCase(updateProductThunk.fulfilled, (state, { payload }) => {
+        const index = state.products.findIndex(
+          (product) => product.id === payload.id
+        );
+        if (index !== -1) {
+          state.products[index] = payload;
+        }
+      })
+      .addCase(deleteProductThunk.fulfilled, (state, { payload }) => {
+        const index = state.products.findIndex(
+          (product) => product.id === payload
+        );
+        if (index !== -1) {
+          state.products.splice(index, 1);
+        }
       });
   },
 });

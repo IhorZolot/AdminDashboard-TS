@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import { SpriteSVG } from '../../assets/icons/SpriteSVG';
@@ -10,25 +10,37 @@ import styles from './AllProducts.module.scss';
 import AllProductsTab from './components/AllProductsTab';
 import AddProductModal from './components/ProductModal/AddProductModal/AddProductModal';
 import EditProductModal from './components/ProductModal/EditProductModal/EditProductModal';
-import { fetchProductsThunk } from '../../redux/Products/operations';
-import { filterProducts } from '../../redux/Products/productSlice';
+import {
+  fetchProductsThunk,
+  filteredProductsByFieldThunk,
+} from '../../redux/Products/operations';
+import {
+  currentPageProducts,
+  selectCurrentPage,
+  selectPages,
+} from '../../redux/Products/productSlice';
+import { Pagination } from '../../shared/pagination/Pagination';
 
 const AllProducts = () => {
+  const dispatch = useDispatch();
   const [isOpenAddModal, openAdd, closeAdd] = useModal();
   const [isOpenEditModal, openEdit, closeEdit] = useModal();
   const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const dispatch = useDispatch();
+  const totalPages = useSelector(selectPages);
+  const currentPage = useSelector(selectCurrentPage);
 
   useEffect(() => {
-    dispatch(fetchProductsThunk());
-  }, [dispatch]);
+    dispatch(fetchProductsThunk(currentPage));
+  }, [dispatch, currentPage]);
   const applyFilter = (value) => {
-    dispatch(filterProducts(value));
+    dispatch(filteredProductsByFieldThunk(value));
   };
   const handleOpenEditModal = (product) => {
     setSelectedProduct(product);
     openEdit();
+  };
+  const handlePageChange = (pageNumber) => {
+    dispatch(currentPageProducts(pageNumber));
   };
 
   return (
@@ -48,6 +60,7 @@ const AllProducts = () => {
         </div>
       </div>
       <AllProductsTab onOpenEdit={handleOpenEditModal} />
+      <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>
           <AddProductModal onClose={closeAdd} />

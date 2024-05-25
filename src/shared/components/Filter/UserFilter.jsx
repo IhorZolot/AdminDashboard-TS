@@ -17,10 +17,9 @@ const UserFilter = ({ placeholder, onFilter }) => {
   };
   const handleFilterSubmit = () => {
     if (!filterValue.trim()) {
-      onFilter(filterValue, currentPage);
       return;
     }
-    onFilter(filterValue);
+    onFilter(filterValue, currentPage);
     setFilterValue('');
   };
 

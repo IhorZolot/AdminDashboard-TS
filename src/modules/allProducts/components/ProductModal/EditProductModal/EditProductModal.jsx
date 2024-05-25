@@ -24,9 +24,12 @@ const EditProductModal = ({ products, onClose }) => {
   }, [dispatch]);
   const categories = useSelector(selectCategories);
 
-  const handleSubmit = (value, { resetForm }) => {
-    dispatch(updateProductThunk({ ...products, ...value }));
+  const handleSubmit = (values, { resetForm }) => {
+    const updatedProduct = { ...products, ...values, _id: products._id };
+    console.log('Updated product: ', updatedProduct);
+    dispatch(updateProductThunk(updatedProduct));
     resetForm();
+    onClose();
   };
 
   return (

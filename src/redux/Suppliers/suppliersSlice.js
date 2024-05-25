@@ -1,41 +1,44 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { fetchSuppliers } from './operations';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  fetchSuppliersThunk,
+  filteredSuppliersByFieldThunk,
+} from './operations';
 
 const initialState = {
   suppliers: [],
-  filterSuppliers: '',
+  pages: 1,
+  currentPage: 1,
 };
 const supplierSlice = createSlice({
   name: 'suppliers',
   initialState,
   selectors: {
     selectSuppliers: (state) => state.suppliers,
-    selectFilterSuppliers: (state) => state.filterSuppliers,
+    selectSuppliersPages: (state) => state.pages,
+    selectCurrentSuppliersPage: (state) => state.currentPage,
   },
   reducers: {
-    filterSuppliers: (state, { payload }) => {
-      state.filterSuppliers = payload;
+    currentPageSuppliers: (state, { payload }) => {
+      state.currentPage = payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchSuppliers.fulfilled, (state, { payload }) => {
-      state.suppliers = payload;
-    });
+    builder
+      .addCase(fetchSuppliersThunk.fulfilled, (state, { payload }) => {
+        state.suppliers = payload.data;
+      })
+      .addCase(
+        filteredSuppliersByFieldThunk.fulfilled,
+        (state, { payload }) => {
+          state.suppliers = payload;
+        }
+      );
   },
 });
 export const supplierReducer = supplierSlice.reducer;
-export const { selectSuppliers, selectFilterSuppliers } =
-  supplierSlice.selectors;
-export const { filterSuppliers } = supplierSlice.actions;
-
-export const selectFilteredSuppliers = createSelector(
-  [selectSuppliers, selectFilterSuppliers],
-  (suppliers, filterSuppliers) => {
-    if (!filterSuppliers.trim()) {
-      return suppliers;
-    }
-    return suppliers.filter((supplier) =>
-      supplier.name.toLowerCase().includes(filterSuppliers.toLowerCase())
-    );
-  }
-);
+export const {
+  selectSuppliers,
+  selectSuppliersPages,
+  selectCurrentSuppliersPage,
+} = supplierSlice.selectors;
+export const { currentPageSuppliers } = supplierSlice.actions;

@@ -4,7 +4,6 @@ import ActionsBottom from '../ActionsBottom/ActionsBottom';
 import styles from './AllProductsTab.module.scss';
 import { selectProducts } from '../../../../redux/Products/productSlice';
 import { deleteProductThunk } from '../../../../redux/Products/operations';
-import { toast } from 'react-toastify';
 
 const AllProductsTab = ({ onOpenEdit }) => {
   const dispatch = useDispatch();
@@ -13,11 +12,8 @@ const AllProductsTab = ({ onOpenEdit }) => {
   const handleEdit = (product) => {
     onOpenEdit(product);
   };
-
   const handleDelete = (id) => {
     dispatch(deleteProductThunk(id));
-    console.log(dispatch);
-    toast.success('Product deleted successfully');
   };
 
   const nameTable = 'All products';
@@ -29,6 +25,11 @@ const AllProductsTab = ({ onOpenEdit }) => {
     'Price',
     'Action',
   ];
+  if (!Array.isArray(userProduct)) {
+    return <div>Loading...</div>;
+  }
+  console.log(userProduct);
+
   return (
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>
@@ -41,24 +42,26 @@ const AllProductsTab = ({ onOpenEdit }) => {
           </tr>
         </thead>
         <tbody className={styles.dataTable}>
-          {userProduct.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              <td>{row.name}</td>
-              <td>{row.category}</td>
-              <td>{row.stock}</td>
-              <td>{row.suppliers}</td>
-              <td>{row.price}</td>
-              <td>
-                <div key="uniqueKey" className={styles.action}>
-                  <ActionsBottom
-                    onClick={() => handleEdit(row)}
-                    actionType="edit"
-                  />
-                  <ActionsBottom onClick={() => handleDelete(row.id)} />
-                </div>
-              </td>
-            </tr>
-          ))}
+          {userProduct.map((row, rowIndex) => {
+            return (
+              <tr key={rowIndex}>
+                <td>{row.name}</td>
+                <td>{row.category}</td>
+                <td>{row.stock}</td>
+                <td>{row.suppliers}</td>
+                <td>{row.price}</td>
+                <td>
+                  <div className={styles.action}>
+                    <ActionsBottom
+                      onClick={() => handleEdit(row)}
+                      actionType="edit"
+                    />
+                    <ActionsBottom onClick={() => handleDelete(row._id)} />
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

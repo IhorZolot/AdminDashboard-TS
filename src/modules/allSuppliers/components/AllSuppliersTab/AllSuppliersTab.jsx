@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
-import Action from '../Action/Action';
 import styles from './AllSuppliersTab.module.scss';
-import { selectFilteredSuppliers } from '../../../../redux/Suppliers/suppliersSlice';
+import { selectSuppliers } from '../../../../redux/Suppliers/suppliersSlice';
+import Status from '../Status/Status';
+import ActionButton from '../ActionButton';
 
 const AllSuppliersTab = ({ onOpen }) => {
-  const userSupplier = useSelector(selectFilteredSuppliers);
+  const userSupplier = useSelector(selectSuppliers);
   const nameTable = 'All suppliers';
   const headers = [
     'Suppliers Info',
@@ -34,9 +35,14 @@ const AllSuppliersTab = ({ onOpen }) => {
               <td>{row.address}</td>
               <td>{row.suppliers}</td>
               <td>{row.date}</td>
-              <td>{row.status}</td>
               <td>
-                <Action key="uniqueKey" onOpen={onOpen} />
+                <Status
+                  key="uniqueKey"
+                  isActive={row.status === 'Active' ? true : false}
+                />
+              </td>
+              <td>
+                <ActionButton key="uniqueKey" onOpen={onOpen} />
               </td>
             </tr>
           ))}
@@ -44,7 +50,6 @@ const AllSuppliersTab = ({ onOpen }) => {
       </table>
     </div>
   );
-  // return <Table nameTable="All suppliers" headers={headers} rows={rows} />;
 };
 
 export default AllSuppliersTab;

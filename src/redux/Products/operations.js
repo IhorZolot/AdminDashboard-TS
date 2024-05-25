@@ -3,9 +3,10 @@ import { API } from '../../config/adminConfig';
 
 export const fetchProductsThunk = createAsyncThunk(
   'products/fetchProducts',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
     try {
-      const { data } = await API.get('products');
+      const page = getState().products.currentPage;
+      const { data } = await API.get(`products?page=${page}`);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -37,9 +38,12 @@ export const addProductsThunk = createAsyncThunk(
 );
 export const updateProductThunk = createAsyncThunk(
   'products/updateProduct',
-  async (product, { rejectWithValue }) => {
+  async (updatedProduct, { rejectWithValue }) => {
     try {
-      const { data } = await API.put(`products/update/${product.id}`, product);
+      const { data } = await API.put(
+        `products/update/${updatedProduct._id}`,
+        updatedProduct
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -52,6 +56,19 @@ export const deleteProductThunk = createAsyncThunk(
     try {
       await API.delete(`products/remove/${id}`);
       return id;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+export const filteredProductsByFieldThunk = createAsyncThunk(
+  'products/filteredProductsByField',
+  async (value, { rejectWithValue }) => {
+    try {
+      const { data } = await API.get(
+        `products/filtered?filterField=name&filterValue=${value}`
+      );
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

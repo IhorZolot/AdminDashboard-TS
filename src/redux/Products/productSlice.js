@@ -1,30 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+
 import {
   fetchProductsThunk,
   getCategoriesThunk,
   addProductsThunk,
   updateProductThunk,
   deleteProductThunk,
+  filteredProductsByFieldThunk,
 } from './operations';
 
 const initialState = {
   products: [],
-  filterProducts: '',
   categories: [],
+  pages: 0,
+  currentPage: 1,
 };
 const productSlice = createSlice({
   name: 'products',
   initialState,
   selectors: {
+    selectPages: (state) => state.pages,
+    selectCurrentPage: (state) => state.currentPage,
     selectProducts: (state) => state.products,
-    selectFilterProducts: (state) => state.filterProducts,
     selectCategories: (state) => state.categories,
   },
-  reducers: {},
+  reducers: {
+    currentPageProducts: (state, { payload }) => {
+      state.currentPage = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProductsThunk.fulfilled, (state, { payload }) => {
-        state.products = payload;
+        state.products = payload.data;
+        state.pages = payload.pages;
       })
       .addCase(getCategoriesThunk.fulfilled, (state, { payload }) => {
         state.categories = payload;
@@ -34,7 +44,7 @@ const productSlice = createSlice({
       })
       .addCase(updateProductThunk.fulfilled, (state, { payload }) => {
         const index = state.products.findIndex(
-          (product) => product.id === payload.id
+          (product) => product._id === payload._id
         );
         if (index !== -1) {
           state.products[index] = payload;
@@ -42,15 +52,26 @@ const productSlice = createSlice({
       })
       .addCase(deleteProductThunk.fulfilled, (state, { payload }) => {
         const index = state.products.findIndex(
-          (product) => product.id === payload
+          (product) => product._id === payload
         );
         if (index !== -1) {
           state.products.splice(index, 1);
+          toast.success('Product deleted successfully');
         }
+      })
+      .addCase(deleteProductThunk.rejected, (state, { payload }) => {
+        toast.error(`Failed to delete product: ${payload}`);
+      })
+      .addCase(filteredProductsByFieldThunk.fulfilled, (state, { payload }) => {
+        state.products = payload;
       });
   },
 });
 export const productReducer = productSlice.reducer;
-export const { selectProducts, selectFilterProducts, selectCategories } =
-  productSlice.selectors;
-export const { filterProducts } = productSlice.actions;
+export const {
+  selectProducts,
+  selectCategories,
+  selectPages,
+  selectCurrentPage,
+} = productSlice.selectors;
+export const { currentPageProducts } = productSlice.actions;

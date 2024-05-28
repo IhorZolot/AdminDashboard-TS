@@ -1,13 +1,8 @@
 import { SpriteSVG } from '../../../../assets/icons/SpriteSVG';
 import styles from './ActionButton.module.scss';
-const ActionButton = ({ onOpen }) => {
+const ActionButton = ({ onClick }) => {
   return (
-    <button
-      className={styles.action}
-      onClick={() => {
-        onOpen();
-      }}
-    >
+    <button className={styles.button} onClick={onClick}>
       <SpriteSVG name="edit" /> Edit
     </button>
   );

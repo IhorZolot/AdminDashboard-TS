@@ -11,9 +11,9 @@ const FormikSelect = ({ data, name, placeholder }) => {
         placeholder={placeholder}
         className={styles.input}
       >
-        {data?.map((category) => (
-          <option key={category} value={category} className={styles.option}>
-            {category}
+        {data?.map((item) => (
+          <option key={item} value={item} className={styles.option}>
+            {item}
           </option>
         ))}
       </Field>

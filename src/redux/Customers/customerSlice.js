@@ -1,41 +1,45 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { fetchCustomers } from './operations';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  fetchCustomersThunk,
+  filteredCustomersByFieldThunk,
+} from './operations';
 
 const initialState = {
   customers: [],
-  filterCustomers: '',
+  pages: 0,
+  currentPage: 1,
 };
 const customerSlice = createSlice({
   name: 'customers',
   initialState,
   selectors: {
     selectCustomers: (state) => state.customers,
-    selectFilterCustomers: (state) => state.filterCustomers,
+    selectCustomersPage: (state) => state.pages,
+    selectCurrentCustomersPage: (state) => state.currentPage,
   },
   reducers: {
-    filterCustomers: (state, { payload }) => {
-      state.filterCustomers = payload;
+    currentPageCustomers: (state, { payload }) => {
+      state.currentPage = payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchCustomers.fulfilled, (state, { payload }) => {
-      state.customers = payload;
-    });
+    builder
+      .addCase(fetchCustomersThunk.fulfilled, (state, { payload }) => {
+        state.customers = payload.data;
+        state.pages = payload.pages;
+      })
+      .addCase(
+        filteredCustomersByFieldThunk.fulfilled,
+        (state, { payload }) => {
+          state.customers = payload;
+        }
+      );
   },
 });
 export const customerReducer = customerSlice.reducer;
-export const { selectCustomers, selectFilterCustomers } =
-  customerSlice.selectors;
-export const { filterCustomers } = customerSlice.actions;
-
-export const selectFilteredCustomers = createSelector(
-  [selectCustomers, selectFilterCustomers],
-  (customers, filterCustomers) => {
-    if (!filterCustomers.trim()) {
-      return customers;
-    }
-    return customers.filter((customer) =>
-      customer.name.toLowerCase().includes(filterCustomers.toLowerCase())
-    );
-  }
-);
+export const {
+  selectCustomers,
+  selectCustomersPage,
+  selectCurrentCustomersPage,
+} = customerSlice.selectors;
+export const { currentPageCustomers } = customerSlice.actions;

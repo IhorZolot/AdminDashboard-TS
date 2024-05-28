@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import styles from './CustomersTab.module.scss';
-import { selectFilteredCustomers } from '../../../../redux/Customers/customerSlice';
+import { selectCustomers } from '../../../../redux/Customers/customerSlice';
 
 const CustomersTab = () => {
-  const userCustomers = useSelector(selectFilteredCustomers);
+  const userCustomers = useSelector(selectCustomers);
 
   const nameTable = 'Customers Data';
   const headers = ['User Info', 'Email', 'Address', 'Phone', 'Register date'];
@@ -38,7 +38,6 @@ const CustomersTab = () => {
       </table>
     </div>
   );
-  // <Table nameTable="Customers Data" headers={headers} rows={customers} />
 };
 
 export default CustomersTab;

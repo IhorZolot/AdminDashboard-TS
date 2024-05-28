@@ -6,7 +6,7 @@ import AddSuppliers from './components/AddSuppliers/AddSuppliers';
 import AllSuppliersTab from './components/AllSuppliersTab/AllSuppliersTab';
 import AddSuppliersModal from './components/SuppliersModal/AddSuppliersModal/AddSuppliersModal';
 import EditSuppliersModal from './components/SuppliersModal/EditSuppliersModal/EditSuppliersModal';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import UserFilter from '../../shared/components/Filter/UserFilter';
 import {
   fetchSuppliersThunk,
@@ -23,18 +23,21 @@ const AllSuppliers = () => {
   const dispatch = useDispatch();
   const [isOpenAddModal, openAdd, closeAdd] = useModal();
   const [isOpenEditModal, openEdit, closeEdit] = useModal();
+  const [selectedSupplier, setSelectedSupplier] = useState(null);
   const totalPages = useSelector(selectSuppliersPages);
   const currentPage = useSelector(selectCurrentSuppliersPage);
 
   useEffect(() => {
-    console.log(currentPage);
     dispatch(fetchSuppliersThunk(currentPage));
   }, [dispatch, currentPage]);
-  console.log(totalPages);
-  console.log(currentPage);
 
   const applyFilter = (value) => {
     dispatch(filteredSuppliersByFieldThunk(value));
+  };
+
+  const handleOpenEditModal = (suppliers) => {
+    setSelectedSupplier(suppliers);
+    openEdit();
   };
   const handlePageChange = (pageNumber) => {
     dispatch(currentPageSuppliers(pageNumber));
@@ -49,7 +52,7 @@ const AllSuppliers = () => {
           }}
         />
       </div>
-      <AllSuppliersTab onOpen={openEdit} />
+      <AllSuppliersTab onOpen={handleOpenEditModal} />
       <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>
@@ -58,7 +61,10 @@ const AllSuppliers = () => {
       )}
       {isOpenEditModal && (
         <Modal onClose={closeEdit}>
-          <EditSuppliersModal onClose={closeEdit} />
+          <EditSuppliersModal
+            suppliers={selectedSupplier}
+            onClose={closeEdit}
+          />
         </Modal>
       )}
     </div>

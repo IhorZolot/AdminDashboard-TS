@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux';
+import { format } from 'date-fns';
+
 import styles from './AllSuppliersTab.module.scss';
 import { selectSuppliers } from '../../../../redux/Suppliers/suppliersSlice';
 import Status from '../Status/Status';
@@ -12,9 +14,16 @@ const AllSuppliersTab = ({ onOpen }) => {
     'Address',
     'Company',
     'Delivery date',
+    'Amount',
     'Status',
     'Action',
   ];
+  const handleEdit = (supplier) => {
+    onOpen(supplier);
+  };
+  const formatDate = (dateString) => {
+    return format(new Date(dateString), 'dd MMMM yyyy');
+  };
   return (
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>
@@ -34,15 +43,19 @@ const AllSuppliersTab = ({ onOpen }) => {
               </td>
               <td>{row.address}</td>
               <td>{row.suppliers}</td>
-              <td>{row.date}</td>
+              <td>{formatDate(row.date)}</td>
+              <td>{row.amount}</td>
               <td>
                 <Status
-                  key="uniqueKey"
-                  isActive={row.status === 'Active' ? true : false}
+                  key={`status-${rowIndex}`}
+                  isActive={row.status === 'Active'}
                 />
               </td>
               <td>
-                <ActionButton key="uniqueKey" onOpen={onOpen} />
+                <ActionButton
+                  key={`action-${rowIndex}`}
+                  onClick={() => handleEdit(row)}
+                />
               </td>
             </tr>
           ))}

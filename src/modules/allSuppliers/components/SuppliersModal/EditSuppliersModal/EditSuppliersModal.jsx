@@ -1,24 +1,74 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
 import Button from '../../../../../shared/components/Button/Button';
-import Input from '../../../../../shared/components/InputFields/Input/Input';
 import styles from './EditSuppliersModal.module.scss';
+import validationsSuppliersEditSchema from '../helpers/validationsSuppliersEditSchema';
+import {
+  getStatusThunk,
+  updateSuppliersThunk,
+} from '../../../../../redux/Suppliers/operations';
+import { useEffect } from 'react';
+import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
+import { Form, Formik } from 'formik';
+import FormikInput from '../../../../../shared/components/InputFields/Input/FormikInput';
+import FormikSelect from '../../../../../shared/components/InputFields/Input/FormikSelect';
+import { format, parseISO } from 'date-fns';
 
-const EditSuppliersModal = ({ onClose }) => {
+const EditSuppliersModal = ({ suppliers, onClose }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getStatusThunk());
+  }, [dispatch]);
+  const status = useSelector(selectStatus);
+
+  const initialValues = {
+    ...suppliers,
+    date: format(parseISO(suppliers.date), 'yyyy-MM-dd'),
+  };
+
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
+    const updatedSuppliers = {
+      ...suppliers,
+      ...values,
+      _id: suppliers._id,
+    };
+    console.log(updatedSuppliers);
+    dispatch(updateSuppliersThunk(updatedSuppliers));
+    resetForm();
+    onClose();
+  };
+
   return (
     <div className={styles.sectionModal}>
-      <h2 className={styles.tille}>Add a new product</h2>
-      <div className={styles.sectionInput}>
-        <Input placeholder="Suppliers Info" />
-        <Input placeholder="Company" />
-        <Input placeholder="Ammount" />
-        <Input placeholder="Address" />
-        <Input placeholder="Delivery date" />
-        <Input placeholder="Status" />
-      </div>
-      <div className={styles.sectionButton}>
-        <Button>Save</Button>
-        <Button isCancel>Cancel</Button>
-      </div>
+      <h2 className={styles.title}>Edit supplier</h2>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationsSuppliersEditSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form>
+          <div className={styles.sectionInput}>
+            <FormikInput name="name" placeholder="Suppliers Info" />
+            <FormikInput name="address" placeholder="Address" />
+            <FormikInput name="suppliers" placeholder="Company" />
+            <FormikInput type="date" name="date" placeholder="Delivery date" />
+            <FormikInput name="amount" placeholder="Amount" />
+            <FormikSelect
+              data={status || []}
+              name="status"
+              placeholder="Status"
+            />
+          </div>
+          <div className={styles.sectionButton}>
+            <Button type="submit">Add</Button>
+            <Button type="button" onClick={onClose} isCancel>
+              Cancel
+            </Button>
+          </div>
+        </Form>
+      </Formik>
       <button
         className={styles.spriteClose}
         onClick={() => {

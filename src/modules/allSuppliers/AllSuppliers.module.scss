@@ -1,15 +1,11 @@
 @import '../../styles/sharedStyles.scss';
 
 .section {
-  padding: 80px 40px;
+  padding-top: 20px;
 }
 .sector {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: left;
   margin-bottom: 30px;
-}
-.sectorIntut {
-  display: flex;
-  gap: 20px;
 }

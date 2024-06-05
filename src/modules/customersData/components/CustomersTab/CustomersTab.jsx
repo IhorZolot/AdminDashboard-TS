@@ -24,7 +24,7 @@ const CustomersTab = () => {
             <tr key={rowIndex}>
               <td>
                 <div>
-                  <img width="40" src={row.image} alt="img" />
+                  <img width="20" src={row.image} alt="img" />
                   {row.name}
                 </div>
               </td>

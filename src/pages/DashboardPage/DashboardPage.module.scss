@@ -1,12 +1,22 @@
 @import '../../styles/sharedStyles.scss';
 .sectionDashboard {
+  display: flex;
+  flex-direction: column;
   padding-top: 10px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 40px;
 }
 .sectionTable {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 20px;
+}
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .sectionTable {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

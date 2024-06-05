@@ -3,23 +3,24 @@
 .sectionModal {
   position: relative;
   border-radius: 12px;
-  width: 536px;
-  height: 412px;
-  background: #fff;
-  padding: 40px;
+  max-width: 335px;
+  max-height: 542px;
+  background: $textButton;
+  padding: 20px;
 }
 .title {
   font-family: $font-family;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 117%;
-  color: #1d1e21;
+  font-size: 20px;
+  line-height: 1.2;
+  color: $mainText;
   margin-bottom: 40px;
 }
 .sectionInput {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  width: 100%;
   margin-bottom: 40px;
 }
 .sectionButton {
@@ -30,5 +31,21 @@
   position: absolute;
   top: 15px;
   right: 10px;
-  background-color: #fff;
+  background-color: $textButton;
+}
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+  .sectionModal {
+    max-width: 536px;
+  }
+  .sectionInput {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1440px) {
 }

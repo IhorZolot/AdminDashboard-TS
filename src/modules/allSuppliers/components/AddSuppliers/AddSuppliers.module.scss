@@ -3,15 +3,16 @@
 .addSuppliers {
   border: 1px solid rgba(89, 177, 122, 0.5);
   border-radius: 60px;
-  padding: 13px 30px;
+  padding: 13px 26px;
   font-family: $font-family;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 129%;
+  font-size: 12px;
+  line-height: 1.5;
   color: #1d1e21;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
   background-color: $bgColor;
+  max-width: 177px;
 }
 .addSuppliers:hover {
   transform: scale(1.1);

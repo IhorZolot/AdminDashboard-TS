@@ -7,12 +7,13 @@
 .titleExpenses {
   font-family: $font-family;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 133%;
+  font-size: 16px;
+  line-height: 1.25;
   color: $mainText;
   border-radius: 8px 8px 0 0;
   background: $tabColor;
-  padding: 20px;
+  padding: 15px;
+  width: 100%;
 }
 
 .table {
@@ -26,7 +27,7 @@
 .table td {
   border: 1px solid $borderTable;
   font-weight: 500;
-  padding: 20px;
+  padding: 15px;
 }
 .table th {
   border-right: none;
@@ -48,15 +49,15 @@
   font-family: $font-family;
   font-weight: 500;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: $inputText;
   text-align: left;
 }
 .dataExpenses td {
   font-family: $font-family;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 112%;
+  font-size: 14px;
+  line-height: 1.28;
   color: $mainText;
 }
 .greenRow {

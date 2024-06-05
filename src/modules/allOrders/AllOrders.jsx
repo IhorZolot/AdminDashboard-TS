@@ -14,6 +14,7 @@ import {
   selectCurrentPage,
   selectPages,
 } from '../../redux/Orders/sliceOrders';
+import ScrollTable from '../../shared/scrollTable';
 
 const AllOrders = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,9 @@ const AllOrders = () => {
   return (
     <div className={styles.sectionOrders}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
-      <AllOrdersTab />
+      <ScrollTable>
+        <AllOrdersTab />
+      </ScrollTable>
       <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
     </div>
   );

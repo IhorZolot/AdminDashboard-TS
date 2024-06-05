@@ -25,6 +25,8 @@
     "react-toastify": "^10.0.5",
     "redux-persist": "^6.0.0",
     "sass": "^1.71.1",
+    "simplebar": "^6.2.6",
+    "simplebar-react": "^3.2.5",
     "styled-components": "^6.1.8",
     "yup": "^1.4.0"
   },

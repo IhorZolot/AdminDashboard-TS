@@ -3,17 +3,20 @@
 .sectionCustomers {
   border: 1px solid $borderTable;
   border-radius: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 .table {
   background: $textButton;
   border-radius: 8px;
   border-collapse: collapse;
   width: 100%;
+  max-width: 439px;
 }
 .table th,
 .table td {
   border: 1px solid $borderTable;
-  padding: 20px;
+  padding: 15px;
 }
 .table th:first-child,
 .table td:first-child {
@@ -33,38 +36,38 @@
 .titleCustomers {
   font-family: $font-family;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 133%;
+  font-size: 16px;
+  line-height: 1.25;
   color: $mainText;
   border-radius: 8px 8px 0 0;
   background: $tabColor;
-  padding: 20px;
+  padding: 15px;
 }
 .theadCustomers th {
   font-family: $font-family;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 129%;
+  font-size: 12px;
+  line-height: 1.17;
   color: $inputText;
   text-align: left;
 }
 .dataCustomers td {
   font-family: $font-family;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 112%;
+  font-size: 12px;
+  line-height: 1.17;
   color: $mainText;
   div {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 5px;
   }
 }
 .button {
   font-family: $font-family;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 112%;
+  font-size: 12px;
+  line-height: 1.17;
   color: $styleColor;
   border: 1px solid $borderButton;
   border-radius: 30px;
@@ -75,4 +78,15 @@
 }
 .button:hover {
   transform: scale(1.1);
+}
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .dataCustomers td div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

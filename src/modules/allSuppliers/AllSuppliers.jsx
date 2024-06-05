@@ -18,6 +18,7 @@ import {
   selectSuppliersPages,
 } from '../../redux/Suppliers/suppliersSlice';
 import { Pagination } from '../../shared/pagination/Pagination';
+import ScrollTable from '../../shared/scrollTable/ScrollTable';
 
 const AllSuppliers = () => {
   const dispatch = useDispatch();
@@ -52,7 +53,9 @@ const AllSuppliers = () => {
           }}
         />
       </div>
-      <AllSuppliersTab onOpen={handleOpenEditModal} />
+      <ScrollTable>
+        <AllSuppliersTab onOpen={handleOpenEditModal} />
+      </ScrollTable>
       <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>

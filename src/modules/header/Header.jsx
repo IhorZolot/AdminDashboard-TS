@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import useModal from '../../hooks/useModal';
 import Modal from '../../shared/components/Modal/Modal';
 import MobileMenu from '../MobileMenu/MobileMenu';
@@ -14,7 +15,7 @@ const Header = () => {
     query: '(min-width: 1440px)',
   });
   return (
-    <div className={styles.sectionHeader}>
+    <div className={clsx(styles.sectionHeader, 'container')}>
       <div className={styles.sectionTitle}>
         {!isMobile ? (
           <Burger

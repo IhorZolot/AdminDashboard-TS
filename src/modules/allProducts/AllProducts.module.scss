@@ -1,21 +1,16 @@
 @import '../../styles/sharedStyles.scss';
 
 .sectionProducts {
-  padding: 80px 40px;
+  padding-top: 20px;
 }
 .sector {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
+  flex-direction: column;
+  padding-bottom: 20px;
 }
-.sectorIntut {
-  display: flex;
-  gap: 20px;
-}
+
 .addBlok {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 8px;
 }

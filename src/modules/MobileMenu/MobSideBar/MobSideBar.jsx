@@ -4,10 +4,10 @@ import { SpriteSideBar } from '../../../assets/icons/SpriteSideBar';
 import sideLinkData from '../../../shared/data/side-link-data';
 import styles from './MobSideBar.module.scss';
 
-const MobSideBar = () => {
+const MobSideBar = ({ onClose }) => {
   return (
     <aside className={styles.navbar}>
-      <nav>
+      <nav onClick={onClose}>
         {sideLinkData.map((link, index) => (
           <NavLink key={index} to={link.path}>
             <div className={styles.iconContainer}>

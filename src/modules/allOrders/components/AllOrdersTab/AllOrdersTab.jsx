@@ -1,7 +1,7 @@
 import styles from './AllOrdersTab.module.scss';
 import StyledStatus from '../Status/StyledStatus';
-import { useSelector } from 'react-redux';
 import { selectOrders } from '../../../../redux/Orders/sliceOrders';
+import { useSelector } from 'react-redux';
 
 const AllOrdersTab = () => {
   const userOrders = useSelector(selectOrders);
@@ -32,7 +32,7 @@ const AllOrdersTab = () => {
             <tr key={rowIndex}>
               <td>
                 <div>
-                  <img width="40" src={row.photo} alt="img" />
+                  <img width="20" src={row.photo} alt="img" />
                   {row.name}
                 </div>
               </td>

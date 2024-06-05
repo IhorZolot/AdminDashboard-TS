@@ -9,6 +9,7 @@ import {
 } from '../../redux/Customers/operations';
 import { Pagination } from '../../shared/pagination/Pagination';
 import { currentPageCustomers } from '../../redux/Customers/customerSlice';
+import ScrollTable from '../../shared/scrollTable/ScrollTable';
 
 const CustomersData = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,9 @@ const CustomersData = () => {
   return (
     <div className={styles.section}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
-      <CustomersTab />
+      <ScrollTable>
+        <CustomersTab />
+      </ScrollTable>
       <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
     </div>
   );

@@ -20,6 +20,7 @@ import {
   selectPages,
 } from '../../redux/Products/productSlice';
 import { Pagination } from '../../shared/pagination/Pagination';
+import ScrollTable from '../../shared/scrollTable/ScrollTable';
 
 const AllProducts = () => {
   const dispatch = useDispatch();
@@ -59,7 +60,9 @@ const AllProducts = () => {
           <p className={styles.text}>Add a new product</p>
         </div>
       </div>
-      <AllProductsTab onOpenEdit={handleOpenEditModal} />
+      <ScrollTable>
+        <AllProductsTab onOpenEdit={handleOpenEditModal} />
+      </ScrollTable>
       <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>

@@ -33,7 +33,7 @@ const RecentCustomers = () => {
             <tr key={rowIndex}>
               <td>
                 <div>
-                  <img width="40" src={row.image} alt="img" />
+                  <img width="30" src={row.image} alt="img" />
                   {row.name}
                 </div>
               </td>

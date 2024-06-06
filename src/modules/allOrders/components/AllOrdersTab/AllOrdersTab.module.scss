@@ -3,19 +3,18 @@
 .sectionTable {
   border: 1px solid $borderTable;
   border-radius: 8px;
-  // overflow: hidden;
+  margin-top: 15px;
 }
 .table {
   background: $textButton;
   border-radius: 0 0 8px 8px;
   border-collapse: collapse;
   width: 100%;
-  min-width: 375px;
 }
 .table th,
 .table td {
   border: 1px solid $borderTable;
-  padding: 20px;
+  padding: 14px;
 }
 .table th:first-child,
 .table td:first-child {
@@ -40,8 +39,9 @@
   color: $mainText;
   border-radius: 8px 8px 0 0;
   background: $tabColor;
-  padding: 20px;
+  padding: 14px;
   width: 100%;
+  display: block;
   box-sizing: border-box;
 }
 .theadTable th {
@@ -66,11 +66,24 @@
   }
 }
 
-@media screen and (min-width: 375px) {
-}
 @media screen and (min-width: 768px) {
   .titleTable {
     font-size: 18px;
+    padding: 20px;
+  }
+  .theadTable th {
+    font-size: 14px;
+    padding: 20px;
+  }
+  .dataTable td {
+    font-size: 16px;
+    div {
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+  .table td {
+    padding: 20px;
   }
 }
 @media screen and (min-width: 1440px) {

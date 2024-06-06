@@ -38,7 +38,9 @@
   color: $mainText;
   border-radius: 8px 8px 0 0;
   background: $tabColor;
-  padding: 16px;
+  padding: 14px;
+  display: block;
+  box-sizing: border-box;
 }
 .theadTable th {
   font-family: $font-family;
@@ -60,8 +62,25 @@
     gap: 10px;
   }
 }
-
 .action {
   display: flex;
   gap: 14px;
+}
+@media screen and (min-width: 768px) {
+  .titleTable {
+    font-size: 18px;
+    padding: 20px;
+  }
+  .theadTable th {
+    font-size: 14px;
+    padding: 20px;
+  }
+  .dataTable td {
+    font-size: 16px;
+  }
+  .table td {
+    padding: 15px 60px 15px 20px;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

@@ -1,15 +1,17 @@
-import clsx from 'clsx';
 import IncomeExpenses from '../../modules/dashboard/components/IncomeExpenses';
 import RecentCustomers from '../../modules/dashboard/components/RecentCustomers';
 import Statistics from '../../modules/dashboard/components/Statistics';
+import ScrollTable from '../../shared/scrollTable/ScrollTable';
 import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
   return (
-    <div className={clsx(styles.sectionDashboard, 'container')}>
+    <div className={styles.sectionDashboard}>
       <Statistics />
       <div className={styles.sectionTable}>
-        <RecentCustomers />
+        <ScrollTable>
+          <RecentCustomers />
+        </ScrollTable>
         <IncomeExpenses />
       </div>
     </div>

@@ -48,10 +48,7 @@
 }
 
 @media screen and (min-width: 375px) {
-  .sectionStat {
-  }
 }
-
 @media screen and (min-width: 768px) {
   .sectionStat {
     flex-direction: row;
@@ -60,9 +57,16 @@
   .sectorStat {
     flex: 1;
   }
+  .sectorItem {
+    font-size: 24px;
+  }
 }
 @media screen and (min-width: 1440px) {
+  .sectionStat {
+    margin-bottom: 30px;
+  }
   .sectorStat {
+    max-width: 240px;
     height: 108px;
   }
 }

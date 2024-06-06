@@ -1,13 +1,25 @@
 .scrollBarContainer {
   width: 100%;
-  margin-top: 20px;
+  position: relative;
 }
-
 .simpleBar {
-  width: 100%;
   overflow-x: auto;
+  padding-bottom: 30px;
+  width: 100%;
 }
 .scrollContent {
+  border-radius: 14px;
   width: 100%;
-  height: 1px;
+  height: 8px;
+  background: #f1f1f1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+@media screen and (min-width: 768px) {
+  .scrollContent {
+    display: none;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

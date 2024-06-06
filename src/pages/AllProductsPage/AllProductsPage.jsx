@@ -1,11 +1,7 @@
 import AllProducts from '../../modules/allProducts/AllProducts';
 
 const AllProductsPage = () => {
-  return (
-    <>
-      <AllProducts />
-    </>
-  );
+  return <AllProducts />;
 };
 
 export default AllProductsPage;

@@ -7,8 +7,8 @@ const ScrollTable = ({ children }) => {
     <div className={styles.scrollBarContainer}>
       <SimpleBar forceVisible="x" autoHide={false} className={styles.simpleBar}>
         {children}
-        <div className={styles.scrollContent}></div>
       </SimpleBar>
+      <div className={styles.scrollContent}></div>
     </div>
   );
 };

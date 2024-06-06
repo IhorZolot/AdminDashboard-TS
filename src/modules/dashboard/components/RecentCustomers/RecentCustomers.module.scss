@@ -3,7 +3,6 @@
 .sectionCustomers {
   border: 1px solid $borderTable;
   border-radius: 8px;
-  overflow-x: auto;
   white-space: nowrap;
 }
 .table {
@@ -11,12 +10,11 @@
   border-radius: 8px;
   border-collapse: collapse;
   width: 100%;
-  max-width: 439px;
 }
 .table th,
 .table td {
   border: 1px solid $borderTable;
-  padding: 15px;
+  padding: 15px 10px;
 }
 .table th:first-child,
 .table td:first-child {
@@ -42,6 +40,7 @@
   border-radius: 8px 8px 0 0;
   background: $tabColor;
   padding: 15px;
+  width: 100%;
 }
 .theadCustomers th {
   font-family: $font-family;
@@ -59,7 +58,6 @@
   color: $mainText;
   div {
     display: flex;
-    flex-direction: column;
     gap: 5px;
   }
 }
@@ -71,9 +69,7 @@
   color: $styleColor;
   border: 1px solid $borderButton;
   border-radius: 30px;
-  padding: 8px 18px;
-  width: 74px;
-  height: 34px;
+  padding: 8px 20px;
   background: $textButton;
 }
 .button:hover {
@@ -86,6 +82,18 @@
     display: flex;
     align-items: center;
     gap: 10px;
+  }
+  .titleCustomers {
+    font-size: 18px;
+  }
+  .theadCustomers th {
+    font-size: 16px;
+  }
+  .dataCustomers td {
+    font-size: 16px;
+  }
+  .button {
+    font-size: 16px;
   }
 }
 @media screen and (min-width: 1440px) {

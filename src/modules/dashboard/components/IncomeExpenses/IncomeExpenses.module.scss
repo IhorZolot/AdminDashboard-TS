@@ -111,3 +111,18 @@
   color: #1d1e21;
   text-decoration: line-through;
 }
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .titleExpenses {
+    font-size: 18px;
+  }
+  .theadExpenses th {
+    font-size: 16px;
+  }
+  .dataExpenses td {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1440px) {
+}

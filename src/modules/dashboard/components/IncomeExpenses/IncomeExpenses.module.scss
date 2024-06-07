@@ -12,7 +12,7 @@
   color: $mainText;
   border-radius: 8px 8px 0 0;
   background: $tabColor;
-  padding: 15px;
+  padding: 15px 10px;
   width: 100%;
 }
 
@@ -21,13 +21,13 @@
   border-radius: 8px;
   border-collapse: collapse;
   width: 100%;
+  height: 100%;
 }
 
 .table th,
 .table td {
   border: 1px solid $borderTable;
-  font-weight: 500;
-  padding: 15px;
+  padding: 15px 10px;
 }
 .table th {
   border-right: none;
@@ -42,22 +42,20 @@
 .table td:last-child {
   border-right: none;
 }
-.table tr {
-}
 
 .theadExpenses th {
   font-family: $font-family;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1.29;
+  font-size: 12px;
+  line-height: 1.17;
   color: $inputText;
   text-align: left;
 }
 .dataExpenses td {
   font-family: $font-family;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1.28;
+  font-size: 12px;
+  line-height: 1.17;
   color: $mainText;
 }
 .greenRow {
@@ -125,4 +123,16 @@
   }
 }
 @media screen and (min-width: 1440px) {
+  .titleExpenses {
+    font-size: 16px;
+  }
+  .theadExpenses th {
+    font-size: 14px;
+  }
+  .dataExpenses td {
+    font-size: 14px;
+  }
+  .table {
+    height: 516px;
+  }
 }

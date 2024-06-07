@@ -4,6 +4,7 @@ import ActionsBottom from '../ActionsBottom/ActionsBottom';
 import styles from './AllProductsTab.module.scss';
 import { selectProducts } from '../../../../redux/Products/productSlice';
 import { deleteProductThunk } from '../../../../redux/Products/operations';
+import { toast } from 'react-toastify';
 
 const AllProductsTab = ({ onOpenEdit }) => {
   const dispatch = useDispatch();
@@ -13,7 +14,9 @@ const AllProductsTab = ({ onOpenEdit }) => {
     onOpenEdit(product);
   };
   const handleDelete = (id) => {
-    dispatch(deleteProductThunk(id));
+    dispatch(deleteProductThunk(id)).then(() => {
+      toast.success('Product deleted successfully');
+    });
   };
 
   const nameTable = 'All products';

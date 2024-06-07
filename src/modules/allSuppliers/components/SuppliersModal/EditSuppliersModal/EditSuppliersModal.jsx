@@ -1,18 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { format, parseISO } from 'date-fns';
+import { toast } from 'react-toastify';
+import { useEffect } from 'react';
+import { Form, Formik } from 'formik';
+
 import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
 import Button from '../../../../../shared/components/Button/Button';
 import styles from './EditSuppliersModal.module.scss';
+import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
+import FormikInput from '../../../../../shared/components/InputFields/Input/FormikInput';
+import FormikSelect from '../../../../../shared/components/InputFields/Input/FormikSelect';
 import validationsSuppliersEditSchema from '../helpers/validationsSuppliersEditSchema';
 import {
   getStatusThunk,
   updateSuppliersThunk,
 } from '../../../../../redux/Suppliers/operations';
-import { useEffect } from 'react';
-import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
-import { Form, Formik } from 'formik';
-import FormikInput from '../../../../../shared/components/InputFields/Input/FormikInput';
-import FormikSelect from '../../../../../shared/components/InputFields/Input/FormikSelect';
-import { format, parseISO } from 'date-fns';
 
 const EditSuppliersModal = ({ suppliers, onClose }) => {
   const dispatch = useDispatch();
@@ -28,16 +30,16 @@ const EditSuppliersModal = ({ suppliers, onClose }) => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
     const updatedSuppliers = {
       ...suppliers,
       ...values,
       _id: suppliers._id,
     };
-    console.log(updatedSuppliers);
-    dispatch(updateSuppliersThunk(updatedSuppliers));
-    resetForm();
-    onClose();
+    dispatch(updateSuppliersThunk(updatedSuppliers)).then(() => {
+      toast.success('Suppliers updated successfully');
+      resetForm();
+      onClose();
+    });
   };
 
   return (

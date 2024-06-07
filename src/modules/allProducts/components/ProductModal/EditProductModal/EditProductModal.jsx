@@ -15,6 +15,7 @@ import {
   updateProductThunk,
 } from '../../../../../redux/Products/operations';
 import { selectCategories } from '../../../../../redux/Products/productSlice';
+import { toast } from 'react-toastify';
 
 const EditProductModal = ({ products, onClose }) => {
   const dispatch = useDispatch();
@@ -27,9 +28,11 @@ const EditProductModal = ({ products, onClose }) => {
   const handleSubmit = (values, { resetForm }) => {
     const updatedProduct = { ...products, ...values, _id: products._id };
     console.log('Updated product: ', updatedProduct);
-    dispatch(updateProductThunk(updatedProduct));
-    resetForm();
-    onClose();
+    dispatch(updateProductThunk(updatedProduct)).then(() => {
+      toast.success('Product updated successfully');
+      resetForm();
+      onClose();
+    });
   };
 
   return (

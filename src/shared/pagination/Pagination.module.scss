@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  gap: 12px;
+  gap: 6px;
 }
 
 .page {
@@ -20,5 +20,17 @@
   height: 12px;
   background-color: $styleColor;
   border-radius: 50%;
-  transform: scale(1.2);
+  transform: scale(1.1);
+}
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .pagination {
+    gap: 8px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .pagination {
+    gap: 12px;
+  }
 }

@@ -4,6 +4,7 @@ import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError/';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../../../redux/Auth/operations';
+import { toast } from 'react-toastify';
 
 const initialValues = {
   email: '',
@@ -15,9 +16,10 @@ const LoginForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
-    dispatch(loginThunk(values));
-
-    resetForm();
+    dispatch(loginThunk(values)).then(() => {
+      toast.success('Login successful!');
+      resetForm();
+    });
   };
   return (
     <Formik

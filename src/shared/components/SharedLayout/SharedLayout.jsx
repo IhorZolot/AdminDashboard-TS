@@ -9,9 +9,9 @@ import clsx from 'clsx';
 const SharedLayout = () => {
   const isDesktop = useMediaQuery({ minWidth: 1440 });
   return (
-    <div>
+    <div className={clsx('container')}>
       <Header />
-      <div className={clsx(styles.content, 'container')}>
+      <div className={styles.content}>
         {isDesktop && <SideBar />}
         <main>
           <Suspense fallback={<div>Loading...</div>}>

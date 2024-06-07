@@ -13,6 +13,7 @@ import {
   getStatusThunk,
 } from '../../../../../redux/Suppliers/operations';
 import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
+import { toast } from 'react-toastify';
 
 const initialValues = {
   name: '',
@@ -33,8 +34,11 @@ const AddSuppliersModal = ({ onClose }) => {
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
-    dispatch(addSuppliersThunk(values));
-    resetForm();
+    dispatch(addSuppliersThunk(values)).then(() => {
+      toast.success('Suppliers added successfully');
+      resetForm();
+      onClose();
+    });
   };
 
   return (

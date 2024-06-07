@@ -15,7 +15,7 @@ const Header = () => {
     query: '(min-width: 1440px)',
   });
   return (
-    <div className={clsx(styles.sectionHeader, 'container')}>
+    <div className={clsx(styles.sectionHeader)}>
       <div className={styles.sectionTitle}>
         {!isMobile ? (
           <Burger

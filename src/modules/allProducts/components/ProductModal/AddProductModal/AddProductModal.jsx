@@ -12,6 +12,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCategories } from '../../../../../redux/Products/productSlice';
 import validationsAddProductSchema from '../helpers/validationsProductAddSchema';
+import { toast } from 'react-toastify';
 
 const initialValues = {
   name: '',
@@ -31,8 +32,11 @@ const AddProductModal = ({ onClose }) => {
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
-    dispatch(addProductsThunk(values));
-    resetForm();
+    dispatch(addProductsThunk(values)).then(() => {
+      toast.success('Product added successfully');
+      resetForm();
+      onClose();
+    });
   };
   return (
     <div className={styles.sectionModal}>

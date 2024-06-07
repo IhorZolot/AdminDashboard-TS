@@ -4,6 +4,7 @@ import Button from '../Button';
 import Input from '../InputFields/Input';
 import styles from './UserFilter.module.scss';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const UserFilter = ({ placeholder, onFilter }) => {
   const location = useLocation();
@@ -17,10 +18,12 @@ const UserFilter = ({ placeholder, onFilter }) => {
   };
   const handleFilterSubmit = () => {
     if (!filterValue.trim()) {
+      toast.error('Please enter filter value!');
       return;
     }
     onFilter(filterValue, currentPage);
     setFilterValue('');
+    toast.success('Filter applied successfully!');
   };
 
   const handleKeyDown = (e) => {

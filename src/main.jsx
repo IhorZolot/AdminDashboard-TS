@@ -1,5 +1,6 @@
 import 'modern-normalize';
 import ReactDOM from 'react-dom/client';
+import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
@@ -14,7 +15,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <App />
-        <ToastContainer />
+        <ToastContainer
+          autoClose={1000}
+          position="bottom-left"
+          theme="colored"
+          closeOnClick
+        />
       </BrowserRouter>
     </PersistGate>
   </Provider>

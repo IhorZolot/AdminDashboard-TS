@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 import UserFilter from '../../shared/components/Filter/UserFilter';
 import styles from './CustomersData.module.scss';
 import CustomersTab from './components/CustomersTab';
-import { useEffect } from 'react';
 import {
   fetchCustomersThunk,
   filteredCustomersByFieldThunk,

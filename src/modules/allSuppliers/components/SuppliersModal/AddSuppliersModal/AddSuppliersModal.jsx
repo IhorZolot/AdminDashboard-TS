@@ -1,19 +1,21 @@
+import { useEffect } from 'react';
 import { Form, Formik } from 'formik';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button/Button';
+import Button from '../../../../../shared/components/Button';
 import styles from './AddSuppliersModal.module.scss';
-import FormikInput from '../../../../../shared/components/InputFields/Input/FormikInput';
-import FormikSelect from '../../../../../shared/components/InputFields/Input/FormikSelect';
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  FormikInput,
+  FormikSelect,
+} from '../../../../../shared/components/InputFields/Input';
 import validationsSuppliersAddSchema from '../helpers/validationsSuppliersAddSchema';
-import { useEffect } from 'react';
 import {
   addSuppliersThunk,
   getStatusThunk,
 } from '../../../../../redux/Suppliers/operations';
 import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
-import { toast } from 'react-toastify';
 
 const initialValues = {
   name: '',
@@ -33,7 +35,6 @@ const AddSuppliersModal = ({ onClose }) => {
   const status = useSelector(selectStatus);
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
     dispatch(addSuppliersThunk(values)).then(() => {
       toast.success('Suppliers added successfully');
       resetForm();

@@ -5,11 +5,13 @@ import { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 
 import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button/Button';
+import Button from '../../../../../shared/components/Button';
 import styles from './EditSuppliersModal.module.scss';
 import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
-import FormikInput from '../../../../../shared/components/InputFields/Input/FormikInput';
-import FormikSelect from '../../../../../shared/components/InputFields/Input/FormikSelect';
+import {
+  FormikInput,
+  FormikSelect,
+} from '../../../../../shared/components/InputFields/Input';
 import validationsSuppliersEditSchema from '../helpers/validationsSuppliersEditSchema';
 import {
   getStatusThunk,

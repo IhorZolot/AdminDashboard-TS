@@ -1,13 +1,14 @@
 import clsx from 'clsx';
+import { useMediaQuery } from 'react-responsive';
+
 import useModal from '../../hooks/useModal';
-import Modal from '../../shared/components/Modal/Modal';
-import MobileMenu from '../MobileMenu/MobileMenu';
-import Burger from './components/Burger/Burger';
+import Modal from '../../shared/components/Modal';
+import MobileMenu from '../MobileMenu';
+import Burger from './components/Burger';
 import Logo from './components/Logo';
-import LogoutBtn from './components/LogoutBtn/LogoutBtn';
+import LogoutBtn from './components/LogoutBtn';
 import Title from './components/Title';
 import styles from './Header.module.scss';
-import { useMediaQuery } from 'react-responsive';
 
 const Header = () => {
   const [isMenuOpen, openMenu, closeMenu] = useModal();

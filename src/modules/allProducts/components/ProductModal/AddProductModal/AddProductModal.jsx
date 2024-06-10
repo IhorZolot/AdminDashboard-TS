@@ -1,18 +1,21 @@
 import { Form, Formik } from 'formik';
-import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button/Button';
-import styles from './AddProductModal.module.scss';
-import FormikInput from '../../../../../shared/components/InputFields/Input/FormikInput';
-import FormikSelect from '../../../../../shared/components/InputFields/Input/FormikSelect';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+
+import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
+import Button from '../../../../../shared/components/Button';
+import styles from './AddProductModal.module.scss';
+import {
+  FormikInput,
+  FormikSelect,
+} from '../../../../../shared/components/InputFields/Input';
 import {
   addProductsThunk,
   getCategoriesThunk,
 } from '../../../../../redux/Products/operations';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectCategories } from '../../../../../redux/Products/productSlice';
 import validationsAddProductSchema from '../helpers/validationsProductAddSchema';
-import { toast } from 'react-toastify';
 
 const initialValues = {
   name: '',
@@ -31,7 +34,6 @@ const AddProductModal = ({ onClose }) => {
   const categories = useSelector(selectCategories);
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
     dispatch(addProductsThunk(values)).then(() => {
       toast.success('Product added successfully');
       resetForm();

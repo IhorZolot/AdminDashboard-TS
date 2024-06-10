@@ -5,52 +5,52 @@
   padding: 4px 12px;
   width: 92px;
   height: 25px;
-  background: rgba(89, 177, 122, 0.1);
+  background: $bgComplete;
   font-family: $font-family;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.05em;
   text-align: center;
-  color: #59b17a;
+  color: $complete;
 }
 .confirmed {
   border-radius: 40px;
   padding: 4px 12px;
   width: 92px;
   height: 25px;
-  background: rgba(128, 89, 228, 0.1);
+  background: $bgConfirm;
   font-family: $font-family;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.05em;
   text-align: center;
-  color: #8059e4;
+  color: $confirm;
 }
 .pending {
   border-radius: 40px;
   padding: 4px 12px;
   width: 92px;
   height: 25px;
-  background: rgba(247, 144, 66, 0.1);
+  background: $bgPending;
   font-family: $font-family;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.05em;
   text-align: center;
-  color: #f79042;
+  color: $pending;
 }
 .cancelled {
   border-radius: 40px;
   padding: 4px 12px;
   width: 92px;
   height: 25px;
-  background: rgba(232, 80, 80, 0.1);
+  background: $bgCancel;
   font-family: $font-family;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.05em;
   text-align: center;
-  color: #e85050;
+  color: $cancel;
 }
 .processing {
   border-radius: 40px;
@@ -62,8 +62,8 @@
   font-size: 14px;
   letter-spacing: -0.05em;
   text-align: center;
-  color: #70a6e8;
-  background: rgba(112, 166, 232, 0.1);
+  color: $process;
+  background: $bgProcess;
 }
 .shipped {
   border-radius: 40px;
@@ -75,8 +75,8 @@
   font-size: 14px;
   letter-spacing: -0.05em;
   text-align: center;
-  color: #295fa2;
-  background: rgba(49, 112, 190, 0.1);
+  color: $shipped;
+  background: $bgShipped;
 }
 .delivered {
   border-radius: 40px;
@@ -88,6 +88,6 @@
   font-size: 14px;
   letter-spacing: -0.05em;
   text-align: center;
-  color: #70c02b;
-  background: rgba(135, 202, 72, 0.1);
+  color: $delivered;
+  background: $bgDelivered;
 }

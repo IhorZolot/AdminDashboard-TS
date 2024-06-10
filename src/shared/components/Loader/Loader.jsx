@@ -5,7 +5,7 @@ import styles from './Loader.module.scss';
 const Loader = () => {
   return (
     <div className={styles.loader}>
-      <BeatLoader color="#36d7b7" />
+      <BeatLoader color="#1bb353" />
     </div>
   );
 };

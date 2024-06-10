@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 
 import { SpriteSVG } from '../../assets/icons/SpriteSVG';
 import useModal from '../../hooks/useModal';
-import RoundButton from '../../shared/components/Button/RoundButton/RoundButton';
+import RoundButton from '../../shared/components/Button/RoundButton';
 import UserFilter from '../../shared/components/Filter/UserFilter';
-import Modal from '../../shared/components/Modal/Modal';
+import Modal from '../../shared/components/Modal';
 import styles from './AllProducts.module.scss';
 import AllProductsTab from './components/AllProductsTab';
-import AddProductModal from './components/ProductModal/AddProductModal/AddProductModal';
-import EditProductModal from './components/ProductModal/EditProductModal/EditProductModal';
+import AddProductModal from './components/ProductModal/AddProductModal';
+import EditProductModal from './components/ProductModal/EditProductModal';
 import {
   fetchProductsThunk,
   filteredProductsByFieldThunk,

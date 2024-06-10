@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import { SpriteSVG } from '../../../../assets/icons/SpriteSVG';
 import styles from './ResponsiveSVG.module.scss';
 

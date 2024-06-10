@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
-import useModal from '../../hooks/useModal';
-import Modal from '../../shared/components/Modal/Modal';
-import styles from './AllSuppliers.module.scss';
-import AddSuppliers from './components/AddSuppliers/AddSuppliers';
-import AllSuppliersTab from './components/AllSuppliersTab/AllSuppliersTab';
-import AddSuppliersModal from './components/SuppliersModal/AddSuppliersModal/AddSuppliersModal';
-import EditSuppliersModal from './components/SuppliersModal/EditSuppliersModal/EditSuppliersModal';
 import { useEffect, useState } from 'react';
+
+import useModal from '../../hooks/useModal';
+import Modal from '../../shared/components/Modal';
+import styles from './AllSuppliers.module.scss';
+import AddSuppliers from './components/AddSuppliers';
+import AllSuppliersTab from './components/AllSuppliersTab';
+import AddSuppliersModal from './components/SuppliersModal/AddSuppliersModal';
+import EditSuppliersModal from './components/SuppliersModal/EditSuppliersModal';
 import UserFilter from '../../shared/components/Filter/UserFilter';
 import {
   fetchSuppliersThunk,

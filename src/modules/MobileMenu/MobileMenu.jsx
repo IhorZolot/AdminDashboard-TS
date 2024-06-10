@@ -1,6 +1,6 @@
 import { SpriteSVG } from '../../assets/icons/SpriteSVG';
-import LogoutBtn from '../header/components/LogoutBtn/LogoutBtn';
-import MobSideBar from './MobSideBar/MobSideBar';
+import LogoutBtn from '../header/components/LogoutBtn';
+import MobSideBar from './MobSideBar/';
 import styles from './MobileMenu.module.scss';
 const MobileMenu = ({ onClose }) => {
   return (

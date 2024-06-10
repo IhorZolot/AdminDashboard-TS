@@ -1,10 +1,11 @@
 import { Formik, Form, Field } from 'formik';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+
 import styles from './LoginForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError/';
-import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../../../redux/Auth/operations';
-import { toast } from 'react-toastify';
 
 const initialValues = {
   email: '',

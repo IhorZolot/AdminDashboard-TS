@@ -1,7 +1,8 @@
+import { useSelector } from 'react-redux';
+
 import styles from './AllOrdersTab.module.scss';
 import StyledStatus from '../Status/StyledStatus';
 import { selectOrders } from '../../../../redux/Orders/sliceOrders';
-import { useSelector } from 'react-redux';
 
 const AllOrdersTab = () => {
   const userOrders = useSelector(selectOrders);

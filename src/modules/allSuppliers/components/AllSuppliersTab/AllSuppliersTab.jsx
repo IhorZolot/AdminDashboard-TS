@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 
 import styles from './AllSuppliersTab.module.scss';
 import { selectSuppliers } from '../../../../redux/Suppliers/suppliersSlice';
-import Status from '../Status/Status';
+import Status from '../Status';
 import ActionButton from '../ActionButton';
 
 const AllSuppliersTab = ({ onOpen }) => {

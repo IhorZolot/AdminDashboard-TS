@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
-import ActionsBottom from '../ActionsBottom/ActionsBottom';
+import ActionsBottom from '../ActionsBottom';
 import styles from './AllProductsTab.module.scss';
 import { selectProducts } from '../../../../redux/Products/productSlice';
 import { deleteProductThunk } from '../../../../redux/Products/operations';
-import { toast } from 'react-toastify';
 
 const AllProductsTab = ({ onOpenEdit }) => {
   const dispatch = useDispatch();

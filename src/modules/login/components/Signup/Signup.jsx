@@ -1,9 +1,10 @@
 import clsx from 'clsx';
+
 import '../../../../styles/container.scss';
 import LogoPill from '../../../../assets/icons/LogoPill.svg';
 import ResponsiveSVG from '../ResponsiveSVG';
-import LoginLogo from '../LoginLogo/LoginLogo';
-import SignupForm from '../SignupForm/SignupForm';
+import LoginLogo from '../LoginLogo';
+import SignupForm from '../SignupForm';
 import styles from './Signup.module.scss';
 
 const Signup = () => {

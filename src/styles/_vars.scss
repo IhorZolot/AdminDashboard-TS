@@ -1,11 +1,11 @@
 $cancel: '#e85050';
 $bgCancel: rgba(232, 80, 80, 0.1);
-$proces: '#70a6e8';
-$bgProces: rgba(112, 166, 232, 0.1);
+$process: '#70a6e8';
+$bgProcess: rgba(112, 166, 232, 0.1);
 $pending: '#f79042';
 $bgPending: rgba(247, 144, 66, 0.1);
-$confim: '#8059e4';
-$bgConfim: rgba(128, 89, 228, 0.1);
+$confirm: '#8059e4';
+$bgConfirm: rgba(128, 89, 228, 0.1);
 $complete: '#59b17a';
 $bgComplete: rgba(89, 177, 122, 0.1);
 
@@ -13,3 +13,7 @@ $cancelButton: rgba(29, 30, 33, 0.1);
 $font-family: 'Inter', sans-serif;
 $borderButton: rgba(89, 177, 122, 0.5);
 $borderTable: rgba(29, 30, 33, 0.1);
+$shipped: #295fa2;
+$bgShipped: rgba(49, 112, 190, 0.1);
+$delivered: #70c02b;
+$bgDelivered: rgba(135, 202, 72, 0.1);

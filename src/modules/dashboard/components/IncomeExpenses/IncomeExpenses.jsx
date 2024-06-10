@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 import styles from './IncomeExpenses.module.scss';
 import { selectIncomeExpensesResult } from '../../../../redux/Dashboard/dashboardSlice';
-import { useEffect } from 'react';
 import { fetchDashboard } from '../../../../redux/Dashboard/operations';
 import { getRowStyle, getAmountStyle } from './StylesUtils';
 const IncomeExpenses = () => {

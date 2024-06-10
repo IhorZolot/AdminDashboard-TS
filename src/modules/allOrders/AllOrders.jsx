@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-
-import AllOrdersTab from './components/AllOrdersTab/AllOrdersTab';
-import styles from './AllOrders.module.scss';
-import UserFilter from '../../shared/components/Filter/UserFilter';
 import { useEffect } from 'react';
+
+import styles from './AllOrders.module.scss';
+
+import UserFilter from '../../shared/components/Filter/UserFilter';
 import {
   fetchOrdersThunk,
   fetchOrdersByFieldThunk,
@@ -15,6 +15,7 @@ import {
   selectPages,
 } from '../../redux/Orders/sliceOrders';
 import ScrollTable from '../../shared/scrollTable';
+import AllOrdersTab from './components/AllOrdersTab';
 
 const AllOrders = () => {
   const dispatch = useDispatch();

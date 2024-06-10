@@ -1,1 +1,1 @@
-export { defailt } from './EditSuppliersModal';
+export { default } from './EditSuppliersModal';

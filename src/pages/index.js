@@ -8,7 +8,9 @@ export const DashboardPage = lazy(() => import('./DashboardPage'));
 export const LoginPage = lazy(() => import('./LoginPage'));
 export const NotFound = lazy(() => import('./NotFound'));
 
-export const Signup = lazy(() => import('../modules/login/components/Signup'));
+export const Signup = lazy(
+  () => import('../modules/login/components/Signup/Signup.jsx')
+);
 export const SharedLayout = lazy(
   () => import('../shared/components/SharedLayout')
 );

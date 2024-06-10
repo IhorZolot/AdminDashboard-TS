@@ -15,7 +15,7 @@ import {
   SharedLayout,
   Signup,
 } from './pages';
-import Loader from './shared/components/Loader/Loader';
+import Loader from './shared/components/Loader';
 
 const App = () => {
   const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import '../../styles/container.scss';
 import LogoPill from '../../assets/icons/LogoPill.svg';
 import styles from './Login.module.scss';
-import ResponsiveSVG from './components/ResponsiveSVG/ResponsiveSVG';
+import ResponsiveSVG from './components/ResponsiveSVG';
 import LoginLogo from './components/LoginLogo';
 import LoginForm from './components/LoginForm';
 

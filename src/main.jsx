@@ -1,10 +1,10 @@
 import 'modern-normalize';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 import 'react-toastify/dist/ReactToastify.css';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import { persistor, store } from './redux/store.js';
 import App from './App.jsx';
@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
         <ToastContainer
           autoClose={1000}
-          position="bottom-left"
+          position="bottom-right"
           theme="colored"
           closeOnClick
         />

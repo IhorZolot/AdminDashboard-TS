@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../../../modules/header';
-import SideBar from '../SideBar';
-import styles from './SharedLayout.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import clsx from 'clsx';
+
+import SideBar from '../SideBar';
+import Header from '../../../modules/header';
+import styles from './SharedLayout.module.scss';
 
 const SharedLayout = () => {
   const isDesktop = useMediaQuery({ minWidth: 1440 });

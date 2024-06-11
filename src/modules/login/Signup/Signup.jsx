@@ -4,8 +4,8 @@ import '../../../../styles/container.scss';
 import LogoPill from '../../../../assets/icons/LogoPill.svg';
 import styles from './Signup.module.scss';
 import LoginLogo from '../components/LoginLogo';
-import SignupForm from '../components/SignupForm/SignupForm';
-import ResponsiveSVG from '../components/ResponsiveSVG/ResponsiveSVG';
+import SignupForm from '../components/SignupForm';
+import ResponsiveSVG from '../components/ResponsiveSVG';
 
 const Signup = () => {
   return (

@@ -5,7 +5,7 @@ import LogoPill from '../../assets/icons/LogoPill.svg';
 import styles from './Login.module.scss';
 import LoginLogo from './components/LoginLogo';
 import LoginForm from './components/LoginForm';
-import ResponsiveSVG from './components/ResponsiveSVG/ResponsiveSVG.jsx';
+import ResponsiveSVG from './components/ResponsiveSVG';
 
 const Login = () => {
   return (

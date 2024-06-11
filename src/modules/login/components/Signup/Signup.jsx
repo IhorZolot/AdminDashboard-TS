@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import '../../../../styles/container.scss';
 import LogoPill from '../../../../assets/icons/LogoPill.svg';
 import styles from './Signup.module.scss';
-import ResponsiveSVG from '../ResponsiveSVG';
 import LoginLogo from '../LoginLogo';
 import SignupForm from '../SignupForm';
+import ResponsiveSVG from '../ResponsiveSVG/ResponsiveSVG';
 
 const Signup = () => {
   return (

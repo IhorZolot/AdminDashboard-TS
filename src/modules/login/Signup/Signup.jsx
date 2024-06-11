@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import '../../../../styles/container.scss';
 import LogoPill from '../../../../assets/icons/LogoPill.svg';
 import styles from './Signup.module.scss';
-import LoginLogo from '../LoginLogo';
-import SignupForm from '../SignupForm';
-// import ResponsiveSVG from '../ResponsiveSVG/ResponsiveSVG.jsx';
+import LoginLogo from '../components/LoginLogo';
+import SignupForm from '../components/SignupForm/SignupForm';
+import ResponsiveSVG from '../components/ResponsiveSVG/ResponsiveSVG';
 
 const Signup = () => {
   return (
@@ -20,7 +20,7 @@ const Signup = () => {
         </div>
         <SignupForm />
       </div>
-      {/* <ResponsiveSVG /> */}
+      <ResponsiveSVG />
     </div>
   );
 };

@@ -1,7 +1,12 @@
 import { Formik, Form, Field } from 'formik';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import styles from './SignupForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError';
+import { signupThunk } from '../../../../redux/Auth/operations';
 
 const initialValues = {
   name: '',
@@ -10,8 +15,18 @@ const initialValues = {
 };
 
 const SignupForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    dispatch(signupThunk(values))
+      .unwrap()
+      .then(() => {
+        toast.success('Signup successful!');
+        navigate('/login');
+      })
+      .catch(() => {
+        toast.error('Something went wrong. Please try again.');
+      });
     resetForm();
   };
   return (

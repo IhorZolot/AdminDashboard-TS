@@ -6,11 +6,9 @@ export const AllSuppliersPage = lazy(() => import('./AllSuppliersPage'));
 export const CustomersDataPage = lazy(() => import('./CustomersDataPage'));
 export const DashboardPage = lazy(() => import('./DashboardPage'));
 export const LoginPage = lazy(() => import('./LoginPage'));
+export const SignupPage = lazy(() => import('./SignupPage'));
 export const NotFound = lazy(() => import('./NotFound'));
 
-export const Signup = lazy(
-  () => import('../modules/login/components/Signup/Signup.jsx')
-);
 export const SharedLayout = lazy(
   () => import('../shared/components/SharedLayout')
 );

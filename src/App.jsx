@@ -13,7 +13,7 @@ import {
   LoginPage,
   NotFound,
   SharedLayout,
-  Signup,
+  SignupPage,
 } from './pages';
 import Loader from './shared/components/Loader';
 
@@ -38,7 +38,7 @@ const App = () => {
             path="signup"
             element={
               <PublicRoute>
-                <Signup />
+                <SignupPage />
               </PublicRoute>
             }
           />

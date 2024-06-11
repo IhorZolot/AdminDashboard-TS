@@ -17,10 +17,12 @@ const LoginForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
-    dispatch(loginThunk(values)).then(() => {
-      toast.success('Login successful!');
-      resetForm();
-    });
+    dispatch(loginThunk(values))
+      .unwrap()
+      .then(() => {
+        toast.success('Login successful!');
+        resetForm();
+      });
   };
   return (
     <Formik

@@ -3,7 +3,7 @@ import * as yup from 'yup';
 const validationsSchema = yup.object().shape({
   name: yup
     .string()
-    .min(6, 'Username must be at least 6 character')
+    .min(3, 'Username must be at least 6 character')
     .required('Name is required'),
   email: yup
     .string()

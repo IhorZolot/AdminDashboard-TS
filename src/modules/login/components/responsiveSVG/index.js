@@ -1,1 +1,1 @@
-export { default } from './ResponsiveSVG';
+export { default } from './ResponsiveSVG.jsx';

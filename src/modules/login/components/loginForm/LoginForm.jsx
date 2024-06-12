@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import styles from './LoginForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError/';
-import { loginThunk } from '../../../../redux/Auth/operations';
+import { loginThunk } from '@/redux/Auth/operations';
 import { useLocation } from 'react-router-dom';
 
 

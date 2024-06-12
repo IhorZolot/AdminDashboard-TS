@@ -2,15 +2,15 @@ import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import styles from './LoginForm.module.scss';
+import styles from './SigninForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
-import FormError from '../FormError/';
+import FormError from '../FormError';
 import { loginThunk } from '@/redux/Auth/operations';
 import { useLocation } from 'react-router-dom';
 
 
 
-const LoginForm = () => {
+const SigninForm = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const initialValues = {
@@ -60,4 +60,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SigninForm;

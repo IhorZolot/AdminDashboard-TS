@@ -4,10 +4,10 @@ import { useLocation } from 'react-router-dom';
 import '../../styles/container.scss';
 import styles from './Login.module.scss';
 import LogoPill from '@/assets/icons/LogoPill.svg';
-import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import AccountLink from './components/AccountLink';
 import OverlayLogin from './components/OverlayLogin';
+import SigninForm from './components/SigninForm';
 import Logo from './components/Logo';
 
 const Login = () => {
@@ -24,7 +24,7 @@ const Login = () => {
           </h1>
         </div>
         <div>
-          {isLoginPage ? <LoginForm /> : <SignupForm />}
+          {isLoginPage ? <SigninForm /> : <SignupForm />}
         <AccountLink isLoginPage={!isLoginPage} />
         </div>
       </div>

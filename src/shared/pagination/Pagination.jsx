@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import styles from './Pagination.module.scss';
 import { selectCurrentPage } from '../../redux/Orders/sliceOrders';
 
-export const Pagination = ({ totalPages, onPageChange }) => {
+ const Pagination = ({ totalPages, onPageChange }) => {
   const currentPage = useSelector(selectCurrentPage);
 
   const handlePageClick = (pageNumber) => {
@@ -29,3 +29,4 @@ export const Pagination = ({ totalPages, onPageChange }) => {
     </div>
   );
 };
+export default Pagination;

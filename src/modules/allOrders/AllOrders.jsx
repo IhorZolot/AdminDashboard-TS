@@ -8,7 +8,7 @@ import {
   fetchOrdersThunk,
   fetchOrdersByFieldThunk,
 } from '@/redux/Orders/operations';
-import { Pagination } from '.@/shared/pagination/Pagination';
+import Pagination from '@/shared/pagination';
 import {
   currentPageOrders,
   selectCurrentPage,

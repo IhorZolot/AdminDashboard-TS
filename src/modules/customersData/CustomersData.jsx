@@ -8,7 +8,7 @@ import {
   fetchCustomersThunk,
   filteredCustomersByFieldThunk,
 } from '../../redux/Customers/operations';
-import { Pagination } from '../../shared/pagination/Pagination';
+import  Pagination  from '@/shared/pagination';
 import { currentPageCustomers } from '../../redux/Customers/customerSlice';
 import ScrollTable from '../../shared/scrollTable/ScrollTable';
 

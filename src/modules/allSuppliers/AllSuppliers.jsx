@@ -18,7 +18,7 @@ import {
   selectCurrentSuppliersPage,
   selectSuppliersPages,
 } from '../../redux/Suppliers/suppliersSlice';
-import { Pagination } from '../../shared/pagination/Pagination';
+import  Pagination  from '@/shared/pagination';
 import ScrollTable from '../../shared/scrollTable/ScrollTable';
 
 const AllSuppliers = () => {

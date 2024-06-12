@@ -19,7 +19,7 @@ import {
   selectCurrentPage,
   selectPages,
 } from '../../redux/Products/productSlice';
-import { Pagination } from '../../shared/pagination/Pagination';
+import Pagination  from '@/shared/pagination';
 import ScrollTable from '../../shared/scrollTable/ScrollTable';
 
 const AllProducts = () => {

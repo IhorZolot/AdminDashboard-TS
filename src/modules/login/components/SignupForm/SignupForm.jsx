@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './SignupForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
@@ -22,7 +22,7 @@ const SignupForm = () => {
       .unwrap()
       .then(() => {
         toast.success('Signup successful!');
-        navigate('/login');
+        navigate('/login', { state: { email: values.email, password: values.password } });
       })
       .catch(() => {
         toast.error('Something went wrong. Please try again.');
@@ -39,7 +39,7 @@ const SignupForm = () => {
         <label className={styles.loginLabel}>
           <Field
             className={styles.loginInput}
-            type="name"
+            type="text"
             name="name"
             placeholder="Enter name"
           />

@@ -6,6 +6,7 @@ export const signupThunk = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await API.post('user/signup', credentials);
+      setToken(data.token);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -30,11 +30,8 @@ const authSlice = createSlice({
       .addCase(signupThunk.fulfilled, (state, { payload }) => {
         state.user.email = payload.email;
         state.token = payload.token;
-        state.isLoggedIn = true;
+        state.isLoggedIn = false;
         state.error = '';
-      })
-      .addCase(loginThunk.pending, (state) => {
-        state.isLoading = true;
       })
       .addCase(loginThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
@@ -52,6 +49,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.user.email = payload.email;
+        state.token = payload.token;
         state.isLoggedIn = true;
         state.error = '';
       });

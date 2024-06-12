@@ -6,14 +6,17 @@ import styles from './LoginForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError/';
 import { loginThunk } from '../../../../redux/Auth/operations';
+import { useLocation } from 'react-router-dom';
 
-const initialValues = {
-  email: '',
-  password: '',
-};
+
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const initialValues = {
+    email: location.state?.email || '',
+    password: location.state?.password || '',
+  };
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);

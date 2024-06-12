@@ -3,18 +3,18 @@ import { useEffect } from 'react';
 
 import styles from './AllOrders.module.scss';
 
-import UserFilter from '../../shared/components/Filter/UserFilter';
+import UserFilter from '@/shared/components/Filter/UserFilter';
 import {
   fetchOrdersThunk,
   fetchOrdersByFieldThunk,
-} from '../../redux/Orders/operations';
-import { Pagination } from '../../shared/pagination/Pagination';
+} from '@/redux/Orders/operations';
+import { Pagination } from '.@/shared/pagination/Pagination';
 import {
   currentPageOrders,
   selectCurrentPage,
   selectPages,
-} from '../../redux/Orders/sliceOrders';
-import ScrollTable from '../../shared/scrollTable';
+} from '@/redux/Orders/sliceOrders';
+import ScrollTable from '@/shared/scrollTable';
 import AllOrdersTab from './components/AllOrdersTab';
 
 const AllOrders = () => {

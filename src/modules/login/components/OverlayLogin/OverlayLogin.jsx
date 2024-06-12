@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
 import { SpriteSVG } from '../../../../assets/icons/SpriteSVG';
-import styles from './ResponsiveSVG.module.scss';
+import styles from './OverlayLogin.module.scss';
 
-const ResponsiveSVG = () => {
+const OverlayLogin = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -28,4 +28,4 @@ const ResponsiveSVG = () => {
   return <div className={styles.bottomRightImg}>{selectedSVG()}</div>;
 };
 
-export default ResponsiveSVG;
+export default OverlayLogin;

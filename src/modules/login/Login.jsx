@@ -8,6 +8,7 @@ import LoginLogo from './components/LoginLogo';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import AccountLink from './components/AccountLink';
+import OverlayLogin from './components/OverlayLogin';
 
 const Login = () => {
   const location = useLocation();
@@ -27,7 +28,7 @@ const Login = () => {
         <AccountLink isLoginPage={!isLoginPage} />
         </div>
       </div>
-      {/* <ResponsiveSVG /> */}
+     <OverlayLogin/>
     </div>
   );
 };

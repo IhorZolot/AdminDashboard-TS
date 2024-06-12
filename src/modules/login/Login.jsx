@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import '../../styles/container.scss';
 import styles from './Login.module.scss';
 import LogoPill from '@/assets/icons/LogoPill.svg';
-import ResponsiveSVG from '@/modules/login/components/ResponsiveSVG';
+import ResponsiveSVG from './components/ResponsiveSVG';
 import LoginLogo from './components/LoginLogo';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';

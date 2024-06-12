@@ -4,18 +4,18 @@ import { useLocation } from 'react-router-dom';
 import '../../styles/container.scss';
 import styles from './Login.module.scss';
 import LogoPill from '@/assets/icons/LogoPill.svg';
-import LoginLogo from './components/LoginLogo';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import AccountLink from './components/AccountLink';
 import OverlayLogin from './components/OverlayLogin';
+import Logo from './components/Logo';
 
 const Login = () => {
   const location = useLocation();
   const isLoginPage = location.pathname === '/login';
   return (
     <div className={clsx(styles.loginSection, 'container')}>
-      <LoginLogo />
+      <Logo />
       <div className={styles.loginSectionStyle}>
         <div>
           <img src={LogoPill} alt="logoImg" className={styles.loginImg} />

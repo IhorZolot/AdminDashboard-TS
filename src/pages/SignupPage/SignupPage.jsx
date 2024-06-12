@@ -1,7 +1,7 @@
-import Signup from '../../modules/login/components/Signup/Signup.jsx';
+import Login from '../../modules/login/Login';
 
 const SignupPage = () => {
-  return <Signup />;
+  return <Login />;
 };
 
 export default SignupPage;

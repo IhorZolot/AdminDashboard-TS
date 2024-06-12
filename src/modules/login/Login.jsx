@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import { useLocation } from 'react-router-dom';
 
 import '../../styles/container.scss';
-import LogoPill from '../../assets/icons/LogoPill.svg';
 import styles from './Login.module.scss';
+import LogoPill from '@/assets/icons/LogoPill.svg';
+import ResponsiveSVG from './components/ResponsiveSVG';
 import LoginLogo from './components/LoginLogo';
 import LoginForm from './components/LoginForm';
-import ResponsiveSVG from './components/ResponsiveSVG';
 import SignupForm from './components/SignupForm';
 import AccountLink from './components/AccountLink';
 

@@ -7,7 +7,7 @@ import styles from './Login.module.scss';
 import LoginLogo from './components/LoginLogo';
 import LoginForm from './components/LoginForm';
 import ResponsiveSVG from './components/ResponsiveSVG';
-import SignupForm from './components/SignupForm/SignupForm';
+import SignupForm from './components/SignupForm';
 import AccountLink from './components/AccountLink';
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
         </div>
         <div>
           {isLoginPage ? <LoginForm /> : <SignupForm />}
-        <AccountLink isLoggedIn={!isLoginPage} />
+        <AccountLink isLoginPage={!isLoginPage} />
         </div>
       </div>
       <ResponsiveSVG />

@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 
 import styles from './AccountLink.module.scss';
 
-const AccountLink = ({ isLoggedIn }) => {
+const AccountLink = ({ isLoginPage }) => {
   return (
     <div className={styles.accountLink}>
-      {isLoggedIn ? (
+      {isLoginPage ? (
         <span className={styles.accountText} >
           Already have an account? <Link to="/login">Log in</Link>.
         </span>

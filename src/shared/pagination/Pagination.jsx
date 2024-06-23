@@ -11,7 +11,8 @@ import { selectCurrentPage } from '../../redux/Orders/sliceOrders';
   const currentPageStyle = (pageNumber) => {
     return pageNumber === currentPage ? styles.selected : styles.page;
   };
-  if (totalPages === 0) {
+  
+  if (totalPages <= 1) {
     return null;
   }
 

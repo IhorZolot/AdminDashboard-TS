@@ -16,7 +16,6 @@ const CustomersData = () => {
   const dispatch = useDispatch();
 
   const currentPage = useSelector((state) => state.customers.currentPage);
-
   const totalPages = useSelector((state) => state.customers.pages);
 
   useEffect(() => {

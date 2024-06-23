@@ -26,7 +26,8 @@ const orderSlice = createSlice({
         state.pages = payload.pages;
       })
       .addCase(fetchOrdersByFieldThunk.fulfilled, (state, { payload }) => {
-        state.orders = payload;
+        state.orders = payload.data;
+        state.pages = payload.pages;
       });
   },
 });

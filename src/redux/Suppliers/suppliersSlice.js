@@ -36,7 +36,8 @@ const supplierSlice = createSlice({
       .addCase(
         filteredSuppliersByFieldThunk.fulfilled,
         (state, { payload }) => {
-          state.suppliers = payload;
+          state.suppliers = payload.data;
+          state.pages = payload.pages;
         }
       )
       .addCase(getStatusThunk.fulfilled, (state, { payload }) => {

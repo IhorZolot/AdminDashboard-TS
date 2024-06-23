@@ -63,7 +63,8 @@ const productSlice = createSlice({
         toast.error(`Failed to delete product: ${payload}`);
       })
       .addCase(filteredProductsByFieldThunk.fulfilled, (state, { payload }) => {
-        state.products = payload;
+        state.products = payload.data;
+        state.pages = payload.pages;
       });
   },
 });

@@ -31,7 +31,8 @@ const customerSlice = createSlice({
       .addCase(
         filteredCustomersByFieldThunk.fulfilled,
         (state, { payload }) => {
-          state.customers = payload;
+          state.customers = payload.data;
+          state.pages = payload.pages;
         }
       );
   },

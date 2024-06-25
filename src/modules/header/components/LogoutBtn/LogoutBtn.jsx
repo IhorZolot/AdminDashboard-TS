@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { SpriteSideBar } from '../../../../assets/icons/SpriteSideBar';
 import styles from './LogoutBtn.module.scss';
-import { logoutThunk } from '../../../../redux/Auth/operations';
+
+import { SpriteSideBar } from '@assets/icons/SpriteSideBar';
+import { logoutThunk } from '@redux/Auth/operations';
 
 const LogoutBtn = () => {
   const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-@import '../../../../styles/sharedStyles.scss';
+@import 'sharedStyles';
 
 .sectionCustomers {
   border: 1px solid $borderTable;
@@ -97,9 +97,7 @@
   .button {
     font-size: 16px;
   }
-  .sectionCustomers {
-    overflow: hidden;
-  }
+
 }
 @media screen and (min-width: 1440px) {
   .dataCustomers td {
@@ -110,9 +108,6 @@
   }
   .button {
     font-size: 14px;
-  }
-  .sectionCustomers {
-    overflow: hidden;
   }
   .table {
     height: 516px;

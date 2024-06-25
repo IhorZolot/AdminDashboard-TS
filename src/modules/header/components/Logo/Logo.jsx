@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import LogoIcon from '../../../../assets/icons/LogoIcon.svg';
+import LogoIcon from '@assets/icons/LogoIcon.svg';
 import styles from './Logo.module.scss';
 
 const Logo = () => {

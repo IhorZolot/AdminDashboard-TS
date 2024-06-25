@@ -1,9 +1,12 @@
-@import '../../../../styles/sharedStyles.scss';
+@import 'sharedStyles';
 
 .sectionTable {
   border: 1px solid $borderTable;
   border-radius: 8px;
   margin-top: 15px;
+  // padding-bottom: 40px;
+  // position: relative;
+
 }
 .table {
   background: $textButton;

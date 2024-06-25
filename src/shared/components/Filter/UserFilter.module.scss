@@ -1,9 +1,38 @@
-@import '../../../styles/sharedStyles.scss';
+@import 'sharedStyles';
 
 .sectorInput {
   display: flex;
   gap: 10px;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.inputDiv {
+  position: relative;
+}
+.inputField {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 8px;
+  color: $textButton; 
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.16;
+}
+.clearButton {
+  position: absolute;
+  right: 10px;
+  transform: translateY(12px);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.clearButton:hover {
+  color: red;
 }
 @media screen and (min-width: 375px) {
 }

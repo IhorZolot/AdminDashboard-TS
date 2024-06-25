@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { SpriteSVG } from '../../../../assets/icons/SpriteSVG';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
 import styles from './OverlayLogin.module.scss';
 
 const OverlayLogin = () => {

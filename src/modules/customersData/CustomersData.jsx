@@ -1,16 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import UserFilter from '../../shared/components/Filter/UserFilter';
+import UserFilter from '@shared/components/Filter/UserFilter';
 import styles from './CustomersData.module.scss';
 import CustomersTab from './components/CustomersTab';
 import {
   fetchCustomersThunk,
   filteredCustomersByFieldThunk,
-} from '../../redux/Customers/operations';
+} from '@redux/Customers/operations';
 import  Pagination  from '@/shared/pagination';
-import { currentPageCustomers } from '../../redux/Customers/customerSlice';
-import ScrollTable from '../../shared/scrollTable/ScrollTable';
+import { currentPageCustomers } from '@redux/Customers/customerSlice';
 
 const CustomersData = () => {
   const dispatch = useDispatch();
@@ -31,9 +30,7 @@ const CustomersData = () => {
   return (
     <div className={styles.section}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
-      <ScrollTable>
         <CustomersTab />
-      </ScrollTable>
       <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
     </div>
   );

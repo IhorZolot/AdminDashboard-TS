@@ -1,4 +1,4 @@
-import { SpriteSVG } from '../../../../assets/icons/SpriteSVG';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
 import styles from './ActionButton.module.scss';
 const ActionButton = ({ onClick }) => {
   return (

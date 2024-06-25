@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useLocation } from 'react-router-dom';
 
 import '../../styles/container.scss';
+
 import styles from './Login.module.scss';
 import LogoPill from '@/assets/icons/LogoPill.svg';
 import SignupForm from './components/SignupForm';

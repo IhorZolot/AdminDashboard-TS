@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useMediaQuery } from 'react-responsive';
 
-import useModal from '../../hooks/useModal';
-import Modal from '../../shared/components/Modal';
+import useModal from '@hooks/useModal';
+import Modal from '@shared/components/Modal';
 import MobileMenu from '../MobileMenu';
 import Burger from './components/Burger';
 import Logo from './components/Logo';

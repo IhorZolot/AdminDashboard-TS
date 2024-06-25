@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 
 import styles from './CustomersTab.module.scss';
-import { selectCustomers } from '../../../../redux/Customers/customerSlice';
+import { selectCustomers } from '@redux/Customers/customerSlice';
+import ScrollTable from '@shared/scrollTable/ScrollTable';
 
 const CustomersTab = () => {
   const userCustomers = useSelector(selectCustomers);
@@ -12,6 +13,7 @@ const CustomersTab = () => {
   return (
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>
+      <ScrollTable>
       <table className={styles.table}>
         <thead className={styles.theadTable}>
           <tr>
@@ -37,6 +39,8 @@ const CustomersTab = () => {
           ))}
         </tbody>
       </table>
+      </ScrollTable>
+      
     </div>
   );
 };

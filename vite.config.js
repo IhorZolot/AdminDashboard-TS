@@ -7,7 +7,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src') 
+      '@': path.resolve(__dirname, './src'),
+      "@redux": path.resolve(__dirname, './src/redux'),
+      "@assets": path.resolve(__dirname, './src/assets'),
+      "@hooks": path.resolve(__dirname, './src/hooks'),
+      "@shared": path.resolve(__dirname, './src/shared'),
+      sharedStyles: path.resolve(__dirname, './src/styles/sharedStyles.scss'), 
     }
   }
 });

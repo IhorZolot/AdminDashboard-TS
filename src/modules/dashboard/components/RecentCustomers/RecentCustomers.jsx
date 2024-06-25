@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './RecentCustomers.module.scss';
-import { selectCustomerCountAll } from '../../../../redux/Dashboard/dashboardSlice';
 import { useEffect, useState } from 'react';
-import { fetchDashboard } from '../../../../redux/Dashboard/operations';
-import useModal from '../../../../hooks/useModal';
+
+import styles from './RecentCustomers.module.scss';
+
+import { selectCustomerCountAll } from '@redux/Dashboard/dashboardSlice';
+import { fetchDashboard } from '@redux/Dashboard/operations';
+import useModal from '@hooks/useModal';
 import ModalCountry from './ModalCountry';
-import Modal from '../../../../shared/components/Modal/Modal';
+import Modal from '@shared/components/Modal/Modal';
+import ScrollTable from '@shared/scrollTable/ScrollTable';
 
 const RecentCustomers = () => {
   const [selectedCustomer, setSelectedCustomer] = useState(null);
@@ -20,7 +23,7 @@ const RecentCustomers = () => {
   return (
     <div className={styles.sectionCustomers}>
       <h2 className={styles.titleCustomers}>{nameTable}</h2>
-      <table className={styles.table}>
+      <ScrollTable><table className={styles.table}>
         <thead className={styles.theadCustomers}>
           <tr>
             {headers.map((header, index) => (
@@ -54,6 +57,7 @@ const RecentCustomers = () => {
           ))}
         </tbody>
       </table>
+      </ScrollTable>
       {isOpenModal && (
         <Modal onClose={close}>
           <ModalCountry customer={selectedCustomer} onClose={close} />

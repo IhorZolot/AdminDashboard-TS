@@ -1,26 +1,26 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import { SpriteSVG } from '../../assets/icons/SpriteSVG';
-import useModal from '../../hooks/useModal';
-import RoundButton from '../../shared/components/Button/RoundButton';
-import UserFilter from '../../shared/components/Filter/UserFilter';
-import Modal from '../../shared/components/Modal';
 import styles from './AllProducts.module.scss';
+
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import useModal from '@hooks/useModal';
+import RoundButton from '@shared/components/Button/RoundButton';
+import UserFilter from '@shared/components/Filter/UserFilter';
+import Modal from '@shared/components/Modal';
 import AllProductsTab from './components/AllProductsTab';
 import AddProductModal from './components/ProductModal/AddProductModal';
 import EditProductModal from './components/ProductModal/EditProductModal';
 import {
   fetchProductsThunk,
   filteredProductsByFieldThunk,
-} from '../../redux/Products/operations';
+} from '@redux/Products/operations';
 import {
   currentPageProducts,
   selectCurrentPage,
   selectPages,
-} from '../../redux/Products/productSlice';
+} from '@redux/Products/productSlice';
 import Pagination  from '@/shared/pagination';
-import ScrollTable from '../../shared/scrollTable/ScrollTable';
 
 const AllProducts = () => {
   const dispatch = useDispatch();
@@ -60,9 +60,7 @@ const AllProducts = () => {
           <p className={styles.text}>Add a new product</p>
         </div>
       </div>
-      <ScrollTable>
         <AllProductsTab onOpenEdit={handleOpenEditModal} />
-      </ScrollTable>
       <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>

@@ -2,9 +2,11 @@ import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
 
 import styles from './AllSuppliersTab.module.scss';
-import { selectSuppliers } from '../../../../redux/Suppliers/suppliersSlice';
-import Status from '../Status';
+
+import { selectSuppliers } from '@redux/Suppliers/suppliersSlice';
+import ScrollTable from '@shared/scrollTable/ScrollTable';
 import ActionButton from '../ActionButton';
+import Status from '../Status';
 
 const AllSuppliersTab = ({ onOpen }) => {
   const userSupplier = useSelector(selectSuppliers);
@@ -27,7 +29,7 @@ const AllSuppliersTab = ({ onOpen }) => {
   return (
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>
-      <table className={styles.table}>
+      <ScrollTable><table className={styles.table}>
         <thead className={styles.theadTable}>
           <tr>
             {headers.map((header, index) => (
@@ -61,6 +63,7 @@ const AllSuppliersTab = ({ onOpen }) => {
           ))}
         </tbody>
       </table>
+      </ScrollTable>
     </div>
   );
 };

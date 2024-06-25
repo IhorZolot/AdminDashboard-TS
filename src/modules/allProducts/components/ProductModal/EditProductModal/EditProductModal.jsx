@@ -24,9 +24,9 @@ const EditProductModal = ({ products, onClose }) => {
     dispatch(getCategoriesThunk());
   }, [dispatch]);
   const categories = useSelector(selectCategories);
-
+  console.log(products);
   const handleSubmit = (values, { resetForm }) => {
-    const updatedProduct = { ...products, ...values, _id: products._id };
+    const updatedProduct = { ...products, ...values};
     dispatch(updateProductThunk(updatedProduct)).then(() => {
       toast.success('Product updated successfully');
       resetForm();

@@ -8,7 +8,6 @@ const ScrollTable = ({ children }) => {
       <SimpleBar forceVisible="x" autoHide={false} className={styles.simpleBar}>
         {children}
       </SimpleBar>
-      <div className={styles.scrollContent}></div>
     </div>
   );
 };

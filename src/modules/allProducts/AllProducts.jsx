@@ -56,7 +56,7 @@ const AllProducts = () => {
               openAdd();
             }}
           >
-            <SpriteSVG name="add" width="16px" height="16px" />
+            <SpriteSVG name="add"/>
           </RoundButton>
           <p className={styles.text}>Add a new product</p>
         </div>

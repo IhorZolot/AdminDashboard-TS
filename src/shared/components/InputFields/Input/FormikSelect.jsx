@@ -1,10 +1,12 @@
-import { Field } from 'formik';
+import { ErrorMessage, Field } from 'formik';
+
 import styles from './FormikSelect.module.scss';
-import FormError from '../../../../modules/login/components/FormError';
+
+import FormError from '@modules/login/components/FormError';
 
 const FormikSelect = ({ data, name, placeholder }) => {
   return (
-    <>
+    <label className={styles.label}>
       <Field
         as="select"
         name={name}
@@ -17,8 +19,8 @@ const FormikSelect = ({ data, name, placeholder }) => {
           </option>
         ))}
       </Field>
-      <FormError fieldName={name} />
-    </>
+      <ErrorMessage name={name} component="span" className={styles.error} />
+    </label>
   );
 };
 

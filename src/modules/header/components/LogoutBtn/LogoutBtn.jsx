@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
 import styles from './LogoutBtn.module.scss';
 
@@ -9,9 +8,7 @@ import { logoutThunk } from '@redux/Auth/operations';
 const LogoutBtn = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
-    dispatch(logoutThunk()).then(() => {
-      toast.success('Logout successful!');
-    });
+    dispatch(logoutThunk());
   };
   return (
     <button onClick={handleLogout} className={styles.sectionBtn}>

@@ -3,18 +3,19 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button';
 import styles from './AddProductModal.module.scss';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
+
+import Button from '@shared/components/Button';
 import {
   FormikInput,
   FormikSelect,
-} from '../../../../../shared/components/InputFields/Input';
+} from '@shared/components/InputFields/Input';
 import {
   addProductsThunk,
   getCategoriesThunk,
-} from '../../../../../redux/Products/operations';
-import { selectCategories } from '../../../../../redux/Products/productSlice';
+} from '@redux/Products/operations';
+import { selectCategories } from '@redux/Products/productSlice';
 import validationsAddProductSchema from '../helpers/validationsProductAddSchema';
 
 const initialValues = {
@@ -74,7 +75,7 @@ const AddProductModal = ({ onClose }) => {
           onClose();
         }}
       >
-        <SpriteSVG name="close" width="16" height="16" />
+        <SpriteSVG name="close"/>
       </button>
     </div>
   );

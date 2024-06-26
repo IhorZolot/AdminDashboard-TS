@@ -1,11 +1,10 @@
 import styles from './RoundButton.module.scss';
 
-const RoundButton = ({ children, onClick }) => {
-  return (
-    <button onClick={onClick} className={styles.sectionBtn}>
-      {children}
-    </button>
-  );
-};
+const RoundButton = ({ ...props}) => (
+  <button
+    className={styles.sectionBtn}
+    {...props}
+  />
+)
 
 export default RoundButton;

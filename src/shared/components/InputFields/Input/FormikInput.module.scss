@@ -1,4 +1,4 @@
-@import '../../../../styles/sharedStyles.scss';
+@import 'sharedStyles';
 
 .input {
   border: 1px solid rgba(29, 30, 33, 0.1);
@@ -9,6 +9,20 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
-  color: rgba(29, 30, 33, 0.4);
+  color: $mainText;
   padding: 10px 20px;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 5px;
+}
+.error {
+  color: red;
+  font-size: 10px;
+  margin-top: 5px;
+  position: absolute;
+  bottom: -13px;
+  left: 21px;
 }

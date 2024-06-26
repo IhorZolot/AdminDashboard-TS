@@ -12,6 +12,7 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, './src/assets'),
       "@hooks": path.resolve(__dirname, './src/hooks'),
       "@shared": path.resolve(__dirname, './src/shared'),
+      "@modules": path.resolve(__dirname, './src/modules'),
       sharedStyles: path.resolve(__dirname, './src/styles/sharedStyles.scss'), 
     }
   }

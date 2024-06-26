@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+
 import {
   loginThunk,
   logoutThunk,
@@ -15,6 +17,7 @@ const initialState = {
   error: '',
   isLoading: false,
   isLoggedIn: false,
+  isRefresh: false,
 };
 const authSlice = createSlice({
   name: 'auth',
@@ -23,6 +26,7 @@ const authSlice = createSlice({
     selectToken: (state) => state.token,
     selectUser: (state) => state.user,
     selectIsLoggedIn: (state) => state.isLoggedIn,
+    selectIsRefresh: (state) => state.isRefresh,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -40,22 +44,33 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.error = '';
       })
+      .addCase(loginThunk.rejected, () => {
+        toast.error("Incorrect email or password");
+      })
       .addCase(logoutThunk.fulfilled, (state) => {
         state.isLoading = false;
         state.error = '';
         state.user.email = '';
         state.token = '';
         state.isLoggedIn = false;
+        toast.success('Logout successful!');
+      })
+      .addCase(refreshThunk.pending, (state) => {
+        state.isRefresh = true;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.user.email = payload.email;
-        state.token = payload.token;
         state.isLoggedIn = true;
+        state.isRefresh = false;
         state.error = '';
+      })
+      .addCase(refreshThunk.rejected, (state, { payload }) => {
+        state.isRefresh = false;
+        state.error = payload;
       });
   },
 });
 
-export const { selectToken, selectUser, selectIsLoggedIn } =
+export const { selectToken, selectUser, selectIsLoggedIn, selectIsRefresh } =
   authSlice.selectors;
 export const userReducer = authSlice.reducer;

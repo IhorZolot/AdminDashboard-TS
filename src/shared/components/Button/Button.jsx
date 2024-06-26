@@ -1,11 +1,8 @@
 import styles from './Button.module.scss';
 
-const Button = ({ children, type, isCancel, onClick, ...rest }) => {
-  const statusClassName = isCancel ? styles.cancel : styles.button;
+const Button = ({isCancel,  ...rest }) => {
   return (
-    <button type={type} onClick={onClick} {...rest} className={statusClassName}>
-      {children}
-    </button>
+    <button className={isCancel ? styles.cancel : styles.button} {...rest} />
   );
 };
 

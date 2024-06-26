@@ -5,7 +5,7 @@ import styles from './Modal.module.scss';
 const modalRoot = document.querySelector('#modal-root');
 
 const Modal = ({ children, onClose }) => {
-  const onBackdropClik = event => {
+  const onBackdropClick = event => {
     if (event.target === event.currentTarget) {
       onClose();
     }
@@ -25,7 +25,7 @@ const Modal = ({ children, onClose }) => {
     };
   }, [onClose]);
   return createPortal(
-    <div className={styles.modalOverlay} onClick={onBackdropClik}>
+    <div className={styles.modalOverlay} onClick={onBackdropClick}>
       {children}
     </div>,
     modalRoot

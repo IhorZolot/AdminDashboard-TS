@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { refreshThunk } from './redux/Auth/operations';
 import { PrivateRoute, PublicRoute } from './routes';
+import { selectIsRefresh } from './redux/Auth/authSlice';
+import Loader from './shared/components/Loader';
 import {
   AllOrdersPage,
   AllProductsPage,
@@ -15,14 +17,14 @@ import {
   SharedLayout,
   SignupPage,
 } from './pages';
-import Loader from './shared/components/Loader';
 
 const App = () => {
   const dispatch = useDispatch();
+  const isRefresh=useSelector(selectIsRefresh)
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
-  return (
+  return isRefresh ? <Loader /> : (
     <>
       <Suspense fallback={<Loader />}>
         <Routes>

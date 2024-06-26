@@ -1,4 +1,4 @@
-@import '../../../../styles/sharedStyles.scss';
+@import 'sharedStyles';
 
 .input {
   border: 1px solid rgba(29, 30, 33, 0.1);
@@ -9,8 +9,8 @@
   background: $textButton;
   font-family: $font-family;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 150%;
-  color: rgba(29, 30, 33, 0.4);
+  color: $mainText;
   padding: 20px;
 }

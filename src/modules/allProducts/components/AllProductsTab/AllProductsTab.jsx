@@ -6,6 +6,7 @@ import styles from './AllProductsTab.module.scss';
 import { selectProducts } from '@redux/Products/productSlice';
 import { deleteProductThunk } from '@redux/Products/operations';
 import ScrollTable from '@shared/scrollTable/ScrollTable';
+import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
 
 const AllProductsTab = ({ onOpenEdit }) => {
   const dispatch = useDispatch();
@@ -37,7 +38,10 @@ const AllProductsTab = ({ onOpenEdit }) => {
   return (
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>
-      <ScrollTable>
+      {userProduct.length === 0 ? (
+        <NoResultFound /> 
+      ) : (
+        <ScrollTable>
       <table className={styles.table}>
         <thead className={styles.theadTable}>
           <tr>
@@ -70,6 +74,7 @@ const AllProductsTab = ({ onOpenEdit }) => {
         </tbody>
       </table>
       </ScrollTable>
+      )}
     </div>
   );
 };

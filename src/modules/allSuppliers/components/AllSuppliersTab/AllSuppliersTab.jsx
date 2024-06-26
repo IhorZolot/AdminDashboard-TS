@@ -7,6 +7,7 @@ import { selectSuppliers } from '@redux/Suppliers/suppliersSlice';
 import ScrollTable from '@shared/scrollTable/ScrollTable';
 import ActionButton from '../ActionButton';
 import Status from '../Status';
+import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
 
 const AllSuppliersTab = ({ onOpen }) => {
   const userSupplier = useSelector(selectSuppliers);
@@ -29,7 +30,8 @@ const AllSuppliersTab = ({ onOpen }) => {
   return (
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>
-      <ScrollTable><table className={styles.table}>
+      {(userSupplier.length === 0) ? (<NoResultFound />) : (
+        <ScrollTable><table className={styles.table}>
         <thead className={styles.theadTable}>
           <tr>
             {headers.map((header, index) => (
@@ -64,6 +66,7 @@ const AllSuppliersTab = ({ onOpen }) => {
         </tbody>
       </table>
       </ScrollTable>
+      )}
     </div>
   );
 };

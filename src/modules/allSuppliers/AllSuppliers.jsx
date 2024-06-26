@@ -33,8 +33,9 @@ const AllSuppliers = () => {
     dispatch(fetchSuppliersThunk(currentPage));
   }, [dispatch, currentPage]);
 
-  const applyFilter = (value) => {
-    dispatch(filteredSuppliersByFieldThunk(value));
+  const applyFilter = async (value) => {
+   const results = await dispatch(filteredSuppliersByFieldThunk(value)).unwrap();
+    return results;
   };
 
   const handleOpenEditModal = (suppliers) => {

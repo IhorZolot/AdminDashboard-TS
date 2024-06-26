@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import styles from './AllProducts.module.scss';
-
 import { SpriteSVG } from '@assets/icons/SpriteSVG';
+
 import useModal from '@hooks/useModal';
 import RoundButton from '@shared/components/Button/RoundButton';
 import UserFilter from '@shared/components/Filter/UserFilter';
@@ -33,8 +33,9 @@ const AllProducts = () => {
   useEffect(() => {
     dispatch(fetchProductsThunk(currentPage));
   }, [dispatch, currentPage]);
-  const applyFilter = (value) => {
-    dispatch(filteredProductsByFieldThunk(value));
+  const applyFilter = async (value) => {
+   const results = await dispatch(filteredProductsByFieldThunk(value)).unwrap();
+    return results;
   };
   const handleOpenEditModal = (product) => {
     setSelectedProduct(product);

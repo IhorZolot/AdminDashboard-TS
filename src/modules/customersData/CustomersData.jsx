@@ -20,8 +20,9 @@ const CustomersData = () => {
   useEffect(() => {
     dispatch(fetchCustomersThunk(currentPage));
   }, [dispatch, currentPage]);
-  const applyFilter = (value) => {
-    dispatch(filteredCustomersByFieldThunk(value));
+  const applyFilter = async (value) => {
+   const results = await dispatch(filteredCustomersByFieldThunk(value)).unwrap();
+    return results;
   };
 
   const handlePageChange = (pageNumber) => {

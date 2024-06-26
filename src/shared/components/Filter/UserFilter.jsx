@@ -17,12 +17,17 @@ const UserFilter = ({ placeholder, onFilter }) => {
   const handleInputChange = (event) => {
     setFilterValue(event.target.value);
   };
-  const handleFilterSubmit = () => {
+  const handleFilterSubmit = async () => {
     if (!filterValue.trim()) {
       toast.error('Please enter filter value!');
       return;
     }
-    onFilter(filterValue, currentPage);
+    const results = await onFilter(filterValue, currentPage);
+
+    if (!results.length ) {
+      toast.error('No results found for your query');
+      return;
+    }
     toast.success('Filter applied successfully!');
   };
 

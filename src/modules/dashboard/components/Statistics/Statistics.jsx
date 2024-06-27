@@ -8,9 +8,10 @@ import { fetchDashboard } from '@redux/Dashboard/operations';
 
 const Statistics = () => {
   const [activeSector, setActiveSector] = useState(null);
-  const dispatch = useDispatch();
   const { productCount, customerCount, supplierCount } =
     useSelector(selectDashboard);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchDashboard());
   }, [dispatch]);
@@ -18,38 +19,41 @@ const Statistics = () => {
   const handleSectorClick = (sector) => {
     setActiveSector(sector);
   };
+  const sectors = [
+    {
+      name: 'products',
+      title: 'All products',
+      count: productCount,
+      icon: 'products',
+    },
+    {
+      name: 'suppliers',
+      title: 'All suppliers',
+      count: supplierCount,
+      icon: 'users',
+    },
+    {
+      name: 'customers',
+      title: 'All customers',
+      count: customerCount,
+      icon: 'users',
+    },
+  ];
   return (
     <div className={styles.sectionStat}>
-      <div
-        className={`${styles.sectorStat} ${activeSector === 'products' ? styles.active : ''}`}
-        onClick={() => handleSectorClick('products')}
-      >
-        <div className={styles.sectorTitle}>
-          <SpriteSVG name="products" className={styles.SpriteSVG} />
-          <h3 className={styles.title}>All products</h3>
+      {sectors.map((sector) => (
+        <div
+          className={`${styles.sectorStat} ${activeSector === sector.name ? styles.active : ''}`}
+          key={sector.name}
+          onClick={() => handleSectorClick(sector.name)}
+        >
+          <div className={styles.sectorTitle}>
+            <SpriteSVG name={sector.icon} className={styles.SpriteSVG} />
+            <h3 className={styles.title}>{sector.title}</h3>
+          </div>
+          <span className={styles.sectorItem}>{sector.count}</span>
         </div>
-        <span className={styles.sectorItem}>{productCount}</span>
-      </div>
-      <div
-        className={`${styles.sectorStat} ${activeSector === 'suppliers' ? styles.active : ''}`}
-        onClick={() => handleSectorClick('suppliers')}
-      >
-        <div className={styles.sectorTitle}>
-          <SpriteSVG name="users" className={styles.SpriteSVG} />
-          <h3 className={styles.title}>All suppliers</h3>
-        </div>
-        <span className={styles.sectorItem}>{supplierCount}</span>
-      </div>
-      <div
-        className={`${styles.sectorStat} ${activeSector === 'customers' ? styles.active : ''}`}
-        onClick={() => handleSectorClick('customers')}
-      >
-        <div className={styles.sectorTitle}>
-          <SpriteSVG name="users" className={styles.SpriteSVG} />
-          <h3 className={styles.title}>All customers</h3>
-        </div>
-        <span className={styles.sectorItem}>{customerCount}</span>
-      </div>
+      ))}
     </div>
   );
 };

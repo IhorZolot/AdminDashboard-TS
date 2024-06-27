@@ -1,14 +1,14 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
 import clsx from 'clsx';
 
 import SideBar from '../SideBar';
 import Header from '../../../modules/header';
 import styles from './SharedLayout.module.scss';
+import useMedia from '../../../hooks/useMedia';
 
 const SharedLayout = () => {
-  const isDesktop = useMediaQuery({ minWidth: 1440 });
+  const { isDesktop } = useMedia();
   return (
     <div className={clsx('container')}>
       <Header />

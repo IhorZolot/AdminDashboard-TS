@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useMediaQuery } from 'react-responsive';
 
 import useModal from '@hooks/useModal';
 import Modal from '@shared/components/Modal';
@@ -9,16 +8,15 @@ import Logo from './components/Logo';
 import LogoutBtn from './components/LogoutBtn';
 import Title from './components/Title';
 import styles from './Header.module.scss';
+import useMedia from '@hooks/useMedia';
 
 const Header = () => {
   const [isMenuOpen, openMenu, closeMenu] = useModal();
-  const isMobile = useMediaQuery({
-    query: '(min-width: 1440px)',
-  });
+  const { isDesktop } = useMedia();
   return (
     <div className={clsx(styles.sectionHeader)}>
       <div className={styles.sectionTitle}>
-        {!isMobile ? (
+        {isDesktop ? (
           <Burger
             onClick={() => {
               openMenu();
@@ -30,7 +28,7 @@ const Header = () => {
         <Logo />
         <Title />
       </div>
-      {isMobile ? <LogoutBtn /> : ''}
+      { isDesktop ? <LogoutBtn /> : ''}
       {isMenuOpen && (
         <Modal onClose={closeMenu}>
           <MobileMenu onClose={closeMenu} />

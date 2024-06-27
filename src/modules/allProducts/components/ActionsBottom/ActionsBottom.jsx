@@ -6,11 +6,7 @@ const ActionsBottom = ({ onClick, actionType }) => {
 
   return (
     <button className={editButtonClass} onClick={onClick} type={actionType}>
-      {actionType === 'edit' ? (
-        <SpriteSVG name="edit" width="16" height="16" />
-      ) : (
-        <SpriteSVG name="trash" />
-      )}
+        <SpriteSVG name={actionType === 'edit' ? 'edit' : 'trash'} />
     </button>
   );
 };

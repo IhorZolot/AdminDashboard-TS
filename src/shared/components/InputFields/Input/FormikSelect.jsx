@@ -1,9 +1,6 @@
 import { ErrorMessage, Field } from 'formik';
 
 import styles from './FormikSelect.module.scss';
-
-import FormError from '@modules/login/components/FormError';
-
 const FormikSelect = ({ data, name, placeholder }) => {
   return (
     <label className={styles.label}>

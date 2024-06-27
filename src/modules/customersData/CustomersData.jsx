@@ -10,12 +10,13 @@ import {
 } from '@redux/Customers/operations';
 import  Pagination  from '@/shared/pagination';
 import { currentPageCustomers } from '@redux/Customers/customerSlice';
+import { selectCurrentCustomersPage, selectCustomersPage } from '../../redux/Customers/customerSlice';
 
 const CustomersData = () => {
   const dispatch = useDispatch();
 
-  const currentPage = useSelector((state) => state.customers.currentPage);
-  const totalPages = useSelector((state) => state.customers.pages);
+  const currentPage = useSelector(selectCurrentCustomersPage);
+  const totalPages = useSelector(selectCustomersPage);
 
   useEffect(() => {
     dispatch(fetchCustomersThunk(currentPage));

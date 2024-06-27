@@ -20,14 +20,13 @@ const IncomeExpenses = () => {
       <table className={styles.table}>
         <thead className={styles.theadExpenses}>
           <tr>
-            {headers.map((header, index) => (
+            {headers?.map((header, index) => (
               <th key={index}>{header}</th>
             ))}
           </tr>
         </thead>
         <tbody className={styles.dataExpenses}>
-          {incomeExpenses !== undefined &&
-            incomeExpenses.map((row, rowIndex) => (
+          {incomeExpenses?.map((row, rowIndex) => (
               <tr key={rowIndex}>
                 <td>
                   <div className={getRowStyle(row.type)}> {row.type}</div>

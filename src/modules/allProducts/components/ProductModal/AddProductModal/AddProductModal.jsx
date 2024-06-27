@@ -53,7 +53,7 @@ const AddProductModal = ({ onClose }) => {
           <div className={styles.sectionInput}>
             <FormikInput name="name" placeholder="Product Info" />
             <FormikSelect
-              data={categories || []}
+              data={categories}
               name="category"
               placeholder="Category"
             />
@@ -71,10 +71,7 @@ const AddProductModal = ({ onClose }) => {
       </Formik>
       <button
         className={styles.spriteClose}
-        onClick={() => {
-          onClose();
-        }}
-      >
+        onClick={onClose}>
         <SpriteSVG name="close"/>
       </button>
     </div>

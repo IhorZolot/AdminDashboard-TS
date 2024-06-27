@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <div className={clsx(styles.sectionHeader)}>
       <div className={styles.sectionTitle}>
-        {isDesktop ? (
+        {!isDesktop ? (
           <Burger
             onClick={() => {
               openMenu();

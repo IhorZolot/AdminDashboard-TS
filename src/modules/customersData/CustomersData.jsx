@@ -33,7 +33,7 @@ const CustomersData = () => {
     <div className={styles.section}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
         <CustomersTab />
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
+      <Pagination totalPages={totalPages} onPageChange={handlePageChange} currentPage={currentPage} />
     </div>
   );
 };

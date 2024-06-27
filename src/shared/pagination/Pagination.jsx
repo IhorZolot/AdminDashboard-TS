@@ -1,9 +1,6 @@
-import { useSelector } from 'react-redux';
 import styles from './Pagination.module.scss';
-import { selectCurrentPage } from '../../redux/Orders/sliceOrders';
 
- const Pagination = ({ totalPages, onPageChange }) => {
-  const currentPage = useSelector(selectCurrentPage);
+ const Pagination = ({ totalPages, onPageChange, currentPage }) => {
 
   const handlePageClick = (pageNumber) => {
     onPageChange(pageNumber);

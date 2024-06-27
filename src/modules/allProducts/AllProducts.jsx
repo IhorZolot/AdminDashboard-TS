@@ -62,7 +62,7 @@ const AllProducts = () => {
         </div>
       </div>
         <AllProductsTab onOpenEdit={handleOpenEditModal} />
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
+      <Pagination totalPages={totalPages} onPageChange={handlePageChange} currentPage={currentPage} />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>
           <AddProductModal onClose={closeAdd} />

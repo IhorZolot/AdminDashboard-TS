@@ -7,9 +7,7 @@ const MobileMenu = ({ onClose }) => {
     <div className={styles.sectionMob}>
       <button
         className={styles.button}
-        onClick={() => {
-          onClose();
-        }}
+        onClick={onClose}
       >
         <SpriteSVG name="close" />
       </button>

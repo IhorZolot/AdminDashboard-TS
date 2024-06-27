@@ -1,93 +1,50 @@
 @import '../../../../styles/sharedStyles.scss';
 
-.completed {
+.sector{
   border-radius: 40px;
   padding: 4px 12px;
   width: 92px;
   height: 25px;
-  background: $bgComplete;
   font-family: $font-family;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.05em;
   text-align: center;
+
+}
+
+.completed {
+  composes: sector;
   color: $complete;
+  background: $bgComplete;
 }
 .confirmed {
-  border-radius: 40px;
-  padding: 4px 12px;
-  width: 92px;
-  height: 25px;
+  composes: sector;
   background: $bgConfirm;
-  font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.05em;
-  text-align: center;
   color: $confirm;
 }
 .pending {
-  border-radius: 40px;
-  padding: 4px 12px;
-  width: 92px;
-  height: 25px;
+  composes: sector;
   background: $bgPending;
-  font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.05em;
-  text-align: center;
   color: $pending;
 }
 .cancelled {
-  border-radius: 40px;
-  padding: 4px 12px;
-  width: 92px;
-  height: 25px;
+  composes: sector;
   background: $bgCancel;
-  font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.05em;
-  text-align: center;
   color: $cancel;
 }
 .processing {
-  border-radius: 40px;
-  padding: 4px 12px;
-  width: 92px;
-  height: 25px;
-  font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.05em;
-  text-align: center;
+  composes: sector;
   color: $process;
   background: $bgProcess;
 }
 .shipped {
-  border-radius: 40px;
-  padding: 4px 12px;
-  width: 92px;
-  height: 25px;
-  font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.05em;
-  text-align: center;
+  composes: sector;
   color: $shipped;
   background: $bgShipped;
 }
 .delivered {
-  border-radius: 40px;
-  padding: 4px 12px;
-  width: 92px;
-  height: 25px;
-  font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.05em;
-  text-align: center;
+  composes: sector;
   color: $delivered;
   background: $bgDelivered;
 }

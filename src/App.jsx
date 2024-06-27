@@ -17,6 +17,7 @@ import {
   SharedLayout,
   SignupPage,
 } from './pages';
+import { ROUTES } from './config/routes';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const App = () => {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route
-            path="login"
+            path={ROUTES.LOGIN}
             element={
               <PublicRoute>
                 <LoginPage />
@@ -37,7 +38,7 @@ const App = () => {
             }
           />
           <Route
-            path="signup"
+            path={ROUTES.SIGNUP}
             element={
               <PublicRoute>
                 <SignupPage />
@@ -46,7 +47,7 @@ const App = () => {
           />
 
           <Route
-            path="/"
+            path={ROUTES.DASHBOARD}
             element={
               <PrivateRoute>
                 <SharedLayout />
@@ -54,10 +55,10 @@ const App = () => {
             }
           >
             <Route index element={<DashboardPage />} />
-            <Route path="orders" element={<AllOrdersPage />} />
-            <Route path="products" element={<AllProductsPage />} />
-            <Route path="suppliers" element={<AllSuppliersPage />} />
-            <Route path="customers" element={<CustomersDataPage />} />
+            <Route path={ROUTES.ORDERS} element={<AllOrdersPage />} />
+            <Route path={ROUTES.PRODUCTS} element={<AllProductsPage />} />
+            <Route path={ROUTES.SUPPLIERS} element={<AllSuppliersPage />} />
+            <Route path={ROUTES.CUSTOMERS} element={<CustomersDataPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

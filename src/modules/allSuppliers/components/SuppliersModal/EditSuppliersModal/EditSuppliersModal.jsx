@@ -30,13 +30,9 @@ const EditSuppliersModal = ({ suppliers, onClose }) => {
     ...suppliers,
     date: format(parseISO(suppliers.date), 'yyyy-MM-dd'),
   };
-
+console.log("suppliers",suppliers)
   const handleSubmit = (values, { resetForm }) => {
-    const updatedSuppliers = {
-      ...suppliers,
-      ...values,
-      _id: suppliers._id,
-    };
+    const updatedSuppliers = { ...suppliers, ...values };
     dispatch(updateSuppliersThunk(updatedSuppliers)).then(() => {
       toast.success('Suppliers updated successfully');
       resetForm();

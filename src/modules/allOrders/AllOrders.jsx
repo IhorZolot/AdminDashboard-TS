@@ -25,7 +25,7 @@ const AllOrders = () => {
     dispatch(fetchOrdersThunk(currentPage));
   }, [dispatch, currentPage]);
   const applyFilter = async (value) => {
-    const results = await dispatch(fetchOrdersByFieldThunk(value)).unwrap();
+    const results = await dispatch(fetchOrdersByFieldThunk(value));
     return results;
   };
   const handlePageChange = (pageNumber) => {

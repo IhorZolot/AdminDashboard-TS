@@ -17,29 +17,23 @@ const UserFilter = ({ placeholder, onFilter }) => {
   const handleInputChange = (event) => {
     setFilterValue(event.target.value);
   };
-  const handleFilterSubmit = async () => {
+  const handleFilterSubmit = () => {
     if (!filterValue.trim()) {
       toast.error('Please enter filter value!');
       return;
     }
-    const results = await onFilter(filterValue, currentPage);
-
-    if (!results.length ) {
-      toast.error('No results found for your query');
-      return;
-    }
-    toast.success('Filter applied successfully!');
+   onFilter(filterValue, currentPage);
+  toast.success('Filter applied successfully!');
   };
-
+  const handleClearInput = () => {
+    setFilterValue('');
+    onFilter('', 1);
+    toast.success('Filter cleared successfully!');
+  };
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       handleFilterSubmit();
     }
-  };
-  const handleClearInput = () => {
-    setFilterValue('');
-    onFilter('', '');
-    toast.success('Filter cleared successfully!');
   };
 
   return (

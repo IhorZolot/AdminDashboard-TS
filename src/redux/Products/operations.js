@@ -40,6 +40,8 @@ export const updateProductThunk = createAsyncThunk(
   'products/updateProduct',
   async ({_id, ...product}, { rejectWithValue }) => {
     try {
+      console.log('Updating supplier with ID:', _id);
+      console.log('Supplier data:', product);
       const { data } = await API.put(
         `products/update/${_id}`,
         product

@@ -53,14 +53,16 @@ export const addSuppliersThunk = createAsyncThunk(
 );
 export const updateSuppliersThunk = createAsyncThunk(
   'suppliers/updateSuppliers',
-  async (updatedSupplier, { rejectWithValue }) => {
+  async ({_id, ...suppliers}, { rejectWithValue }) => {
     try {
       const supplierWithFormattedDate = {
-        ...updatedSupplier,
-        date: format(new Date(updatedSupplier.date), 'yyyy-MM-dd'),
+        ...suppliers,
+        date: format(new Date(suppliers.date), 'yyyy-MM-dd'),
       };
+      console.log('Updating supplier with ID:', _id);
+      console.log('Supplier data:', supplierWithFormattedDate);
       const { data } = await API.put(
-        `suppliers/update/${supplierWithFormattedDate._id}`,
+        `suppliers/update/${_id}`,
         supplierWithFormattedDate
       );
       return data;

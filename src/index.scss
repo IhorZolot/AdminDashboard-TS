@@ -3,7 +3,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('/src/assets/fonts/Inter-SemiBold.ttf') format('woff2');
-  font-weight: 600;
+  font-weight: $font-weight-bold;
   font-style: normal;
   font-display: swap;
   font-variation-settings: 'slnt' 0;
@@ -11,7 +11,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('/src/assets/fonts/Inter-Medium.ttf') format('woff2');
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   font-style: normal;
   font-display: swap;
   font-variation-settings: 'slnt' 0;
@@ -19,7 +19,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('/src/assets/fonts/Inter-Regular.ttf') format('woff2');
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   font-style: normal;
   font-display: swap;
   font-variation-settings: 'slnt' 0;

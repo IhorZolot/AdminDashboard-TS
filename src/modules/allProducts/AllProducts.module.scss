@@ -16,8 +16,8 @@
 }
 .text {
   font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
   line-height: 129%;
   color: #1d1e21;
 }

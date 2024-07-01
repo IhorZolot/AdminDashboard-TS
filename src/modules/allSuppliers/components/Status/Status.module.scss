@@ -5,8 +5,8 @@
   padding: 4px 25px;
   background: rgba(89, 177, 122, 0.1);
   font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
   letter-spacing: -0.05em;
   text-align: center;
   color: #59b17a;
@@ -16,8 +16,8 @@
   padding: 4px 12px;
   background: rgba(232, 80, 80, 0.1);
   font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
   letter-spacing: -0.05em;
   text-align: center;
   justify-content: center;

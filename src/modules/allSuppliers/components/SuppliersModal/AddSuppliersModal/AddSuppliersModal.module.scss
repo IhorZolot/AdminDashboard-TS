@@ -10,8 +10,8 @@
 }
 .title {
   font-family: $font-family;
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-xl;
   line-height: 1.2;
   color: $mainText;
   margin-bottom: 40px;
@@ -38,7 +38,7 @@
 }
 @media screen and (min-width: $breakpoint-tablet) {
   .title {
-    font-size: 24px;
+    font-size: $font-size-xxl;
   }
   .sectionModal {
     max-width: 536px;

@@ -7,8 +7,8 @@
 }
 .titleCustomers {
   font-family: $font-family;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-md;
   line-height: 1.25;
   color: $mainText;
   border-radius: 8px 8px 0 0;
@@ -45,16 +45,16 @@
 
 .theadCustomers th {
   font-family: $font-family;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-xs;
   line-height: 1.17;
   color: $inputText;
   text-align: left;
 }
 .dataCustomers td {
   font-family: $font-family;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-xs;
   line-height: 1.17;
   color: $mainText;
   div {
@@ -65,8 +65,8 @@
 }
 .button {
   font-family: $font-family;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-xs;
   line-height: 1.17;
   color: $styleColor;
   border: 1px solid $borderButton;
@@ -86,16 +86,16 @@
     gap: 5px;
   }
   .titleCustomers {
-    font-size: 18px;
+    font-size: $font-size-lg;
   }
   .theadCustomers th {
-    font-size: 16px;
+    font-size: $font-size-md;
   }
   .dataCustomers td {
-    font-size: 16px;
+    font-size: $font-size-md;
   }
   .button {
-    font-size: 16px;
+    font-size: $font-size-md;
   }
 }
 @media screen and (min-width: $breakpoint-desktop) {
@@ -106,7 +106,7 @@
     }
   }
   .button {
-    font-size: 14px;
+    font-size: $font-size-sm;
   }
   .table {
     height: 516px;

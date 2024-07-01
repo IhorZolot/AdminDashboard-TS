@@ -10,10 +10,22 @@ $complete: '#59b17a';
 $bgComplete: rgba(89, 177, 122, 0.1);
 
 $cancelButton: rgba(29, 30, 33, 0.1);
-$font-family: 'Inter', sans-serif;
 $borderButton: rgba(89, 177, 122, 0.5);
 $borderTable: rgba(29, 30, 33, 0.1);
 $shipped: #295fa2;
 $bgShipped: rgba(49, 112, 190, 0.1);
 $delivered: #70c02b;
 $bgDelivered: rgba(135, 202, 72, 0.1);
+
+$font-family: 'Inter', sans-serif;
+
+$font-weight-bold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;

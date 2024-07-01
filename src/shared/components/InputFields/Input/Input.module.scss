@@ -8,8 +8,8 @@
   box-shadow: 0 -1px 5px 0 rgba(71, 71, 71, 0.05);
   background: $textButton;
   font-family: $font-family;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-sm;
   line-height: 150%;
   color: $mainText;
   padding: 20px;

@@ -22,7 +22,7 @@
   margin-left: 8px;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: $breakpoint-mobile) {
   .loginSection {
     height: 812px;
   }

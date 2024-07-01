@@ -30,12 +30,12 @@
   margin-top: 20px;
   max-width: 332px;
 }
-@media screen and (min-width: 375px) {
+@media screen and (min-width: $breakpoint-mobile) {
 }
 @media screen and (min-width: 768px) {
 }
 @media screen and (min-width: 1440px) {
   .loginForm {
     gap: 10px;
-}
+  }
 }

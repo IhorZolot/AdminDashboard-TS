@@ -77,7 +77,7 @@
 .button:hover {
   transform: scale(1.1);
 }
-@media screen and (min-width: 375px) {
+@media screen and (min-width: $breakpoint-mobile) {
 }
 @media screen and (min-width: 768px) {
   .dataCustomers td div {
@@ -97,7 +97,6 @@
   .button {
     font-size: 16px;
   }
-
 }
 @media screen and (min-width: 1440px) {
   .dataCustomers td {

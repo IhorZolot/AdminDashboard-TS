@@ -1,3 +1,4 @@
+@import 'sharedStyles';
 .scrollBarContainer {
   width: 100%;
   position: relative;
@@ -5,7 +6,6 @@
 .simpleBar {
   overflow-x: auto;
   width: 100%;
-  
 }
 .scrollContent {
   border-radius: 14px;
@@ -16,10 +16,10 @@
   bottom: 0;
   left: 0;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakpoint-tablet) {
   .scrollContent {
     display: none;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: $breakpoint-desktop) {
 }

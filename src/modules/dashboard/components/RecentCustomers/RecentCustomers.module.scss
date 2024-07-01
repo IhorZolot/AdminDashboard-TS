@@ -79,7 +79,7 @@
 }
 @media screen and (min-width: $breakpoint-mobile) {
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakpoint-tablet) {
   .dataCustomers td div {
     display: flex;
     align-items: center;
@@ -98,7 +98,7 @@
     font-size: 16px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: $breakpoint-desktop) {
   .dataCustomers td {
     div {
       flex-direction: column;

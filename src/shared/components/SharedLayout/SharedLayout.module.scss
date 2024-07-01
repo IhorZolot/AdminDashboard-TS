@@ -1,4 +1,5 @@
-@media screen and (min-width: 1440px) {
+@import 'sharedStyles';
+@media screen and (min-width: $breakpoint-desktop) {
   .content {
     display: grid;
     grid-template-columns: auto 1fr;

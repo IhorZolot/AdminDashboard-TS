@@ -6,7 +6,6 @@
   margin-top: 15px;
   // padding-bottom: 40px;
   // position: relative;
-
 }
 .table {
   background: $textButton;
@@ -69,7 +68,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakpoint-tablet) {
   .titleTable {
     font-size: 18px;
     padding: 20px;
@@ -89,5 +88,5 @@
     padding: 20px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: $breakpoint-desktop) {
 }

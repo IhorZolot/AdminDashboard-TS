@@ -24,12 +24,12 @@
 }
 @media screen and (min-width: $breakpoint-mobile) {
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakpoint-tablet) {
   .pagination {
     gap: 8px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: $breakpoint-desktop) {
   .pagination {
     gap: 12px;
   }

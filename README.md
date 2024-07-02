@@ -1,6 +1,6 @@
-# <img src='./public/logo.svg' width='26' alt='React+Vite'>
+# <img src='./public/E-Pharmacy.png' alt='React+Vite'>
 
-## <img src='./public/E-Pharmacy.png' alt='React+Vite'>
+---
 
 ## Dashboard for Medical Store
 
@@ -10,4 +10,35 @@
 Проєкт складається з фронтенду, реалізованого на React з використанням Vite, та
 бекенду, реалізованого на Node.js з використанням Express.js.
 
+---
+
 ### Зміст
+
+1. [Dashboard for Medical Store](#dashboard-for-Medical-Store)
+2. []()
+3. []()
+4. []()
+5. []()
+6. []()
+
+---
+
+### Встановлення
+
+---
+
+### Використання
+
+---
+
+### Конфігурація
+
+## Фронтенд
+
+## Бекенд
+
+---
+
+## Список технологій які були використані
+
+## Список звстосовиних хуків

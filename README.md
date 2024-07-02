@@ -1,11 +1,13 @@
-# React + Vite
+# <img src='./public/logo.svg' width='26' alt='React+Vite'>
 
-This template provides a minimal setup to get React working in Vite with HMR and
-some ESLint rules.
+## <img src='./public/E-Pharmacy.png' alt='React+Vite'>
 
-Currently, two official plugins are available:
+## Dashboard for Medical Store
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
-  uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
-  uses [SWC](https://swc.rs/) for Fast Refresh
+Цей проєкт є веб-додатком для сторінки
+[Dashboard](https://admin-dashboard-seven-roan.vercel.app), яка відображає
+інформацію про доходи, витрати та інші статистичні дані медичного магазину.
+Проєкт складається з фронтенду, реалізованого на React з використанням Vite, та
+бекенду, реалізованого на Node.js з використанням Express.js.
+
+### Зміст

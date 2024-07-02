@@ -17,6 +17,7 @@
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
   padding: 13px 166px 13px 20px;
+  max-width: 326px;
 }
 .loginButton {
   border-radius: 60px;
@@ -28,7 +29,7 @@
   line-height: 129%;
   color: $textButton;
   margin-top: 20px;
-  max-width: 332px;
+  max-width: 326px;
 }
 @media screen and (min-width: $breakpoint-mobile) {
 }

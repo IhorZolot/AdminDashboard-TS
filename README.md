@@ -57,27 +57,53 @@
 
 Цей проект був створений за допомогою [Vite](https://vitejs.dev/) +
 [React](https://reactjs.org/). Проект використовує такі технології та
-інструменти:
-
-- [GitHub](https://github.com/) - Веб-платформа для зберігання та спільної
-  роботи з кодом.
+інструменти. Розташований на платформі [GitHub](https://github.com/)
 
 ## Фронтенд
 
-- [Redux](https://redux.js.org/) - Контейнер стану для JavaScript додатків.
-- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) -
-  Остання версія мови розмітки для створення веб-сторінок.
-- [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - Остання версія
-  таблиці стилів для оформлення веб-сторінок.
-- [Styled Components](https://styled-components.com/) - Бібліотека для написання
-  CSS в стилі JavaScript для компонентів React.
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Мова
-  програмування для реалізації динамічної поведінки веб-сторінок.
+| Технологія        | Опис                                                                    |
+| ----------------- | ----------------------------------------------------------------------- |
+| React             | JavaScript-бібліотека для створення інтерфейсів користувача             |
+| @reduxjs/toolkit  | Hабір інструментів для роботи з Redux                                   |
+| axios             | Бібліотека для виконання HTTP-запитів з браузера або Node.js            |
+| clsx              | Утиліта для умовного поєднання класів CSS                               |
+| date-fns          | Бібліотека для роботи з датами у JavaScript                             |
+| formik            | Бібліотека для роботи з формами у React                                 |
+| modern-normalize  | Скидання стилів для сучасних браузерів                                  |
+| react             | JavaScript-бібліотека для створення користувацьких інтерфейсів          |
+| react-dom         | Бібліотека для роботи з DOM у React                                     |
+| react-redux       | Офіційна бібліотека для інтеграції Redux з React                        |
+| react-responsive  | Бібліотека для створення адаптивних компонентів у React                 |
+| react-router-dom  | Бібліотека для навігації між сторінками в React-додатку                 |
+| react-select      | Бібліотека для створення селектів у React                               |
+| react-spinners    | Бібліотека для спінерів у React                                         |
+| react-toastify    | Бібліотека для сповіщень у React                                        |
+| redux-persist     | Бібліотека для збереження стану Redux у localStorage або sessionStorage |
+| sass              | Препроцесор CSS для розширення можливостей стилів                       |
+| simplebar         | Бібліотека для кастомних смуг прокрутки                                 |
+| simplebar-react   | React-обгортка для SimpleBar                                            |
+| styled-components | Бібліотека для створення компонентів за допомогою CSS у JavaScript      |
+| yup               | Бібліотека для валідації схем JavaScript                                |
 
 ## Бекенд
 
-- [NodeJS](https://nodejs.org/) - JavaScript середовище виконання на стороні
-  сервера.
-- [MongoDB](https://www.mongodb.com/) - NoSQL база даних.
+| Технологія   | Опис                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------ |
+| bcryptjs     | Бібліотека для хешування паролів                                                     |
+| commander    | Бібліотека для створення командного рядка у Node.js                                  |
+| cors         | Пакет для налаштування CORS (Cross-Origin Resource Sharing)                          |
+| dotenv       | Бібліотека для завантаження змінних середовища з .env файлу                          |
+| express      | Популярний веб-фреймворк для Node.js                                                 |
+| joi          | Бібліотека для валідації схем JavaScript                                             |
+| jsonwebtoken | Бібліотека для створення та перевірки JSON Web Tokens (JWT)                          |
+| mongoose     | ORM для роботи з MongoDB у Node.js                                                   |
+| morgan       | HTTP request logger middleware для Node.js                                           |
+| multer       | Middleware для обробки multipart/form-data, використовується для завантаження файлів |
+| nanoid       | Генератор унікальних рядків ідентифікаторів                                          |
+| yargs        | Інструмент для парсингу аргументів командного рядка у Node.js                        |
 
 ## Список звстосовиних хуків
+
+- [LinkedIn](www.linkedin.com/in/ihor-zolotoverkh)
+
+## [<img src="./public/logo.svg" width="20" alt="React"> <span>E-Pharmacy</span>](https://drink-master-project.vercel.app/signin)

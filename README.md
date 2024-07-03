@@ -8,7 +8,8 @@
 [Dashboard](https://admin-dashboard-seven-roan.vercel.app), яка відображає
 інформацію про доходи, витрати та інші статистичні дані медичного магазину.
 Проєкт складається з фронтенду, реалізованого на React з використанням Vite, та
-бекенду, реалізованого на Node.js з використанням Express.js.
+[бекенду](https://github.com/IhorZolot/BackAdmDashboard.git), реалізованого на
+Node.js з використанням Express.js.
 
 ---
 
@@ -31,23 +32,54 @@
 #### Встановлення фронтенду
 
 1. Клонування репозиторію:
-   `git clone https://github.com/IhorZolot/AdminDashboard.git`
-2. Перейти у відповідну папку фронтенду: `cd AdminDashboard`
-3. Встановити залежності використовуючи менеджер пакетів npm: `npm install`
+   ```
+   git clone https://github.com/IhorZolot/AdminDashboard.git
+   ```
+2. Перейти у відповідну папку:
+
+```
+cd AdminDashboard
+```
+
+3. Встановити залежності використовуючи менеджер пакетів npm:
+
+```
+npm install
+```
 
 ##### Встановлення бекенду
 
 4. Клонування репозиторію:
-   `git clone https://github.com/IhorZolot/BackAdmDashboard.git`
-5. Перейти у відповідну папку фронтенду: `cd BackAdmDashboard`
-6. Встановити залежності використовуючи менеджер пакетів npm: `npm install`
+   ```
+   git clone https://github.com/IhorZolot/BackAdmDashboard.git
+   ```
+5. Перейти у відповідну папку:
+
+```
+cd BackAdmDashboard
+```
+
+6. Встановити залежності використовуючи менеджер пакетів npm:
+
+```
+npm install
+```
 
 ---
 
 #### Використання
 
-1. Запуск фронтенд проекту:`npm run dev`
-2. Запуск бекенд проекту: `npm run start`
+1. Запуск фронтенд проекту:
+
+```
+npm run dev
+```
+
+2. Запуск бекенд проекту:
+
+```
+npm run start
+```
 
 ---
 
@@ -151,4 +183,4 @@
 
 ## [<img src="./public/logo.svg" width="20" alt="React"> <span style='color: green'>E-Pharmacy</span>](https://admin-dashboard-seven-roan.vercel.app)
 
-- [Ihor Zolotoverkh](www.linkedin.com/in/ihor-zolotoverkh)
+[Ihor Zolotoverkh](www.linkedin.com/in/ihor-zolotoverkh)

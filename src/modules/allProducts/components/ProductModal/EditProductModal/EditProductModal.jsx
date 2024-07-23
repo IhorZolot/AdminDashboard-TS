@@ -16,17 +16,18 @@ import {
   FormikInput,
   FormikSelect,
 } from '../../../../../shared/components/InputFields/Input';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const EditProductModal = ({ products, onClose }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getCategoriesThunk());
   }, [dispatch]);
-  const categories = useSelector(selectCategories);
+  const categories = useAppSelector(selectCategories);
   console.log(products);
   const handleSubmit = (values, { resetForm }) => {
-    const updatedProduct = { ...products, ...values};
+    const updatedProduct = { ...products, ...values };
     dispatch(updateProductThunk(updatedProduct)).then(() => {
       toast.success('Product updated successfully');
       resetForm();

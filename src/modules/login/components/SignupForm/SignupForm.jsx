@@ -7,6 +7,7 @@ import styles from './SignupForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError';
 import { signupThunk } from '@redux/Auth/operations';
+import { useAppDispatch } from '@/redux/hooks';
 
 const initialValues = {
   name: '',
@@ -15,14 +16,16 @@ const initialValues = {
 };
 
 const SignupForm = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values, { resetForm }) => {
     dispatch(signupThunk(values))
       .unwrap()
       .then(() => {
         toast.success('Signup successful!');
-        navigate('/login', { state: { email: values.email, password: values.password } });
+        navigate('/login', {
+          state: { email: values.email, password: values.password },
+        });
       })
       .catch(() => {
         toast.error('Something went wrong. Please try again.');

@@ -8,11 +8,10 @@ import styles from './SigninForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError';
 import { loginThunk } from '@/redux/Auth/operations';
-
-
+import { useAppDispatch } from '@/redux/hooks';
 
 const SigninForm = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const location = useLocation();
   const initialValues = {
     email: location.state?.email || '',

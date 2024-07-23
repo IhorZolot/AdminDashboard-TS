@@ -19,22 +19,25 @@ import {
   selectCurrentSuppliersPage,
   selectSuppliersPages,
 } from '@redux/Suppliers/suppliersSlice';
-import  Pagination  from '@/shared/pagination';
+import Pagination from '@/shared/pagination';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const AllSuppliers = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [isOpenAddModal, openAdd, closeAdd] = useModal();
   const [isOpenEditModal, openEdit, closeEdit] = useModal();
   const [selectedSupplier, setSelectedSupplier] = useState(null);
-  const totalPages = useSelector(selectSuppliersPages);
-  const currentPage = useSelector(selectCurrentSuppliersPage);
+  const totalPages = useAppSelector(selectSuppliersPages);
+  const currentPage = useAppSelector(selectCurrentSuppliersPage);
 
   useEffect(() => {
     dispatch(fetchSuppliersThunk(currentPage));
   }, [dispatch, currentPage]);
 
   const applyFilter = async (value) => {
-   const results = await dispatch(filteredSuppliersByFieldThunk(value)).unwrap();
+    const results = await dispatch(
+      filteredSuppliersByFieldThunk(value)
+    ).unwrap();
     return results;
   };
 
@@ -55,8 +58,12 @@ const AllSuppliers = () => {
           }}
         />
       </div>
-        <AllSuppliersTab onOpen={handleOpenEditModal} />
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} currentPage={currentPage} />
+      <AllSuppliersTab onOpen={handleOpenEditModal} />
+      <Pagination
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+      />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>
           <AddSuppliersModal onClose={closeAdd} />

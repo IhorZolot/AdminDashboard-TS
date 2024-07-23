@@ -17,20 +17,21 @@ import {
   getStatusThunk,
   updateSuppliersThunk,
 } from '../../../../../redux/Suppliers/operations';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const EditSuppliersModal = ({ suppliers, onClose }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getStatusThunk());
   }, [dispatch]);
-  const status = useSelector(selectStatus);
+  const status = useAppSelector(selectStatus);
 
   const initialValues = {
     ...suppliers,
     date: format(parseISO(suppliers.date), 'yyyy-MM-dd'),
   };
-console.log("suppliers",suppliers)
+  console.log('suppliers', suppliers);
   const handleSubmit = (values, { resetForm }) => {
     const updatedSuppliers = { ...suppliers, ...values };
     dispatch(updateSuppliersThunk(updatedSuppliers)).then(() => {

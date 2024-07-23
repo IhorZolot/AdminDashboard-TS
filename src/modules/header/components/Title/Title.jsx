@@ -5,10 +5,11 @@ import { SpriteSVG } from '@assets/icons/SpriteSVG';
 import styles from './Title.module.scss';
 import sideLinkData from '@shared/data/side-link-data';
 import { selectUser } from '@redux/Auth/authSlice';
+import { useAppSelector } from '@/redux/hooks';
 
 const Title = () => {
   const location = useLocation();
-  const userEmail = useSelector(selectUser);
+  const userEmail = useAppSelector(selectUser);
   const currentPage = sideLinkData.find(
     (link) => link.path === location.pathname
   );

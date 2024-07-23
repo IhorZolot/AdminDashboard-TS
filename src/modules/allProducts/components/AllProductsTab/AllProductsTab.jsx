@@ -6,10 +6,11 @@ import { selectProducts } from '@redux/Products/productSlice';
 import { deleteProductThunk } from '@redux/Products/operations';
 import ScrollTable from '@shared/scrollTable/ScrollTable';
 import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const AllProductsTab = ({ onOpenEdit }) => {
-  const dispatch = useDispatch();
-  const userProduct = useSelector(selectProducts);
+  const dispatch = useAppDispatch();
+  const userProduct = useAppSelector(selectProducts);
 
   const handleEdit = (product) => {
     onOpenEdit(product);
@@ -36,41 +37,41 @@ const AllProductsTab = ({ onOpenEdit }) => {
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>
       {userProduct.length === 0 ? (
-        <NoResultFound /> 
+        <NoResultFound />
       ) : (
         <ScrollTable>
-      <table className={styles.table}>
-        <thead className={styles.theadTable}>
-          <tr>
-            {headers.map((header, index) => (
-              <th key={index}>{header}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className={styles.dataTable}>
-          {userProduct.map((row, rowIndex) => {
-            return (
-              <tr key={rowIndex}>
-                <td>{row.name}</td>
-                <td>{row.category}</td>
-                <td>{row.stock}</td>
-                <td>{row.suppliers}</td>
-                <td>{row.price}</td>
-                <td>
-                  <div className={styles.action}>
-                    <ActionsBottom
-                      onClick={() => handleEdit(row)}
-                      actionType="edit"
-                    />
-                    <ActionsBottom onClick={() => handleDelete(row._id)} />
-                  </div>
-                </td>
+          <table className={styles.table}>
+            <thead className={styles.theadTable}>
+              <tr>
+                {headers.map((header, index) => (
+                  <th key={index}>{header}</th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      </ScrollTable>
+            </thead>
+            <tbody className={styles.dataTable}>
+              {userProduct.map((row, rowIndex) => {
+                return (
+                  <tr key={rowIndex}>
+                    <td>{row.name}</td>
+                    <td>{row.category}</td>
+                    <td>{row.stock}</td>
+                    <td>{row.suppliers}</td>
+                    <td>{row.price}</td>
+                    <td>
+                      <div className={styles.action}>
+                        <ActionsBottom
+                          onClick={() => handleEdit(row)}
+                          actionType="edit"
+                        />
+                        <ActionsBottom onClick={() => handleDelete(row._id)} />
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </ScrollTable>
       )}
     </div>
   );

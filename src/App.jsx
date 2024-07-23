@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
 
 import { refreshThunk } from './redux/Auth/operations';
 import { PrivateRoute, PublicRoute } from './routes';
@@ -20,12 +21,14 @@ import {
 import { ROUTES } from './config/routes';
 
 const App = () => {
-  const dispatch = useDispatch();
-  const isRefresh=useSelector(selectIsRefresh)
+  const dispatch = useAppDispatch();
+  const isRefresh = useAppSelector(selectIsRefresh);
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
-  return isRefresh ? <Loader /> : (
+  return isRefresh ? (
+    <Loader />
+  ) : (
     <>
       <Suspense fallback={<Loader />}>
         <Routes>

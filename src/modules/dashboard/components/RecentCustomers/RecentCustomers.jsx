@@ -9,12 +9,13 @@ import useModal from '@hooks/useModal';
 import ModalCountry from './ModalCountry';
 import Modal from '@shared/components/Modal/Modal';
 import ScrollTable from '@shared/scrollTable/ScrollTable';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const RecentCustomers = () => {
   const [selectedCustomer, setSelectedCustomer] = useState(null);
-  const customerCount = useSelector(selectCustomerCountAll);
+  const customerCount = useAppSelector(selectCustomerCountAll);
   const [isOpenModal, open, close] = useModal();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchDashboard());
   }, [dispatch]);
@@ -23,40 +24,41 @@ const RecentCustomers = () => {
   return (
     <div className={styles.sectionCustomers}>
       <h2 className={styles.titleCustomers}>{nameTable}</h2>
-      <ScrollTable><table className={styles.table}>
-        <thead className={styles.theadCustomers}>
-          <tr>
-            {headers.map((header, index) => (
-              <th key={index}>{header}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className={styles.dataCustomers}>
-          {customerCount.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              <td>
-                <div>
-                  <img width="30" src={row.image} alt="img" />
-                  {row.name}
-                </div>
-              </td>
-              <td>{row.email}</td>
-              <td>{row.spent}</td>
-              <td>
-                <button
-                  className={styles.button}
-                  onClick={() => {
-                    setSelectedCustomer(row);
-                    open();
-                  }}
-                >
-                  View
-                </button>
-              </td>
+      <ScrollTable>
+        <table className={styles.table}>
+          <thead className={styles.theadCustomers}>
+            <tr>
+              {headers.map((header, index) => (
+                <th key={index}>{header}</th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className={styles.dataCustomers}>
+            {customerCount.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                <td>
+                  <div>
+                    <img width="30" src={row.image} alt="img" />
+                    {row.name}
+                  </div>
+                </td>
+                <td>{row.email}</td>
+                <td>{row.spent}</td>
+                <td>
+                  <button
+                    className={styles.button}
+                    onClick={() => {
+                      setSelectedCustomer(row);
+                      open();
+                    }}
+                  >
+                    View
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </ScrollTable>
       {isOpenModal && (
         <Modal onClose={close}>

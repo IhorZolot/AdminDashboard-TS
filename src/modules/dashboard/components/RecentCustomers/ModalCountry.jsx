@@ -4,9 +4,10 @@ import { useEffect } from 'react';
 import { SpriteSVG } from '@assets/icons/SpriteSVG';
 import { fetchDashboard } from '@redux/Dashboard/operations';
 import styles from './ModalCountry.module.scss';
+import { useAppDispatch } from '@/redux/hooks';
 
 const ModalCountry = ({ onClose, customer }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchDashboard());
   }, [dispatch]);

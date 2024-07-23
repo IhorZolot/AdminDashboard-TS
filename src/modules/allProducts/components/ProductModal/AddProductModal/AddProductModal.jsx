@@ -17,6 +17,7 @@ import {
 } from '@redux/Products/operations';
 import { selectCategories } from '@redux/Products/productSlice';
 import validationsAddProductSchema from '../helpers/validationsProductAddSchema';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const initialValues = {
   name: '',
@@ -27,12 +28,12 @@ const initialValues = {
 };
 
 const AddProductModal = ({ onClose }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getCategoriesThunk());
   }, [dispatch]);
-  const categories = useSelector(selectCategories);
+  const categories = useAppSelector(selectCategories);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(addProductsThunk(values)).then(() => {
@@ -69,10 +70,8 @@ const AddProductModal = ({ onClose }) => {
           </div>
         </Form>
       </Formik>
-      <button
-        className={styles.spriteClose}
-        onClick={onClose}>
-        <SpriteSVG name="close"/>
+      <button className={styles.spriteClose} onClick={onClose}>
+        <SpriteSVG name="close" />
       </button>
     </div>
   );

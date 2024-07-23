@@ -15,11 +15,12 @@ import {
   selectPages,
 } from '@/redux/Orders/sliceOrders';
 import AllOrdersTab from './components/AllOrdersTab';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const AllOrders = () => {
-  const dispatch = useDispatch();
-  const totalPages = useSelector(selectPages);
-  const currentPage = useSelector(selectCurrentPage);
+  const dispatch = useAppDispatch();
+  const totalPages = useAppSelector(selectPages);
+  const currentPage = useAppSelector(selectCurrentPage);
 
   useEffect(() => {
     dispatch(fetchOrdersThunk(currentPage));
@@ -34,8 +35,12 @@ const AllOrders = () => {
   return (
     <div className={styles.sectionOrders}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
-        <AllOrdersTab />
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} currentPage={currentPage} />
+      <AllOrdersTab />
+      <Pagination
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+      />
     </div>
   );
 };

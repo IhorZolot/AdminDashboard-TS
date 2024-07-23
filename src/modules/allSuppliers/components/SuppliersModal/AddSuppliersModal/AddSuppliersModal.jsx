@@ -16,6 +16,7 @@ import {
   getStatusThunk,
 } from '../../../../../redux/Suppliers/operations';
 import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const initialValues = {
   name: '',
@@ -27,12 +28,12 @@ const initialValues = {
 };
 
 const AddSuppliersModal = ({ onClose }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getStatusThunk());
   }, [dispatch]);
-  const status = useSelector(selectStatus);
+  const status = useAppSelector(selectStatus);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(addSuppliersThunk(values)).then(() => {

@@ -4,9 +4,10 @@ import styles from './LogoutBtn.module.scss';
 
 import { SpriteSideBar } from '@assets/icons/SpriteSideBar';
 import { logoutThunk } from '@redux/Auth/operations';
+import { useAppDispatch } from '@/redux/hooks';
 
 const LogoutBtn = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleLogout = () => {
     dispatch(logoutThunk());
   };

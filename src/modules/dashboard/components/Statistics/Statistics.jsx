@@ -5,12 +5,13 @@ import { SpriteSVG } from '@assets/icons/SpriteSVG';
 import styles from './Statistics.module.scss';
 import { selectDashboard } from '@redux/Dashboard/dashboardSlice';
 import { fetchDashboard } from '@redux/Dashboard/operations';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const Statistics = () => {
   const [activeSector, setActiveSector] = useState(null);
   const { productCount, customerCount, supplierCount } =
-    useSelector(selectDashboard);
-  const dispatch = useDispatch();
+    useAppSelector(selectDashboard);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchDashboard());

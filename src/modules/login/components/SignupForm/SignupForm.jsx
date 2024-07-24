@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './SignupForm.module.scss';
 import validationsSchema from '../../helpers/validationsSchema';
 import FormError from '../FormError';
-import { signupThunk } from '@redux/Auth/operations';
+import { signupThunk } from '@/redux/Auth/operations';
 import { useAppDispatch } from '@/redux/hooks';
 
 const initialValues = {

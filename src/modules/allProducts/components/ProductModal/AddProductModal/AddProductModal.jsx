@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import styles from './AddProductModal.module.scss';
-import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import { SpriteSVG } from '@/assets/icons/SpriteSVG';
 
 import Button from '@shared/components/Button';
 import {
@@ -14,8 +14,8 @@ import {
 import {
   addProductsThunk,
   getCategoriesThunk,
-} from '@redux/Products/operations';
-import { selectCategories } from '@redux/Products/productSlice';
+} from '@/redux/Products/operations';
+import { selectCategories } from '@/redux/Products/productSlice';
 import validationsAddProductSchema from '../helpers/validationsProductAddSchema';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 

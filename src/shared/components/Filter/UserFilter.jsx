@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import { SpriteSVG } from '@/assets/icons/SpriteSVG';
 import Button from '../Button';
 import Input from '../InputFields/Input';
 import styles from './UserFilter.module.scss';
@@ -22,8 +22,8 @@ const UserFilter = ({ placeholder, onFilter }) => {
       toast.error('Please enter filter value!');
       return;
     }
-   onFilter(filterValue, currentPage);
-  toast.success('Filter applied successfully!');
+    onFilter(filterValue, currentPage);
+    toast.success('Filter applied successfully!');
   };
   const handleClearInput = () => {
     setFilterValue('');
@@ -38,20 +38,21 @@ const UserFilter = ({ placeholder, onFilter }) => {
 
   return (
     <div className={styles.sectorInput}>
-      <div className={styles.inputDiv}> 
+      <div className={styles.inputDiv}>
         <Input
-        type="text"
-        placeholder={placeholder}
-        value={filterValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        className={styles.inputField}
-      />
-        {filterValue && ( 
-        <button className={styles.clearButton} onClick={handleClearInput}>
-          &#x2715; 
-        </button>
-      )}</div>
+          type="text"
+          placeholder={placeholder}
+          value={filterValue}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          className={styles.inputField}
+        />
+        {filterValue && (
+          <button className={styles.clearButton} onClick={handleClearInput}>
+            &#x2715;
+          </button>
+        )}
+      </div>
 
       <Button onClick={handleFilterSubmit}>
         <SpriteSVG name="filter" /> Filter

@@ -9,8 +9,16 @@ import {
   deleteProductThunk,
   filteredProductsByFieldThunk,
 } from './operations';
+import { ICategories, IProduct } from '@/types/products.types';
 
-const initialState = {
+interface IProductSlice {
+  products: IProduct[];
+  categories: ICategories;
+  pages: number;
+  currentPage: number;
+}
+
+const initialState: IProductSlice = {
   products: [],
   categories: [],
   pages: 0,

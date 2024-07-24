@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 import styles from './AllProducts.module.scss';
-import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import { SpriteSVG } from '@/assets/icons/SpriteSVG';
 
 import useModal from '@hooks/useModal';
 import RoundButton from '@shared/components/Button/RoundButton';
@@ -14,37 +14,37 @@ import EditProductModal from './components/ProductModal/EditProductModal';
 import {
   fetchProductsThunk,
   filteredProductsByFieldThunk,
-} from '@redux/Products/operations';
+} from '@/redux/Products/operations';
 import {
   currentPageProducts,
   selectCurrentPage,
   selectPages,
-} from '@redux/Products/productSlice';
+} from '@/redux/Products/productSlice';
 import Pagination from '@/shared/pagination';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { IProduct } from '@/types/products.types';
 
 const AllProducts = () => {
   const dispatch = useAppDispatch();
   const [isOpenAddModal, openAdd, closeAdd] = useModal();
   const [isOpenEditModal, openEdit, closeEdit] = useModal();
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState<null | IProduct>(null);
   const totalPages = useAppSelector(selectPages);
   const currentPage = useAppSelector(selectCurrentPage);
 
   useEffect(() => {
-    dispatch(fetchProductsThunk(currentPage));
-  }, [dispatch, currentPage]);
-  const applyFilter = async (value) => {
+    dispatch(fetchProductsThunk());
+  }, [dispatch]);
+  const applyFilter = async (value: string) => {
     const results = await dispatch(
       filteredProductsByFieldThunk(value)
     ).unwrap();
     return results;
   };
-  const handleOpenEditModal = (product) => {
+  const handleOpenEditModal = (product: IProduct) => {
     setSelectedProduct(product);
     openEdit();
   };
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     dispatch(currentPageProducts(pageNumber));
   };
 

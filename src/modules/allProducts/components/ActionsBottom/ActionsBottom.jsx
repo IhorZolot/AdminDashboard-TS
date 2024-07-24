@@ -1,4 +1,4 @@
-import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import { SpriteSVG } from '@/assets/icons/SpriteSVG';
 import styles from './ActionsBottom.module.scss';
 
 const ActionsBottom = ({ onClick, actionType }) => {
@@ -6,7 +6,7 @@ const ActionsBottom = ({ onClick, actionType }) => {
 
   return (
     <button className={editButtonClass} onClick={onClick} type={actionType}>
-        <SpriteSVG name={actionType === 'edit' ? 'edit' : 'trash'} />
+      <SpriteSVG name={actionType === 'edit' ? 'edit' : 'trash'} />
     </button>
   );
 };

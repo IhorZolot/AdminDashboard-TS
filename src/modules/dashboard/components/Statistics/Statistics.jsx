@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import { SpriteSVG } from '@/assets/icons/SpriteSVG';
 import styles from './Statistics.module.scss';
 import { selectDashboard } from '@redux/Dashboard/dashboardSlice';
 import { fetchDashboard } from '@redux/Dashboard/operations';

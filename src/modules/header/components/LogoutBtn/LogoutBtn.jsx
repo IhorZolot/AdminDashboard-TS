@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import styles from './LogoutBtn.module.scss';
 
 import { SpriteSideBar } from '@assets/icons/SpriteSideBar';
-import { logoutThunk } from '@redux/Auth/operations';
+import { logoutThunk } from '@/redux/Auth/operations';
 import { useAppDispatch } from '@/redux/hooks';
 
 const LogoutBtn = () => {

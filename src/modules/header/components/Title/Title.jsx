@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import { SpriteSVG } from '@/assets/icons/SpriteSVG';
 import styles from './Title.module.scss';
 import sideLinkData from '@shared/data/side-link-data';
 import { selectUser } from '@redux/Auth/authSlice';

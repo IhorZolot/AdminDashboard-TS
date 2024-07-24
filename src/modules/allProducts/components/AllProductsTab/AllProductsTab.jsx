@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import ActionsBottom from '../ActionsBottom';
 import styles from './AllProductsTab.module.scss';
-import { selectProducts } from '@redux/Products/productSlice';
-import { deleteProductThunk } from '@redux/Products/operations';
+import { selectProducts } from '@/redux/Products/productSlice';
+import { deleteProductThunk } from '@/redux/Products/operations';
 import ScrollTable from '@shared/scrollTable/ScrollTable';
 import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';

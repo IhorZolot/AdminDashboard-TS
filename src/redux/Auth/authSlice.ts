@@ -8,7 +8,20 @@ import {
   signupThunk,
 } from './operations';
 
-const initialState = {
+export interface IUserSlice {
+  name: string;
+  email: string;
+}
+export interface IAuthState {
+  user: IUserSlice;
+  token: string;
+  error: string | null;
+  isLoading: boolean;
+  isLoggedIn: boolean;
+  isRefresh: boolean;
+}
+
+const initialState: IAuthState = {
   user: {
     name: '',
     email: '',
@@ -45,7 +58,7 @@ const authSlice = createSlice({
         state.error = '';
       })
       .addCase(loginThunk.rejected, () => {
-        toast.error("Incorrect email or password");
+        toast.error('Incorrect email or password');
       })
       .addCase(logoutThunk.fulfilled, (state) => {
         state.isLoading = false;
@@ -66,7 +79,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshThunk.rejected, (state, { payload }) => {
         state.isRefresh = false;
-        state.error = payload;
+        state.error = payload || '';
       });
   },
 });

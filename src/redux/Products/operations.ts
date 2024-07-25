@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API } from '../../config/adminConfig';
 import { RootState } from '../store';
-import { ICategories, IProduct } from '@/types/products.types';
+import { ICategories, IProduct } from '@/types/product.types';
 interface IProductsResponse {
   data: IProduct[];
   pages: number;
@@ -58,20 +58,20 @@ export const updateProductThunk = createAsyncThunk<
   IProduct,
   IProduct,
   { rejectValue: string }
->('products/updateProduct', async (updateProduct, { rejectWithValue }) => {
-  try {
-    const { data } = await API.put(
-      `products/update/${updateProduct._id}`,
-      updateProduct
-    );
-    return data;
-  } catch (error) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
+>(
+  'products/updateProduct',
+  async ({ _id, ...product }, { rejectWithValue }) => {
+    try {
+      const { data } = await API.put(`products/update/${_id}`, product);
+      return data;
+    } catch (error) {
+      if (error instanceof Error) {
+        return rejectWithValue(error.message);
+      }
+      return rejectWithValue('An unexpected error occurred');
     }
-    return rejectWithValue('An unexpected error occurred');
   }
-});
+);
 export const deleteProductThunk = createAsyncThunk<
   string,
   string,

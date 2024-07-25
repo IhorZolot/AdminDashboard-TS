@@ -1,8 +1,8 @@
-interface IProps {
+interface IPropsSVG {
   name: string;
 }
 
-export const SpriteSVG = ({ name }: IProps) => {
+export const SpriteSVG = ({ name }: IPropsSVG) => {
   switch (name) {
     case '375':
       return (

@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 import ActionsBottom from '../ActionsBottom';
 import styles from './AllProductsTab.module.scss';
@@ -6,16 +6,20 @@ import { selectProducts } from '@/redux/Products/productSlice';
 import { deleteProductThunk } from '@/redux/Products/operations';
 import ScrollTable from '@shared/scrollTable/ScrollTable';
 import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { IProduct } from '@/types/products.types';
 
-const AllProductsTab = ({ onOpenEdit }) => {
+interface IAllProductsTabProps {
+  onOpenEdit: (product: IProduct) => void;
+}
+
+const AllProductsTab = ({ onOpenEdit }: IAllProductsTabProps) => {
   const dispatch = useAppDispatch();
   const userProduct = useAppSelector(selectProducts);
 
-  const handleEdit = (product) => {
+  const handleEdit = (product: IProduct) => {
     onOpenEdit(product);
   };
-  const handleDelete = (id) => {
+  const handleDelete = (id: string) => {
     dispatch(deleteProductThunk(id));
   };
 

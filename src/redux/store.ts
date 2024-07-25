@@ -27,7 +27,7 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, userReducer),
+    auth: persistReducer(persistConfig, userReducer)!, // todo: fix later
     dashboard: dashboardReducer,
     customers: customerReducer,
     orders: orderReducer,

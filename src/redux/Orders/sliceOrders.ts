@@ -1,7 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchOrdersThunk, fetchOrdersByFieldThunk } from './operations';
+import { IOrder } from '@/types/order.types';
 
-const initialState = {
+interface IOrderSlice {
+  orders: IOrder[];
+  pages: number;
+  currentPage: number;
+}
+
+const initialState: IOrderSlice = {
   orders: [],
   pages: 0,
   currentPage: 1,

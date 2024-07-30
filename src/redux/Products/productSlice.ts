@@ -9,7 +9,7 @@ import {
   deleteProductThunk,
   filteredProductsByFieldThunk,
 } from './operations';
-import { ICategories, IProduct } from '@/types/products.types';
+import { ICategories, IProduct } from '@/types/product.types';
 
 interface IProductSlice {
   products: IProduct[];

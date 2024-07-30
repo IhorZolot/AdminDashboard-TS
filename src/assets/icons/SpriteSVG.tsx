@@ -1,7 +1,6 @@
 interface IPropsSVG {
   name: string;
 }
-
 export const SpriteSVG = ({ name }: IPropsSVG) => {
   switch (name) {
     case '375':

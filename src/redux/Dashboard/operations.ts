@@ -8,7 +8,10 @@ export const fetchDashboard = createAsyncThunk(
       const { data } = await API.get('dashboard');
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      if (error instanceof Error) {
+        return rejectWithValue(error.message);
+      }
+      return rejectWithValue('An unexpected error occurred');
     }
   }
 );

@@ -3,8 +3,15 @@ import {
   fetchCustomersThunk,
   filteredCustomersByFieldThunk,
 } from './operations';
+import { ICustomer } from '@/types/customer.types';
 
-const initialState = {
+interface ICustomerSlice {
+  customers: ICustomer[];
+  pages: number;
+  currentPage: number;
+}
+
+const initialState: ICustomerSlice = {
   customers: [],
   pages: 0,
   currentPage: 1,

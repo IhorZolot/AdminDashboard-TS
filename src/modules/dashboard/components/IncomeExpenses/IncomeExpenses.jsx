@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import styles from './IncomeExpenses.module.scss';
 import { selectIncomeExpensesResult } from '@redux/Dashboard/dashboardSlice';
-import { fetchDashboard } from '@redux/Dashboard/operations';
+import { fetchDashboard } from '@/redux/Dashboard/operations';
 import { getRowStyle, getAmountStyle } from './StylesUtils';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 const IncomeExpenses = () => {

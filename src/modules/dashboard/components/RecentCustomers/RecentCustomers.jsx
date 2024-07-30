@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './RecentCustomers.module.scss';
 
 import { selectCustomerCountAll } from '@redux/Dashboard/dashboardSlice';
-import { fetchDashboard } from '@redux/Dashboard/operations';
+import { fetchDashboard } from '@/redux/Dashboard/operations';
 import useModal from '@hooks/useModal';
 import ModalCountry from './ModalCountry';
 import Modal from '@shared/components/Modal/Modal';

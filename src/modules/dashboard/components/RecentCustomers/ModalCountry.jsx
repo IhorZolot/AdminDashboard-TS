@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { SpriteSVG } from '@/assets/icons/SpriteSVG';
-import { fetchDashboard } from '@redux/Dashboard/operations';
+import { fetchDashboard } from '@/redux/Dashboard/operations';
 import styles from './ModalCountry.module.scss';
 import { useAppDispatch } from '@/redux/hooks';
 

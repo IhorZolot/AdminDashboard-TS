@@ -7,8 +7,10 @@ export interface IProduct {
   photo: string;
   category: string;
 }
+
+export type ICategories = string[];
+
 // export type ICategories = {
 //   _id: string;
 //   name: string;
 // };
-export type ICategories = string[];

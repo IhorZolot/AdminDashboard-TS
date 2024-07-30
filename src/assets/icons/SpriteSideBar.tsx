@@ -1,4 +1,7 @@
-export const SpriteSideBar = ({ name }) => {
+interface IPropsSideBar {
+  name: string;
+}
+export const SpriteSideBar = ({ name }: IPropsSideBar) => {
   switch (name) {
     case 'dashboard':
       return (

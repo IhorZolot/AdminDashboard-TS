@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchDashboard } from './operations';
+import { IDashboardState } from '@/types/dashboard.types';
 
-const initialState = {
+const initialState: IDashboardState = {
   statisticVAlue: {
     productCount: 0,
     customerCount: 0,
@@ -12,6 +13,7 @@ const initialState = {
 };
 const dashboardSlice = createSlice({
   name: 'dashboard',
+  reducers: {},
   selectors: {
     selectDashboard: (state) => state.statisticVAlue,
     selectCustomerCountAll: (state) => state.customerCountAll,

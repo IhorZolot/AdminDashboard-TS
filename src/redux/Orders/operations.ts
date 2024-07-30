@@ -1,21 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API } from '../../config/adminConfig';
-import { ICustomer } from '@/types/customer.types';
 import { RootState } from '../store';
+import { IOrder } from '@/types/order.types';
 
-interface ICustomersResponse {
-  data: ICustomer[];
+interface IOrderResponse {
+  data: IOrder[];
   pages: number;
 }
 
-export const fetchCustomersThunk = createAsyncThunk<
-  ICustomersResponse,
+export const fetchOrdersThunk = createAsyncThunk<
+  IOrderResponse,
   undefined,
   { rejectValue: string; state: RootState }
->('customers/fetchCustomers', async (_, { rejectWithValue, getState }) => {
+>('orders/fetchOrders', async (_, { rejectWithValue, getState }) => {
   try {
-    const page = getState().customers.currentPage;
-    const { data } = await API.get(`customers?page=${page}`);
+    const page = getState().orders.currentPage;
+    const { data } = await API.get(`orders?page=${page}`);
     return data;
   } catch (error) {
     if (error instanceof Error) {
@@ -25,14 +25,14 @@ export const fetchCustomersThunk = createAsyncThunk<
   }
 });
 
-export const filteredCustomersByFieldThunk = createAsyncThunk<
-  ICustomersResponse,
+export const fetchOrdersByFieldThunk = createAsyncThunk<
+  IOrderResponse,
   string,
   { rejectValue: string }
->('customers/filteredCustomersByField', async (value, { rejectWithValue }) => {
+>('orders/fetchOrdersByField', async (value, { rejectWithValue }) => {
   try {
     const { data } = await API.get(
-      `customers/filtered?filterField=name&filterValue=${value}`
+      `orders/filtered?filterField=name&filterValue=${value}`
     );
     return data;
   } catch (error) {

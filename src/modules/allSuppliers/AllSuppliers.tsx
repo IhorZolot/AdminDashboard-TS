@@ -20,31 +20,34 @@ import {
 } from '@/redux/Suppliers/suppliersSlice';
 import Pagination from '@/shared/pagination';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { ISupplier } from '@/types/supplier.types';
 
 const AllSuppliers = () => {
   const dispatch = useAppDispatch();
   const [isOpenAddModal, openAdd, closeAdd] = useModal();
   const [isOpenEditModal, openEdit, closeEdit] = useModal();
-  const [selectedSupplier, setSelectedSupplier] = useState(null);
+  const [selectedSupplier, setSelectedSupplier] = useState<ISupplier>(
+    {} as ISupplier
+  );
   const totalPages = useAppSelector(selectSuppliersPages);
   const currentPage = useAppSelector(selectCurrentSuppliersPage);
 
   useEffect(() => {
-    dispatch(fetchSuppliersThunk(currentPage));
+    dispatch(fetchSuppliersThunk());
   }, [dispatch, currentPage]);
 
-  const applyFilter = async (value) => {
+  const applyFilter = async (value: string) => {
     const results = await dispatch(
       filteredSuppliersByFieldThunk(value)
     ).unwrap();
     return results;
   };
 
-  const handleOpenEditModal = (suppliers) => {
-    setSelectedSupplier(suppliers);
+  const handleOpenEditModal = (supplier: ISupplier) => {
+    setSelectedSupplier(supplier);
     openEdit();
   };
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     dispatch(currentPageSuppliers(pageNumber));
   };
   return (

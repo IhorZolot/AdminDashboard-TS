@@ -30,7 +30,6 @@ const EditProductModal = ({ products, onClose }: IEditProductModalProps) => {
     dispatch(getCategoriesThunk());
   }, [dispatch]);
   const categories = useAppSelector(selectCategories);
-  console.log(products);
   const handleSubmit = (
     values: IProduct,
     { resetForm }: FormikHelpers<IProduct>
@@ -59,9 +58,9 @@ const EditProductModal = ({ products, onClose }: IEditProductModalProps) => {
               name="category"
               placeholder="Category"
             />
-            <FormikInput name="stock" placeholder="Stock" type="number" />
+            <FormikInput name="stock" placeholder="Stock" />
             <FormikInput name="suppliers" placeholder="Suppliers" />
-            <FormikInput name="price" placeholder="Price" type="number" />
+            <FormikInput name="price" placeholder="Price" />
           </div>
           <div className={styles.sectionButton}>
             <Button type="submit">Save</Button>

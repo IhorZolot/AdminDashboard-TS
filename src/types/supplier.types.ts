@@ -3,7 +3,7 @@ export interface ISupplier {
   name: string;
   address: string;
   suppliers: string;
-  date: Date;
+  date: string;
   amount: string;
   status: string;
 }

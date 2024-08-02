@@ -1,6 +1,6 @@
 import styles from './IncomeExpenses.module.scss';
 
-export const getRowStyle = (type) => {
+export const getRowStyle = (type: string) => {
   switch (type) {
     case 'Income':
       return styles.greenRow;
@@ -13,7 +13,7 @@ export const getRowStyle = (type) => {
   }
 };
 
-export const getAmountStyle = (type) => {
+export const getAmountStyle = (type: string) => {
   switch (type) {
     case 'Income':
       return styles.positiveAmount;

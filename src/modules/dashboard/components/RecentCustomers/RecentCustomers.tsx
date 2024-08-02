@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import styles from './RecentCustomers.module.scss';
@@ -10,9 +9,13 @@ import ModalCountry from './ModalCountry';
 import Modal from '@shared/components/Modal/Modal';
 import ScrollTable from '@shared/scrollTable/ScrollTable';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { ICustomerDashboard } from '@/types/dashboard.types';
 
 const RecentCustomers = () => {
-  const [selectedCustomer, setSelectedCustomer] = useState(null);
+  const [selectedCustomer, setSelectedCustomer] = useState<ICustomerDashboard>(
+    {} as ICustomerDashboard
+  );
+
   const customerCount = useAppSelector(selectCustomerCountAll);
   const [isOpenModal, open, close] = useModal();
   const dispatch = useAppDispatch();

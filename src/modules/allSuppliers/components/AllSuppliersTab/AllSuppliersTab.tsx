@@ -10,7 +10,7 @@ import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
 import { useAppSelector } from '@/redux/hooks';
 import { ISupplier } from '@/types/supplier.types';
 interface IAllSuppliersTabProps {
-  onOpen: (supplier: any) => void;
+  onOpen: (supplier: ISupplier) => void;
 }
 
 const AllSuppliersTab = ({ onOpen }: IAllSuppliersTabProps) => {
@@ -28,8 +28,8 @@ const AllSuppliersTab = ({ onOpen }: IAllSuppliersTabProps) => {
   const handleEdit = (supplier: ISupplier) => {
     onOpen(supplier);
   };
-  const formatDate = (dateString: string): string => {
-    return format(new Date(dateString), 'dd MMMM yyyy');
+  const formatDate = (date: Date): string => {
+    return format(new Date(date), 'dd MMMM yyyy');
   };
   return (
     <div className={styles.sectionTable}>
@@ -54,7 +54,7 @@ const AllSuppliersTab = ({ onOpen }: IAllSuppliersTabProps) => {
                   </td>
                   <td>{row.address}</td>
                   <td>{row.suppliers}</td>
-                  <td>{formatDate(row.date.toString())}</td>
+                  <td>{formatDate(new Date(row.date))}</td>
                   <td>{row.amount}</td>
                   <td>
                     <Status

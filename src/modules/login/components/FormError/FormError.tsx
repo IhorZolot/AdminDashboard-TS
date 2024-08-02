@@ -1,5 +1,15 @@
-const FormError = ({ touched, errors, fieldName }) => {
-  const getValidationMessage = fieldName => {
+interface IFormErrorProps {
+  touched: boolean;
+  errors: Record<string, string>;
+  fieldName: string;
+}
+
+const FormError: React.FC<IFormErrorProps> = ({
+  touched,
+  errors,
+  fieldName,
+}) => {
+  const getValidationMessage = (fieldName: string): string => {
     switch (fieldName) {
       case 'email':
         return 'Valid email format';

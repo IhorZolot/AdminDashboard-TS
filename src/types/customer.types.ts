@@ -3,11 +3,12 @@ export interface ICustomer {
   email: string;
   address: string;
   phone: string;
-  photo: string;
+  photo?: string;
   spent: string;
   image?: string;
   token?: string;
   password?: string;
   register_date?: string;
   _id?: string;
+  country?: string;
 }

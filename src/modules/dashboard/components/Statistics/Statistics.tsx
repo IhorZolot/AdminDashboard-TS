@@ -10,8 +10,9 @@ import {
   selectSupplierCount,
 } from '@/redux/Dashboard/dashboardSlice';
 
+type SectorName = 'products' | 'suppliers' | 'customers';
 const Statistics = () => {
-  const [activeSector, setActiveSector] = useState(null);
+  const [activeSector, setActiveSector] = useState<SectorName | null>(null);
   const productCount = useAppSelector(selectProductCount);
   const customerCount = useAppSelector(selectCustomerCount);
   const supplierCount = useAppSelector(selectSupplierCount);
@@ -21,24 +22,24 @@ const Statistics = () => {
     dispatch(fetchDashboard());
   }, [dispatch]);
 
-  const handleSectorClick = (sector) => {
+  const handleSectorClick = (sector: SectorName) => {
     setActiveSector(sector);
   };
   const sectors = [
     {
-      name: 'products',
+      name: 'products' as SectorName,
       title: 'All products',
       count: productCount,
       icon: 'products',
     },
     {
-      name: 'suppliers',
+      name: 'suppliers' as SectorName,
       title: 'All suppliers',
       count: supplierCount,
       icon: 'users',
     },
     {
-      name: 'customers',
+      name: 'customers' as SectorName,
       title: 'All customers',
       count: customerCount,
       icon: 'users',
@@ -53,7 +54,7 @@ const Statistics = () => {
           onClick={() => handleSectorClick(sector.name)}
         >
           <div className={styles.sectorTitle}>
-            <SpriteSVG name={sector.icon} className={styles.SpriteSVG} />
+            <SpriteSVG name={sector.icon} />
             <h3 className={styles.title}>{sector.title}</h3>
           </div>
           <span className={styles.sectorItem}>{sector.count}</span>

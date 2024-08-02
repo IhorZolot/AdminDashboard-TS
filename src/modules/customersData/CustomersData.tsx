@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import UserFilter from '@shared/components/Filter/UserFilter';
@@ -23,16 +22,16 @@ const CustomersData = () => {
   const totalPages = useAppSelector(selectCustomersPage);
 
   useEffect(() => {
-    dispatch(fetchCustomersThunk(currentPage));
+    dispatch(fetchCustomersThunk());
   }, [dispatch, currentPage]);
-  const applyFilter = async (value) => {
+  const applyFilter = async (value: string) => {
     const results = await dispatch(
       filteredCustomersByFieldThunk(value)
     ).unwrap();
     return results;
   };
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     dispatch(currentPageCustomers(pageNumber));
   };
   return (

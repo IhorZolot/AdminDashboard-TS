@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import styles from './IncomeExpenses.module.scss';
@@ -21,9 +20,7 @@ const IncomeExpenses = () => {
       <table className={styles.table}>
         <thead className={styles.theadExpenses}>
           <tr>
-            {headers?.map((header, index) => (
-              <th key={index}>{header}</th>
-            ))}
+            {headers?.map((header, index) => <th key={index}>{header}</th>)}
           </tr>
         </thead>
         <tbody className={styles.dataExpenses}>

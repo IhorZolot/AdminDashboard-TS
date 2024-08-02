@@ -1,11 +1,13 @@
-interface ICustomerDashboard {
+export interface ICustomerDashboard {
   _id?: string;
   name: string;
   email: string;
   spent: string;
   country: string;
+  image?: string;
+  address: string;
 }
-interface IIncomeExpense {
+export interface IIncomeExpense {
   _id?: string;
   amount: number;
   name: string;

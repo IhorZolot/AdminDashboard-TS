@@ -1,25 +1,30 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { format, parseISO } from 'date-fns';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 
-import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import Button from '@shared/components/Button';
 import styles from './EditSuppliersModal.module.scss';
-import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
+import { selectStatus } from '@/redux/Suppliers/suppliersSlice';
 import {
   FormikInput,
   FormikSelect,
-} from '../../../../../shared/components/InputFields/Input';
+} from '@shared/components/InputFields/Input';
 import validationsSuppliersEditSchema from '../helpers/validationsSuppliersEditSchema';
 import {
   getStatusThunk,
   updateSuppliersThunk,
-} from '../../../../../redux/Suppliers/operations';
+} from '@/redux/Suppliers/operations';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { ISupplier } from '@/types/supplier.types';
 
-const EditSuppliersModal = ({ suppliers, onClose }) => {
+interface IEditSuppliersModal {
+  suppliers: ISupplier;
+  onClose: () => void;
+}
+
+const EditSuppliersModal = ({ suppliers, onClose }: IEditSuppliersModal) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -27,12 +32,23 @@ const EditSuppliersModal = ({ suppliers, onClose }) => {
   }, [dispatch]);
   const status = useAppSelector(selectStatus);
 
-  const initialValues = {
-    ...suppliers,
-    date: format(parseISO(suppliers.date), 'yyyy-MM-dd'),
-  };
-  console.log('suppliers', suppliers);
-  const handleSubmit = (values, { resetForm }) => {
+  const initialValues = suppliers
+    ? {
+        ...suppliers,
+        date: format(parseISO(suppliers.date), 'yyyy-MM-dd'),
+      }
+    : {
+        name: '',
+        address: '',
+        suppliers: '',
+        date: '',
+        amount: '',
+        status: '',
+      };
+  const handleSubmit = (
+    values: ISupplier,
+    { resetForm }: FormikHelpers<ISupplier>
+  ) => {
     const updatedSuppliers = { ...suppliers, ...values };
     dispatch(updateSuppliersThunk(updatedSuppliers)).then(() => {
       toast.success('Suppliers updated successfully');
@@ -76,7 +92,7 @@ const EditSuppliersModal = ({ suppliers, onClose }) => {
           onClose();
         }}
       >
-        <SpriteSVG name="close" width="16" height="16" />
+        <SpriteSVG name="close" />
       </button>
     </div>
   );

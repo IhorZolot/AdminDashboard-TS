@@ -1,24 +1,28 @@
 import { useEffect } from 'react';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import Button from '@shared/components/Button';
 import styles from './AddSuppliersModal.module.scss';
 import {
   FormikInput,
   FormikSelect,
-} from '../../../../../shared/components/InputFields/Input';
+} from '@shared/components/InputFields/Input';
 import validationsSuppliersAddSchema from '../helpers/validationsSuppliersAddSchema';
 import {
   addSuppliersThunk,
   getStatusThunk,
-} from '../../../../../redux/Suppliers/operations';
-import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
+} from '@/redux/Suppliers/operations';
+import { selectStatus } from '@/redux/Suppliers/suppliersSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { ISupplier } from '@/types/supplier.types';
 
-const initialValues = {
+interface IAddSuppliersModalProps {
+  onClose: () => void;
+}
+
+const initialValues: ISupplier = {
   name: '',
   suppliers: '',
   amount: '',
@@ -27,7 +31,7 @@ const initialValues = {
   status: '',
 };
 
-const AddSuppliersModal = ({ onClose }) => {
+const AddSuppliersModal = ({ onClose }: IAddSuppliersModalProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -35,7 +39,10 @@ const AddSuppliersModal = ({ onClose }) => {
   }, [dispatch]);
   const status = useAppSelector(selectStatus);
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (
+    values: ISupplier,
+    { resetForm }: FormikHelpers<ISupplier>
+  ) => {
     dispatch(addSuppliersThunk(values)).then(() => {
       toast.success('Suppliers added successfully');
       resetForm();
@@ -78,7 +85,7 @@ const AddSuppliersModal = ({ onClose }) => {
           onClose();
         }}
       >
-        <SpriteSVG name="close" width="16" height="16" />
+        <SpriteSVG name="close" />
       </button>
     </div>
   );

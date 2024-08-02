@@ -21,7 +21,7 @@ import {
   selectPages,
 } from '@/redux/Products/productSlice';
 import Pagination from '@/shared/pagination';
-import { IProduct } from '@/types/products.types';
+import { IProduct } from '@/types/product.types';
 
 const AllProducts = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +33,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     dispatch(fetchProductsThunk());
-  }, [dispatch]);
+  }, [dispatch, currentPage]);
   const applyFilter = async (value: string) => {
     const results = await dispatch(
       filteredProductsByFieldThunk(value)

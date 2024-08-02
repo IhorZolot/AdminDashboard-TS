@@ -1,7 +1,11 @@
 import { useMediaQuery } from 'react-responsive';
 import { BREAKPOINTS } from '../config/breakpoints';
 
-const useMedia = () => {
+const useMedia = (): {
+  isMobile: boolean;
+  isTablet: boolean;
+  isDesktop: boolean;
+} => {
   const isMobile = useMediaQuery({
     query: `(min-width:${BREAKPOINTS.MOBILE}px)`,
   });
@@ -12,9 +16,9 @@ const useMedia = () => {
 
   const isDesktop = useMediaQuery({
     query: `(min-width:${BREAKPOINTS.DESKTOP}px)`,
-  }); 
+  });
 
   return { isMobile, isTablet, isDesktop };
-}
+};
 
-export default useMedia
+export default useMedia;

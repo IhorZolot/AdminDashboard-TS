@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { SpriteSVG } from '@/assets/icons/SpriteSVG';
 import styles from './Statistics.module.scss';
-import { selectDashboard } from '@redux/Dashboard/dashboardSlice';
 import { fetchDashboard } from '@/redux/Dashboard/operations';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import {
+  selectCustomerCount,
+  selectProductCount,
+  selectSupplierCount,
+} from '@/redux/Dashboard/dashboardSlice';
 
 const Statistics = () => {
   const [activeSector, setActiveSector] = useState(null);
-  const { productCount, customerCount, supplierCount } =
-    useAppSelector(selectDashboard);
+  const productCount = useAppSelector(selectProductCount);
+  const customerCount = useAppSelector(selectCustomerCount);
+  const supplierCount = useAppSelector(selectSupplierCount);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

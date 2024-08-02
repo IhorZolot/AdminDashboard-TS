@@ -1,6 +1,5 @@
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import styles from './AddProductModal.module.scss';
@@ -18,8 +17,14 @@ import {
 import { selectCategories } from '@/redux/Products/productSlice';
 import validationsAddProductSchema from '../helpers/validationsProductAddSchema';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { IProduct } from '@/types/product.types';
 
-const initialValues = {
+interface IAddProductModalProps {
+  onClose: () => void;
+}
+
+const initialValues: IProduct = {
+  _id: '',
   name: '',
   stock: '',
   price: '',
@@ -27,7 +32,7 @@ const initialValues = {
   suppliers: '',
 };
 
-const AddProductModal = ({ onClose }) => {
+const AddProductModal = ({ onClose }: IAddProductModalProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -35,7 +40,10 @@ const AddProductModal = ({ onClose }) => {
   }, [dispatch]);
   const categories = useAppSelector(selectCategories);
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (
+    values: IProduct,
+    { resetForm }: FormikHelpers<IProduct>
+  ) => {
     dispatch(addProductsThunk(values)).then(() => {
       toast.success('Product added successfully');
       resetForm();
@@ -58,9 +66,9 @@ const AddProductModal = ({ onClose }) => {
               name="category"
               placeholder="Category"
             />
-            <FormikInput name="stock" placeholder="Stock" type="number" />
+            <FormikInput name="stock" placeholder="Stock" />
             <FormikInput name="suppliers" placeholder="Suppliers" />
-            <FormikInput name="price" placeholder="Price" type="number" />
+            <FormikInput name="price" placeholder="Price" />
           </div>
           <div className={styles.sectionButton}>
             <Button type="submit">Add</Button>

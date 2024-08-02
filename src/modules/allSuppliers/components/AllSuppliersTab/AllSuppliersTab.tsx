@@ -1,16 +1,19 @@
-import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
 
 import styles from './AllSuppliersTab.module.scss';
 
-import { selectSuppliers } from '@redux/Suppliers/suppliersSlice';
+import { selectSuppliers } from '@/redux/Suppliers/suppliersSlice';
 import ScrollTable from '@shared/scrollTable/ScrollTable';
 import ActionButton from '../ActionButton';
 import Status from '../Status';
 import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
 import { useAppSelector } from '@/redux/hooks';
+import { ISupplier } from '@/types/supplier.types';
+interface IAllSuppliersTabProps {
+  onOpen: (supplier: any) => void;
+}
 
-const AllSuppliersTab = ({ onOpen }) => {
+const AllSuppliersTab = ({ onOpen }: IAllSuppliersTabProps) => {
   const userSupplier = useAppSelector(selectSuppliers);
   const nameTable = 'All suppliers';
   const headers = [
@@ -22,10 +25,10 @@ const AllSuppliersTab = ({ onOpen }) => {
     'Status',
     'Action',
   ];
-  const handleEdit = (supplier) => {
+  const handleEdit = (supplier: ISupplier) => {
     onOpen(supplier);
   };
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string): string => {
     return format(new Date(dateString), 'dd MMMM yyyy');
   };
   return (
@@ -51,7 +54,7 @@ const AllSuppliersTab = ({ onOpen }) => {
                   </td>
                   <td>{row.address}</td>
                   <td>{row.suppliers}</td>
-                  <td>{formatDate(row.date)}</td>
+                  <td>{formatDate(row.date.toString())}</td>
                   <td>{row.amount}</td>
                   <td>
                     <Status

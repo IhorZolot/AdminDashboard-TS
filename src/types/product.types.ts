@@ -4,13 +4,8 @@ export interface IProduct {
   suppliers: string;
   price: string;
   stock: string;
-  photo: string;
+  photo?: string;
   category: string;
 }
 
 export type ICategories = string[];
-
-// export type ICategories = {
-//   _id: string;
-//   name: string;
-// };

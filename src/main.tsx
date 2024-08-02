@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { persistor, store } from './redux/store.ts';
+import { persistor, store } from './redux/store';
 import App from './App.jsx';
 import './index.scss';
 

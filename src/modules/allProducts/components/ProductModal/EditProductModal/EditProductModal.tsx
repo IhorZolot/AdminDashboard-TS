@@ -1,24 +1,29 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { toast } from 'react-toastify';
 
 import validationsUpdateProductSchema from '../helpers/validationsProductEditSchema';
-import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button';
-import { selectCategories } from '../../../../../redux/Products/productSlice';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import Button from '@shared/components/Button';
+import { selectCategories } from '@/redux/Products/productSlice';
 import styles from './EditProductModal.module.scss';
 import {
   getCategoriesThunk,
   updateProductThunk,
-} from '../../../../../redux/Products/operations';
+} from '@/redux/Products/operations';
 import {
   FormikInput,
   FormikSelect,
-} from '../../../../../shared/components/InputFields/Input';
+} from '@shared/components/InputFields/Input';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { IProduct } from '@/types/product.types';
 
-const EditProductModal = ({ products, onClose }) => {
+interface IEditProductModalProps {
+  products: IProduct;
+  onClose: () => void;
+}
+
+const EditProductModal = ({ products, onClose }: IEditProductModalProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -26,7 +31,10 @@ const EditProductModal = ({ products, onClose }) => {
   }, [dispatch]);
   const categories = useAppSelector(selectCategories);
   console.log(products);
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (
+    values: IProduct,
+    { resetForm }: FormikHelpers<IProduct>
+  ) => {
     const updatedProduct = { ...products, ...values };
     dispatch(updateProductThunk(updatedProduct)).then(() => {
       toast.success('Product updated successfully');
@@ -69,7 +77,7 @@ const EditProductModal = ({ products, onClose }) => {
           onClose();
         }}
       >
-        <SpriteSVG name="close" width="16" height="16" />
+        <SpriteSVG name="close" />
       </button>
     </div>
   );

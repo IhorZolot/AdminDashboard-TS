@@ -1,14 +1,23 @@
 import styles from './Pagination.module.scss';
 
- const Pagination = ({ totalPages, onPageChange, currentPage }) => {
+interface IPaginationProps {
+  totalPages: number;
+  onPageChange: (pageNumber: number) => void;
+  currentPage: number;
+}
 
-  const handlePageClick = (pageNumber) => {
+const Pagination = ({
+  totalPages,
+  onPageChange,
+  currentPage,
+}: IPaginationProps) => {
+  const handlePageClick = (pageNumber: number) => {
     onPageChange(pageNumber);
   };
-  const currentPageStyle = (pageNumber) => {
+  const currentPageStyle = (pageNumber: number) => {
     return pageNumber === currentPage ? styles.selected : styles.page;
   };
-  
+
   if (totalPages <= 1) {
     return null;
   }

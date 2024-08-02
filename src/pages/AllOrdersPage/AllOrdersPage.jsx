@@ -1,4 +1,4 @@
-import { AllOrders } from '../../modules/allOrders';
+import AllOrders from '@modules/allOrders/AllOrders';
 
 const AllOrdersPage = () => {
   return <AllOrders />;

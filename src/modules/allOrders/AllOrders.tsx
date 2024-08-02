@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { useEffect } from 'react';
 
 import styles from './AllOrders.module.scss';
@@ -15,7 +15,6 @@ import {
   selectPages,
 } from '@/redux/Orders/sliceOrders';
 import AllOrdersTab from './components/AllOrdersTab';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const AllOrders = () => {
   const dispatch = useAppDispatch();
@@ -23,13 +22,13 @@ const AllOrders = () => {
   const currentPage = useAppSelector(selectCurrentPage);
 
   useEffect(() => {
-    dispatch(fetchOrdersThunk(currentPage));
+    dispatch(fetchOrdersThunk());
   }, [dispatch, currentPage]);
-  const applyFilter = async (value) => {
+  const applyFilter = async (value: string) => {
     const results = await dispatch(fetchOrdersByFieldThunk(value));
     return results;
   };
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     dispatch(currentPageOrders(pageNumber));
   };
   return (

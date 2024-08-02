@@ -6,12 +6,20 @@ import {
   getStatusThunk,
   updateSuppliersThunk,
 } from './operations';
+import { ISupplier, ISupplierStatus } from '@/types/supplier.types';
 
-const initialState = {
+interface ISupplierSlice {
+  suppliers: ISupplier[];
+  pages: number;
+  currentPage: number;
+  status: ISupplierStatus;
+}
+
+const initialState: ISupplierSlice = {
   suppliers: [],
+  status: [],
   pages: 0,
   currentPage: 1,
-  status: [],
 };
 const supplierSlice = createSlice({
   name: 'suppliers',

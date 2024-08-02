@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import styles from './AllSuppliers.module.scss';
@@ -13,12 +12,12 @@ import UserFilter from '@shared/components/Filter/UserFilter';
 import {
   fetchSuppliersThunk,
   filteredSuppliersByFieldThunk,
-} from '@redux/Suppliers/operations';
+} from '@/redux/Suppliers/operations';
 import {
   currentPageSuppliers,
   selectCurrentSuppliersPage,
   selectSuppliersPages,
-} from '@redux/Suppliers/suppliersSlice';
+} from '@/redux/Suppliers/suppliersSlice';
 import Pagination from '@/shared/pagination';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 

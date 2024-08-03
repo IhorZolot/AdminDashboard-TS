@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import { SpriteSideBar } from '@assets/icons/SpriteSideBar';
-import sideLinkData from '@shared/data/side-link-data';
+import sideLinkData from '@/shared/data/side-link-data';
 import styles from './MobSideBar.module.scss';
 
 interface IPropsMobSide {

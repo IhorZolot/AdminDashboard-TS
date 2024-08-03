@@ -14,7 +14,7 @@ import {
 import {
   FormikInput,
   FormikSelect,
-} from '@shared/components/InputFields/Input';
+} from '@/shared/components/InputFields/Input';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { IProduct } from '@/types/product.types';
 

@@ -1,7 +1,7 @@
 import styles from './CustomersTab.module.scss';
 import { selectCustomers } from '@redux/Customers/customerSlice';
-import ScrollTable from '@shared/scrollTable/ScrollTable';
-import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
+import ScrollTable from '@/shared/scrollTable/ScrollTable';
+import NoResultFound from '@/shared/components/NoResultFound/NoResultFound';
 import { useAppSelector } from '@/redux/hooks';
 
 const CustomersTab = () => {

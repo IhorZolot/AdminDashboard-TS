@@ -7,7 +7,7 @@ import { SpriteSVG } from '@/assets/icons/SpriteSVG';
 import useModal from '@hooks/useModal';
 import RoundButton from '@shared/components/Button/RoundButton';
 import UserFilter from '@shared/components/Filter/UserFilter';
-import Modal from '@shared/components/Modal';
+import Modal from '@/shared/components/Modal';
 import AllProductsTab from './components/AllProductsTab';
 import AddProductModal from './components/ProductModal/AddProductModal';
 import EditProductModal from './components/ProductModal/EditProductModal';

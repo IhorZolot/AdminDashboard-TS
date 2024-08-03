@@ -9,7 +9,7 @@ import Button from '@shared/components/Button';
 import {
   FormikInput,
   FormikSelect,
-} from '@shared/components/InputFields/Input';
+} from '@/shared/components/InputFields/Input';
 import {
   addProductsThunk,
   getCategoriesThunk,

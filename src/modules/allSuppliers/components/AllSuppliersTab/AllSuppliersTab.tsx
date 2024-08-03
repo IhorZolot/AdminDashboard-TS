@@ -3,10 +3,10 @@ import { format } from 'date-fns';
 import styles from './AllSuppliersTab.module.scss';
 
 import { selectSuppliers } from '@/redux/Suppliers/suppliersSlice';
-import ScrollTable from '@shared/scrollTable/ScrollTable';
+import ScrollTable from '@/shared/scrollTable/ScrollTable';
 import ActionButton from '../ActionButton';
 import Status from '../Status';
-import NoResultFound from '@shared/components/NoResultFound/NoResultFound';
+import NoResultFound from '@/shared/components/NoResultFound/NoResultFound';
 import { useAppSelector } from '@/redux/hooks';
 import { ISupplier } from '@/types/supplier.types';
 interface IAllSuppliersTabProps {

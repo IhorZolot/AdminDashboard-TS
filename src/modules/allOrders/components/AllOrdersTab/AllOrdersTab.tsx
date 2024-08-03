@@ -3,8 +3,8 @@ import { useAppSelector } from '@/redux/hooks';
 import styles from './AllOrdersTab.module.scss';
 import StyledStatus from '../Status/StyledStatus';
 import { selectOrders } from '@redux/Orders/sliceOrders';
-import ScrollTable from '@shared/scrollTable/ScrollTable';
-import NoResultFound from '@shared/components/NoResultFound';
+import ScrollTable from '@/shared/scrollTable/ScrollTable';
+import NoResultFound from '@/shared/components/NoResultFound';
 
 const AllOrdersTab = () => {
   const userOrders = useAppSelector(selectOrders);

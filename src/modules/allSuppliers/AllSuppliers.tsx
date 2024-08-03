@@ -6,7 +6,7 @@ import AllSuppliersTab from './components/AllSuppliersTab';
 import AddSuppliersModal from './components/SuppliersModal/AddSuppliersModal';
 import EditSuppliersModal from './components/SuppliersModal/EditSuppliersModal';
 import useModal from '@hooks/useModal';
-import Modal from '@shared/components/Modal';
+import Modal from '@/shared/components/Modal';
 import AddSuppliers from './components/AddSuppliers';
 import UserFilter from '@shared/components/Filter/UserFilter';
 import {

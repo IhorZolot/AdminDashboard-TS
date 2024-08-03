@@ -1,7 +1,13 @@
 import { ErrorMessage, Field } from 'formik';
 
 import styles from './FormikSelect.module.scss';
-const FormikSelect = ({ data, name, placeholder }) => {
+
+interface IFormikSelectProps {
+  name: string;
+  data: string[];
+  placeholder: string;
+}
+const FormikSelect = ({ data, name, placeholder }: IFormikSelectProps) => {
   return (
     <label className={styles.label}>
       <Field

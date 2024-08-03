@@ -10,7 +10,7 @@ import { selectStatus } from '@/redux/Suppliers/suppliersSlice';
 import {
   FormikInput,
   FormikSelect,
-} from '@shared/components/InputFields/Input';
+} from '@/shared/components/InputFields/Input';
 import validationsSuppliersEditSchema from '../helpers/validationsSuppliersEditSchema';
 import {
   getStatusThunk,

@@ -7,7 +7,7 @@ import { fetchDashboard } from '@/redux/Dashboard/operations';
 import useModal from '@hooks/useModal';
 import ModalCountry from './ModalCountry';
 import Modal from '@shared/components/Modal/Modal';
-import ScrollTable from '@shared/scrollTable/ScrollTable';
+import ScrollTable from '@/shared/scrollTable/ScrollTable';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { ICustomerDashboard } from '@/types/dashboard.types';
 

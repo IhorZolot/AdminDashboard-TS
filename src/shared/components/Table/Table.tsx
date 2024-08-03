@@ -1,6 +1,18 @@
 import styles from './Table.module.scss';
+interface ITableProps {
+  nameTable: string;
+  headers: string[];
+  rows: {
+    image?: string;
+    name: string;
+    email: string;
+    address: string;
+    phone: string;
+    register_date: string;
+  }[];
+}
 
-const Table = ({ nameTable, headers, rows }) => {
+const Table = ({ nameTable, headers, rows }: ITableProps) => {
   return (
     <div className={styles.sectionTable}>
       <h2 className={styles.titleTable}>{nameTable}</h2>

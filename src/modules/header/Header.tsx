@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import useModal from '@hooks/useModal';
-import Modal from '@shared/components/Modal';
+import Modal from '@/shared/components/Modal';
 import MobileMenu from '../MobileMenu';
 import Burger from './components/Burger';
 import Logo from './components/Logo';
@@ -28,7 +28,7 @@ const Header = () => {
         <Logo />
         <Title />
       </div>
-      { isDesktop ? <LogoutBtn /> : ''}
+      {isDesktop ? <LogoutBtn /> : ''}
       {isMenuOpen && (
         <Modal onClose={closeMenu}>
           <MobileMenu onClose={closeMenu} />

@@ -8,7 +8,7 @@ import styles from './AddSuppliersModal.module.scss';
 import {
   FormikInput,
   FormikSelect,
-} from '@shared/components/InputFields/Input';
+} from '@/shared/components/InputFields/Input';
 import validationsSuppliersAddSchema from '../helpers/validationsSuppliersAddSchema';
 import {
   addSuppliersThunk,
